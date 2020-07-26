@@ -5,10 +5,13 @@
     background-size:100% 110%;
 }
 .loginbar {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -219px;
     width: 340px;
     height: 438px;
     padding: 13px;
-    margin-top: 34px;
     background: url(../images/login_form_bg_1.png) no-repeat;
 }
 .menuTab {
@@ -33,8 +36,10 @@
 .loginForm {
     width: 280px;
     margin: 10px auto 0;
+    overflow: hidden;
     ul {
-        height: 328px;
+        height: 280px;
+        padding-top: 15px;
         display: none;
         li {
             width: 100%;

@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="login">
-    <div class="w">
+    <div class="w loginPosition" style="position: relative;">
       <div class="loginbar fr">
         <div class="menuTab">
           <span class="fl userName active">用户登录</span>
@@ -96,6 +96,17 @@
           }
         });
       })
+      function setMainBg(){
+        var headerH = $(".header").outerHeight(true) || 60,
+            footerH = $(".footer").outerHeight(true) || 49,
+            windowH = $(window).outerHeight(true),
+            mainH = $(".login,.loginPosition");
+        mainH.css({"height":windowH - headerH - footerH})
+      }
+      setMainBg();
+      $(window).resize(function(){
+        setMainBg();
+      });
     })
   </script>
 </body>
