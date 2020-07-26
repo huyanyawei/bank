@@ -160,7 +160,7 @@
 </script>
 <script type="text/x-handlebars-template" id="my-account">
   <h3 class="title">我的存款</h3>
-  <div class="thead" id="mySavings">
+  <div class="thead mySavings" id="mySavings">
     <ul class="theadTitle">
       <li class="list01">序号</li>
       <li class="list02">账户别名</li>
@@ -187,7 +187,7 @@
   
   </div>
   <h3 class="title">我的贷款</h3>
-  <div class="thead">
+  <div class="thead myLoan">
     <ul class="theadTitle">
       <li class="list01">序号</li>
       <li class="list02">账户别名</li>
@@ -213,7 +213,7 @@
     <div class="total"><a href="#">账户明细查询</a></div>
   </div>
   <h3 class="title">我的投资理财</h3>
-  <div class="thead">
+  <div class="thead myFinancialMgmt">
     <ul class="theadTitle">
       <li class="list01">序号</li>
       <li class="list02">账户别名</li>
@@ -252,7 +252,7 @@
     <ul>
       <li class="list01">{{loud @index 'index'}}</li>
       <li class="list02">{{loud accountOtherName 'accountOtherName' }} </li>
-      <li class="list06">{{accountOpenBank}}</li>
+      <li class="list06">{{accountOpenBank}} </li>
       <li class="list03">{{accountNo}}</li>
       <li class="list04">{{accountName}}</li>
       <li class="list05">{{loud currency 'currency'}}</li>
