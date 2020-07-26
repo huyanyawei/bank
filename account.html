@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="./css/base.css" rel="stylesheet">
+  <link href="./css/account.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="account">
+    <div class="header w">
+      <div class="searchBar fl"><img src="./images/account/donghua.gif"><input type="text"></div>
+      <div class="loginInfo fr"><span>欢迎首页</span> | <span>退出登录</span></div>
+    </div>
+    <div class="w menu">
+      <ul>
+        <li><a href="#"><span><img src="./images/account/main_nav_accountmanage.png"></span>
+            <p>账户管理</p>
+          </a></li>
+        <li><a href="transferToFirm.html"><span><img src="./images/account/main_nav_transfer.png"></span>
+            <p>支付结算</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_balance.png"></span>
+            <p>集团结算</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_financing.png"></span>
+            <p>投资理财</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_fundtreasure.png"></span>
+            <p>普惠宝</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_ebusiness.png"></span>
+            <p>电子商务</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_SCF.png"></span>
+            <p>供应链金融</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_international.png"></span>
+            <p>国际业务</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_draft.png"></span>
+            <p>票据业务</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_billpool.png"></span>
+            <p>票据池</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_cashpool.png"></span>
+            <p>资金池</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_warrantCenter.png"></span>
+            <p>授权中心</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_customer.png"></span>
+            <p>服务中心</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_bgChange.gif"></span>
+            <p>背景更换</p>
+          </a></li>
+      </ul>
+    </div>
+    <div class="sub_munu">
+      <ul>
+        <li><a href="">账户查询</a></li>
+        <li><a href="">账户查询</a></li>
+        <li><a href="">账户查询</a></li>
+        <li><a href="">账户查询</a></li>
+        <li><a href="">账户查询</a></li>
+        <li><a href="">账户查询</a></li>
+      </ul>
+    </div>
+    <div class="wrap w">
+      <div class="left_wrap fl">
+        <ul>
+          <li><a href=""></a>我的账户 </a></li>
+          <li><a href="">账户明细查询 </a></li>
+          <li><a href="">当日来往账信息查询 </a></li>
+          <li><a href="">账户个性化设置 </a></li>
+          <li><a href=""> 网上交易查询 </a></li>
+          <li><a href=""> 跨行签约账户信息查询 </a></li>
+          <li><a href=""> 行内个人签约账户信息查询 </a></li>
+          <li><a href=""> 外币账户追加与删除 </a></li>
+          <li><a href="">商户服务 </a></li>
+          <li><a href=""> 当日账户明细特殊查询 </a></li>
+          <li><a href="">电子回单查询 </a></li>
+        </ul>
+        <div class="tel"><img src="./images/account/kefu.jpg" alt=""></div>
+      </div>
+      <div class="right_wrap fr bg">
+        <div class="crumbs">前位置： <a>账户管理</a> >> <a>账户查询</a> >> 我的账户</div>
+        <div class="myAccount" id="myAccount">
+
+        </div>
+        <div class="tip">
+          <h3>客户提示：</h3>
+          <ul>
+            <li><a href="">通过本交易您可查看已签约至网上企业银行的所有账户信息，系统按账户类型分为我的存款、我的贷款、我的投资理财及我的他行账户四类显示；</a></li>
+            <li><a href="">点击账户链接，可查询账户基本信息；</a></li>
+            <li><a href="">点击账户下方的快捷方式可进入快捷菜单页面，快捷方式可在账户个性化设置中维护。</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="./js/jquery.js"></script>
+<script src="./js/com.js"></script>
+<script src="./js/handlebars-v4.0.5.js"></script>
+<script>
+  $(function () {
+    Handlebars.registerHelper('loud', function (val, type) {
+      switch (type) {
+        case 'index': return val + 1;
+        case 'accountOtherName': return val == null ? '未定义' : val;
+        case 'currency': return val == 1 ? '人民币' : '其他';
+      }
+      return val;
+    });
+    let data =
+      '{ "mySavings": [{ "id": 1, "name": "卢小龙", "pid": "1504040188808160913", "accountNo": "6228481006388483999", "accountName": "龙腾科技", "accountOtherName": null, "currency": 1, "availableMoney": 1000000.01, "accountType": 1, "remark": null, "createTime": "2020-07-24 20:28:12", "modifyTime": null }, { "id": 5, "name": "卢小龙", "pid": "1504040188808160913", "accountNo": "6228481006388483124", "accountName": "科技3", "accountOtherName": null, "currency": 1, "availableMoney": 919998, "accountType": 1, "remark": null, "createTime": "2020-07-24 21:23:24", "modifyTime": null }], "allSavingsCount": "1919998.01", "myLoan": [{ "id": 2, "name": "卢小龙", "pid": "1504040188808160913", "accountNo": "6228481006388483888", "accountName": "龙腾国际", "accountOtherName": null, "currency": 1, "availableMoney": 1000000, "accountType": 2, "remark": null, "createTime": "2020-07-24 20:28:12", "modifyTime": null }, { "id": 6, "name": "卢小龙", "pid": "1504040188808160913", "accountNo": "6228481006388483125", "accountName": "科技4", "accountOtherName": null, "currency": 1, "availableMoney": 1000000, "accountType": 2, "remark": null, "createTime": "2020-07-24 21:23:24", "modifyTime": null }], "myFinancialMgmt": [{ "id": 3, "name": "卢小龙", "pid": "1504040188808160913", "accountNo": "6228481006388483123", "accountName": "科技1", "accountOtherName": null, "currency": 1, "availableMoney": 1000000.02, "accountType": 3, "remark": null, "createTime": "2020-07-24 21:23:23", "modifyTime": null }, { "id": 7, "name": "卢小龙", "pid": "1504040188808160913", "accountNo": "6228481006388483126", "accountName": "科技5", "accountOtherName": null, "currency": 1, "availableMoney": 1000000, "accountType": 3, "remark": null, "createTime": "2020-07-24 21:23:24", "modifyTime": null }], "myOtherAccount": [{ "id": 4, "name": "卢小龙", "pid": "1504040188808160913", "accountNo": "6228481006388483112", "accountName": "科技2", "accountOtherName": null, "currency": 1, "availableMoney": 1000000, "accountType": 4, "remark": null, "createTime": "2020-07-24 21:23:24", "modifyTime": null }] }';
+
+    var handlebarsInhtml = Handlebars.compile($("#my-account").html());
+    $("#myAccount").append(handlebarsInhtml(JSON.parse(data)));
+    let pid = localStorage.getItem("pid")
+    $.ajax({
+      url: window.HOSTname + '/dbank/accountInfos/getAllAccountInfo',
+      type: 'POST',
+      contentType: "application/json",
+      data: JSON.stringify({ pid: 1504040188808160913 }),
+      dataType: "json",
+      async: true,
+      timeout: 1000,
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        opersignNo = "";
+        return false;
+      },
+      success: function (data) {
+        if (data.status == "10001") {
+          Handlebars.registerHelper('cusIndex', function (index) {
+            return parseInt(index) + 1
+          });
+          Handlebars.registerHelper('loud', function (val, type) {
+            switch (type) {
+              case 'index': return val + 1;
+              case 'accountOtherName': return val == null ? '未定义' : val;
+              case 'currency': return val == 1 ? '人民币' : '其他';
+            }
+            return val;
+          });
+          var handlebarsInhtml = Handlebars.compile($("#my-account").html());
+          $("#myAccount").append(handlebarsInhtml(data.list));
+        } else {
+          alert(data.msg)
+        }
+      }
+    });
+  })
+</script>
+<script type="text/x-handlebars-template" id="my-account">
+  <h3 class="title">我的存款</h3>
+  <div class="thead" id="mySavings">
+    <ul class="theadTitle">
+      <li class="list01">序号</li>
+      <li class="list02">账户别名</li>
+      <li class="list03">账号</li>
+      <li class="list04">账号名称</li>
+      <li class="list05">币种</li>
+      <li class="list06">可用余额</li>
+    </ul>
+    {{#each mySavings}}
+    <ul>
+      <li class="list01">{{loud @index 'index'}}</li>
+      <li class="list02">{{loud accountOtherName 'accountOtherName' }} </li>
+      <li class="list03">{{accountNo}}</li>
+      <li class="list04">{{accountName}}</li>
+      <li class="list05">{{loud currency 'currency'}}</li>
+      <li class="list06">{{availableMoney}}</li>
+    </ul>
+    {{/each}}
+    <ul>
+      <li class="list07">人民币合计</li>
+      <li class="list06">{{allSavingsCount}}</li>
+    </ul>
+    <div class="total"><a href="#">账户明细查询</a></div>
+  
+  </div>
+  <h3 class="title">我的贷款</h3>
+  <div class="thead">
+    <ul class="theadTitle">
+      <li class="list01">序号</li>
+      <li class="list02">账户别名</li>
+      <li class="list03">账号</li>
+      <li class="list04">账号名称</li>
+      <li class="list05">币种</li>
+      <li class="list06">可用余额</li>
+    </ul>
+    {{#each myLoan}} 
+    <ul>
+      <li class="list01">{{loud @index 'index'}}</li>
+      <li class="list02">{{loud accountOtherName 'accountOtherName' }} </li>
+      <li class="list03">{{accountNo}}</li>
+      <li class="list04">{{accountName}}</li>
+      <li class="list05">{{loud currency 'currency'}}</li>
+      <li class="list06">{{availableMoney}}</li>
+    </ul>
+    {{/each}}
+    <ul>
+      <li class="list07">人民币合计</li>
+      <li class="list06">{{loansCount}}</li>
+    </ul>
+    <div class="total"><a href="#">账户明细查询</a></div>
+  </div>
+  <h3 class="title">我的投资理财</h3>
+  <div class="thead">
+    <ul class="theadTitle">
+      <li class="list01">序号</li>
+      <li class="list02">账户别名</li>
+      <li class="list03">账号</li>
+      <li class="list04">账号名称</li>
+      <li class="list05">币种</li>
+      <li class="list06">参考市值</li>
+    </ul>
+    {{#each myFinancialMgmt}} 
+    <ul>
+      <li class="list01">{{loud @index 'index'}}</li>
+      <li class="list02">{{loud accountOtherName 'accountOtherName' }} </li>
+      <li class="list03">{{accountNo}}</li>
+      <li class="list04">{{accountName}}</li>
+      <li class="list05">{{loud currency 'currency'}}</li>
+      <li class="list06">{{availableMoney}}</li>
+    </ul>
+    {{/each}}
+    <ul>
+      <li class="list07">人民币合计</li>
+      <li class="list06">{{myFinancialCount}}</li>
+    </ul>
+    <div class="total"><a href="#">账户明细查询</a></div>
+  </div>
+  <h3 class="title">我的他行账户</h3>
+  <div class="thead">
+    <ul class="theadTitle">
+      <li class="list01">序号</li>
+      <li class="list02">账户别名</li>
+      <li class="list06">开户行</li>
+      <li class="list03">账号</li>
+      <li class="list04">账号名称</li>
+      <li class="list05">币种</li>
+    </ul>
+    {{#each myOtherAccount}} 
+    <ul>
+      <li class="list01">{{loud @index 'index'}}</li>
+      <li class="list02">{{loud accountOtherName 'accountOtherName' }} </li>
+      <li class="list06">{{accountOpenBank}}</li>
+      <li class="list03">{{accountNo}}</li>
+      <li class="list04">{{accountName}}</li>
+      <li class="list05">{{loud currency 'currency'}}</li>
+    </ul>
+    {{/each}}
+    <!-- <ul>
+      <li class="list07">人民币合计</li>
+      <li class="list06">000</li>
+    </ul>
+    <div class="total"><a href="#">账户明细查询</a></div> -->
+  </div>
+</script>
+
+</html>

@@ -1,0 +1,53 @@
+.result {
+  width: 969px;
+  border-top: 1px solid #bfbfbf;
+  // border-right: 1px solid #bfbfbf;
+  ul {
+    border: 1px solid #bfbfbf;
+    border-top: none;
+    overflow: hidden;
+  }
+  li {
+    float: left;
+
+    min-height: 20px;
+    line-height: 20px;
+    padding: 5px 10px;
+  }
+  .list01 { width: 204px; text-align: right; }
+  .list02 { width: 238px; border-left: 1px solid #bfbfbf;}
+  .list03 {}
+  .list04 {}
+  
+}
+.subTransferData {
+  text-align: center;
+  margin: 20px auto;
+  overflow: hidden;
+  span {
+    width: 107px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    margin: 0 10px;
+    display: inline-block;
+    color: #fff;
+    font-size: 14px;
+    background: url(../images/sub_bga.gif) repeat-x;
+  }
+}
+.setSuccess {
+  padding: 30px 0 20px;
+  border: 1px solid #b1cfec;
+  text-align: center;
+  background: #dae7f1;
+  overflow: hidden;
+  color: #1d87fd;
+  span {
+    font-size: 30px;
+    img {
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
+}

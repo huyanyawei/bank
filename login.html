@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<link href="./css/base.css" rel="stylesheet">
+<link href="./css/login.css" rel="stylesheet">
+
+<body>
+  <div class="header w">
+    <div class="fl"><img src="./images/logo.gif"></div>
+    <div class="fr">
+      <img src="./images/qianyue.png">
+      <img src="./images/kefu.png">
+    </div>
+  </div>
+  <div class="login">
+    <div class="w">
+      <div class="loginbar fr">
+        <div class="menuTab">
+          <span class="fl userName active">用户登录</span>
+          <span class="fl cart">经办人代码</span>
+        </div>
+        <div class="loginForm">
+          <ul class="active clear">
+            <li><span>用户名：</span><input type="text" id="user" value="1504040188808160913"></li>
+            <li><span>登录密码</span><input type="password" id="pw" value="123456"></li>
+            <li class="loginBtn clear" style=" margin-top: 40px;"><span id="login">登录</span></li>
+          </ul>
+          <ul>
+            <!-- <li>
+            <select>
+              <option value="volvo">居民身份证</option>
+              <option value="saab">Saab</option>
+              <option value="opel">Opel</option>
+              <option value="audi">Audi</option>
+            </select>
+          </li> -->
+            <li><span>经办人</span><input type="text"></li>
+            <li><span>证件号码</span><input type="text"></li>
+            <li><span>登录密码</span><input type="password"></li>
+            <li class="loginBtn"><span>登录</span><span>在线注册</span></li>
+          </ul>
+          <ol>
+            <li>如登录遇到问题，请下载并运行“<a href="">网银助手</a>”，进行检测和修复。</li>
+            <li>如您忘记网银登录密码，请点击<a href="">登录密码找回</a>。</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="fl">Copyright 版权所有 华夏银行 <img src="./images/wyzs.png"></div>
+    <div class="fr footerMenu">
+      <ul>
+        <li><i class="fn"></i>功能简介</li>
+        <li><i class="help"></i>帮助说明</li>
+        <li><i class="newFn"></i>新增功能</li>
+        <li><i class="receipt"></i>电子回单</li>
+      </ul>
+    </div>
+  </div>
+  <script src="./js/com.js"></script>
+  <script src="./js/jquery.js"></script>
+  <script src="./js/login.js"></script>
+  <script>
+    $(function () {
+      $(".loginBtn").on("click", "span", function () {
+        let data = {}
+        let that = $(this);
+        user = $("#user").val();
+        pw = $("#pw").val();
+        data = { "pid": user, "password": pw }
+        $.ajax({
+          url: window.HOSTname + '/dbank/users/login',
+          type: 'POST',
+          contentType: "application/json",
+          data: JSON.stringify(data),
+          dataType: "json",
+          async: true,
+          timeout: 1000,
+          error: function (XMLHttpRequest, textStatus, errorThrown) {
+            opersignNo = "";
+            return false;
+          },
+          success: function (data) {
+            if (data.status == "10001") {
+              localStorage.setItem("pid", user)
+              window.location.href = "http://" + window.location.host + "/bank/account.html";
+            } else {
+              alert(data.msg)
+            }
+          }
+        });
+      })
+    })
+  </script>
+</body>
+
+</html>

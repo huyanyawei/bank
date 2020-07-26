@@ -1,0 +1,36 @@
+/* line 1, transfer.scss */
+.transfer { overflow: hidden; border-top: 1px solid #bfbfbf; border-right: 1px solid #bfbfbf; width: 969px; margin-top: 15px; background: #e3edf6; }
+/* line 8, transfer.scss */
+.transfer ul { overflow: hidden; }
+/* line 10, transfer.scss */
+.transfer ul li { float: left; width: 463px; height: 30px; line-height: 30px; padding: 0 10px; border-left: 1px solid #bfbfbf; border-bottom: 1px solid #bfbfbf; }
+/* line 18, transfer.scss */
+.transfer ul li input[type="radio"] { vertical-align: middle; margin: 0 4px 0 5px; }
+/* line 22, transfer.scss */
+.transfer ul li input[type="text"] { height: 22px; line-height: 22px; margin: 3px 0; padding: 0 5px; width: 166px; overflow: hidden; outline: 1px solid #68a5cc; }
+/* line 31, transfer.scss */
+.transfer ul li input[type="checkbox"] { margin: 0 5px; vertical-align: middle; }
+/* line 35, transfer.scss */
+.transfer ul li select { width: 160px; height: 22px; margin: 3px 0; overflow: hidden; outline: 1px solid #68a5cc; }
+/* line 42, transfer.scss */
+.transfer ul li .moreSelect { height: 24px; line-height: 24px; font-size: 14px; text-align: center; color: #000; margin-left: 5x; padding: 0 14px; background: #8dbde4; display: inline-block; cursor: pointer; }
+/* line 54, transfer.scss */
+.transfer ul li .required { color: red; padding-left: 4px; }
+/* line 59, transfer.scss */
+.transfer ul .list01 { text-align: right; }
+/* line 62, transfer.scss */
+.transfer ul .list02 { text-align: left; }
+
+/* line 67, transfer.scss */
+.subTransferData { text-align: center; margin: 20px auto; overflow: hidden; }
+/* line 71, transfer.scss */
+.subTransferData span { width: 107px; height: 28px; line-height: 28px; text-align: center; margin: 0 10px; display: inline-block; color: #fff; font-size: 14px; background: url(../images/sub_bga.gif) repeat-x; }
+
+/* line 83, transfer.scss */
+.setSuccess { padding: 30px 0 20px; border: 1px solid #b1cfec; text-align: center; background: #dae7f1; overflow: hidden; color: #1d87fd; }
+/* line 90, transfer.scss */
+.setSuccess span { font-size: 30px; }
+/* line 92, transfer.scss */
+.setSuccess span img { vertical-align: middle; margin-right: 10px; }
+
+/*# sourceMappingURL=transfer.css.map */

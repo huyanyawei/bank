@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="./css/base.css" rel="stylesheet">
+  <link href="./css/account.css" rel="stylesheet">
+  <link href="./css/transfer.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="account">
+    <div class="header w">
+      <div class="searchBar fl"><img src="./images/account/donghua.gif"><input type="text"></div>
+      <div class="loginInfo fr"><span>欢迎首页</span> | <span>退出登录</span></div>
+    </div>
+    <div class="w menu">
+      <ul>
+        <li><a href="/account.html"><span><img src="./images/account/main_nav_accountmanage.png"></span>
+            <p>账户管理</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_transfer.png"></span>
+            <p>支付结算</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_balance.png"></span>
+            <p>集团结算</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_financing.png"></span>
+            <p>投资理财</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_fundtreasure.png"></span>
+            <p>普惠宝</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_ebusiness.png"></span>
+            <p>电子商务</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_SCF.png"></span>
+            <p>供应链金融</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_international.png"></span>
+            <p>国际业务</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_draft.png"></span>
+            <p>票据业务</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_billpool.png"></span>
+            <p>票据池</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_cashpool.png"></span>
+            <p>资金池</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_warrantCenter.png"></span>
+            <p>授权中心</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_customer.png"></span>
+            <p>服务中心</p>
+          </a></li>
+        <li><a href="#"><span><img src="./images/account/main_nav_bgChange.gif"></span>
+            <p>背景更换</p>
+          </a></li>
+      </ul>
+    </div>
+    <div class="sub_munu">
+      <ul>
+        <li><a href="">账户查询</a></li>
+        <li><a href="">账户查询</a></li>
+        <li><a href="">账户查询</a></li>
+        <li><a href="">账户查询</a></li>
+        <li><a href="">账户查询</a></li>
+        <li><a href="">账户查询</a></li>
+      </ul>
+    </div>
+    <div class="wrap w">
+      <div class="left_wrap fl">
+        <ul>
+          <li><a href=""></a>我的账户 </a></li>
+          <li><a href="">账户明细查询 </a></li>
+          <li><a href="">当日来往账信息查询 </a></li>
+          <li><a href="">账户个性化设置 </a></li>
+          <li><a href=""> 网上交易查询 </a></li>
+          <li><a href=""> 跨行签约账户信息查询 </a></li>
+          <li><a href=""> 行内个人签约账户信息查询 </a></li>
+          <li><a href=""> 外币账户追加与删除 </a></li>
+          <li><a href="">商户服务 </a></li>
+          <li><a href=""> 当日账户明细特殊查询 </a></li>
+          <li><a href="">电子回单查询 </a></li>
+        </ul>
+        <div class="tel"><img src="./images/account/kefu.jpg" alt=""></div>
+      </div>
+      <div class="right_wrap fr bg">
+        <div class="crumbs">前位置： <a>支付结算</a> >> <a>单笔转账</a> >> 企业向个人转账</div>
+        <div class="transfer">
+          <div class="transfreInfo">
+            <ul>
+              <li class="list01">转账类型</li>
+              <li>
+                <input type="radio" name="" id="">实时转账
+                <input type="radio" name="" id="">普通
+                <input type="radio" name="" id="">次日
+              </li>
+            </ul>
+            <ul>
+              <li class="list01">付款人信息</li>
+              <li></li>
+            </ul>
+            <ul>
+              <li class="list01">付款人账户<span class="required">*</span></li>
+              <li>
+                <select>
+                  <option selected="">62212120202020</option>
+                  <option>李四</option>
+                  <option>王五</option>
+                </select>
+                <span class="moreSelect">查询可用余额</span>
+              </li>
+            </ul>
+            <ul>
+              <li class="list01">币种</li>
+              <li>人民币</li>
+            </ul>
+            <ul>
+              <li class="list01">装账金额<span class="required">*</span></li>
+              <li><input type="text"></li>
+            </ul>
+            <ul>
+              <li class="list01">金额大写</li>
+              <li>一百万</li>
+            </ul>
+            <ul>
+              <li class="list01">期望日期<span class="required">*</span></li>
+              <li><input type="text" onclick="SetDate(this,'yyyy-MM-dd hh:mm:ss')"></li>
+            </ul>
+            <ul>
+              <li class="list01">用途<span class="required">*</span></li>
+              <li>
+                <select>
+                  <option>薪水</option>
+                  <option selected="">佣金</option>
+                  <option>补贴</option>
+                </select>
+              </li>
+            </ul>
+            <ul>
+              <li class="list01">收款人信息</li>
+              <li></li>
+            </ul>
+            <ul>
+              <li class="list01">收款银行</li>
+              <li>
+                <input type="radio" name="" id="">广发
+                <input type="radio" name="" id="">招商
+                <input type="radio" name="" id="">人民银行
+              </li>
+            </ul>
+            <ul>
+              <li class="list01">收款人录入方式</li>
+              <li>
+                <input type="radio" name="" id="">输入收款人
+                <input type="radio" name="" id="">选择收款人
+              </li>
+            </ul>
+            <ul>
+              <li class="list01">选择收款人<span class="required">*</span></li>
+              <li>
+                <select>
+                  <option>张三</option>
+                  <option selected="">李四</option>
+                  <option>王五</option>
+                </select>
+                <span class="moreSelect">更多</span>
+              </li>
+            </ul>
+            <ul>
+              <li class="list01">装账方式</li>
+              <li>企业向个人转账</li>
+            </ul>
+          </div>
+          <div class="subTransferData"><span class="confirm">确认</span><span>重置</span></div>
+        </div>
+        <div class="tip">
+          <h3>客户提示：</h3>
+          <ul>
+            <li>企业付款账户（基本结算账户、一般结算账户）需至柜台开通后方可向个人账户转账；
+            <li>当您使用“快速到账”和“同城票交”方式时，不能选择非工作日作为期望日期；
+            <li>当收款人为华夏银行客户时，您最多可以在用途栏输入12个汉字或24个字母、数字、字符，若为其他银行客户时，您最多可以在用途栏输入30个汉字或60个字母、数字、字符；
+            <li>输入收款人时，可以使用“列表显示”、“模糊查询”及“手工录入收款行”三种方式。收款人可添加至常汇户中，在“服务中心—收款人（常汇户）管理”中进行维护；
+            <li>请您正确填写转账信息，因收款行、账号、户名等转账信息填写错误造成对方银行退款，手续费不退回；
+            <li>交易确认页面回显的应收手续费指根据我行电子银行收费标准应收取的转账手续费，实收手续费指根据我行优惠政策实际收取的转账手续费，具体收费标准及优惠政策请参照我行网站首页“收费标准”栏目或咨询95577。
+            <li>注：“实时转出”是按期望日期实时发起转账，“普通转出”是延迟三小时发起转账，“次日转出”是延迟到次日9点之后发起转账（交易具体发起时间约在次日9点至10点之间）
+            <li>如本交易<font color=red>收款方</font>为<font color=red>非我行</font>开户的<font color=red>非居民个人</font>
+              （开户证件为境外永久居留证、外国护照、港澳居民来往内地通行证、台湾居民来往大陆通行证等的个人），<font color=red>且</font>此交易涉及<font color=red>
+                资本项目管理或货物贸易进出口核查</font>，请于业务办理<font color=red>当日</font>在<font color=red>开户网点办理</font>
+              国际收支申报相关事宜，由此给您带来不便敬请谅解。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/date.js"></script>
+<script src="./js/com.js"></script>
+<script>
+  $(function () {
+    $(".subTransferData").on("click", ".confirm", function () {
+      let data = {
+        "payAccountNo": "6228481006388483124",
+        "accountNoTo": "621483017909888",
+        "accountNameTo": "hujunwe",
+        "currency": 1,
+        "transferType": 1,
+        "availableMoney": 100000.88,
+        "expectedDate": "2020-07-25",
+        "transPurpose": 1,
+        "receivingBank": "华夏银行",
+        "transferAmount": 10000.25,
+        "transferMethod": 1,
+        "remark": "企业向个人转账"
+      }
+
+      let that = $(this);
+      user = $("#user").val();
+      pw = $("#pw").val();
+      data = { "pid": user, "password": pw }
+      $.ajax({
+        url: window.HOSTname + '/dbank/accountTransfers/transferToOtherAccount',
+        type: 'POST',
+        contentType: "application/json",
+        data: JSON.stringify(data),
+        dataType: "json",
+        async: true,
+        timeout: 1000,
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+          opersignNo = "";
+          return false;
+        },
+        success: function (data) {
+          if (data.status == "10001") {
+            debugger
+          } else {
+            alert(data.msg)
+          }
+        }
+      });
+    })
+  })
+</script>
+
+</html>

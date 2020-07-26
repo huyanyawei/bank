@@ -1,0 +1,1 @@
+window.HOSTname = "http://"+window.location.host;

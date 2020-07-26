@@ -1,0 +1,24 @@
+/* line 1, result.scss */
+.result { width: 969px; border-top: 1px solid #bfbfbf; }
+/* line 5, result.scss */
+.result ul { border: 1px solid #bfbfbf; border-top: none; overflow: hidden; }
+/* line 10, result.scss */
+.result li { float: left; min-height: 20px; line-height: 20px; padding: 5px 10px; }
+/* line 17, result.scss */
+.result .list01 { width: 204px; text-align: right; }
+/* line 18, result.scss */
+.result .list02 { width: 238px; border-left: 1px solid #bfbfbf; }
+
+/* line 23, result.scss */
+.subTransferData { text-align: center; margin: 20px auto; overflow: hidden; }
+/* line 27, result.scss */
+.subTransferData span { width: 107px; height: 28px; line-height: 28px; text-align: center; margin: 0 10px; display: inline-block; color: #fff; font-size: 14px; background: url(../images/sub_bga.gif) repeat-x; }
+
+/* line 39, result.scss */
+.setSuccess { padding: 30px 0 20px; border: 1px solid #b1cfec; text-align: center; background: #dae7f1; overflow: hidden; color: #1d87fd; }
+/* line 46, result.scss */
+.setSuccess span { font-size: 30px; }
+/* line 48, result.scss */
+.setSuccess span img { vertical-align: middle; margin-right: 10px; }
+
+/*# sourceMappingURL=result.css.map */
