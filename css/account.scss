@@ -27,7 +27,6 @@
     height: 90px;
     overflow: hidden;
     ul {
-        margin-top: 20px;
         height: 90px;
         overflow: hidden;
         background: #c4d9e9;
@@ -36,6 +35,7 @@
             width: 85px;
             height: 90px;
             overflow: hidden;
+            a { display: inline-block}
             span {
                 display: block;
                 margin: 5px auto 0;
@@ -76,16 +76,28 @@
     overflow: hidden;
     background: #bfd6ec;
     ul {
-        padding: 20px;
+        padding: 20px 0px;
         overflow: hidden;
         li {
             a {
+                display: block;
+                height: 30px;
                 text-decoration: none;
                 color: #000;
+                padding-left: 18px;
+                cursor: pointer;
             }
+            a:hover { background: #3c84bf; color: #fff; }
             width: 100%;
-            height: 24px;
-            line-height: 24px;
+            height: 30px;
+            line-height: 30px;
+        }
+        .active {
+            background: #3c84bf;
+            color: #fff;
+            a {
+                color: #fff;
+            }
         }
     }
 }
