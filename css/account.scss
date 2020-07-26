@@ -35,7 +35,7 @@
             width: 85px;
             height: 90px;
             overflow: hidden;
-            a { display: inline-block}
+            a { display: block;}
             span {
                 display: block;
                 margin: 5px auto 0;
@@ -176,7 +176,7 @@
             }
             .list07 { width: 754px;}
         }
-        .mySavings,.myLoan,.myFinancialMgmt {
+        .mySavings,.myLoan,.myFinancialMgmt,.myOtherAccount {
             .list03 { border-left: none;}
         }
     }

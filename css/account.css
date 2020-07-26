@@ -21,7 +21,7 @@
 /* line 33, account.scss */
 .menu ul li { float: left; width: 85px; height: 90px; overflow: hidden; }
 /* line 38, account.scss */
-.menu ul li a { display: inline-block; }
+.menu ul li a { display: block; }
 /* line 39, account.scss */
 .menu ul li span { display: block; margin: 5px auto 0; width: 58px; height: 58px; }
 /* line 44, account.scss */
@@ -95,7 +95,7 @@
 /* line 177, account.scss */
 .right_wrap .myAccount .thead .list07 { width: 754px; }
 /* line 180, account.scss */
-.right_wrap .myAccount .mySavings .list03, .right_wrap .myAccount .myLoan .list03, .right_wrap .myAccount .myFinancialMgmt .list03 { border-left: none; }
+.right_wrap .myAccount .mySavings .list03, .right_wrap .myAccount .myLoan .list03, .right_wrap .myAccount .myFinancialMgmt .list03, .right_wrap .myAccount .myOtherAccount .list03 { border-left: none; }
 /* line 183, account.scss */
 .right_wrap .tip { overflow: hidden; margin-top: 10px; border: #dadbdb 1px solid; background: #fff; }
 /* line 188, account.scss */
