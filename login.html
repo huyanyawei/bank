@@ -26,7 +26,7 @@
         </div>
         <div class="loginForm">
           <ul class="active clear">
-            <li><span>用户名：</span><input  type="text" id="user" value="1504040188808160913"></li>
+            <li><span>用户名：</span><input type="text" id="user" value="1504040188808160913"></li>
             <li><span>登录密码</span><input type="password" id="pw" value="123456"></li>
             <li class="loginBtn clear" style=" margin-top: 40px;"><span id="login">登录</span></li>
           </ul>
@@ -89,7 +89,7 @@
           success: function (data) {
             if (data.status == "10001") {
               localStorage.setItem("pid", user)
-              window.location.href = "http://" + window.location.host + "/bank/account.html";
+              window.location.href = "http://" + window.location.host + "/account.html";
             } else {
               alert(data.msg)
             }
