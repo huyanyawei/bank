@@ -35,7 +35,7 @@
             width: 85px;
             height: 90px;
             overflow: hidden;
-            a { display: block;}
+            a { display: block; color: #000;}
             span {
                 display: block;
                 margin: 5px auto 0;
@@ -53,7 +53,7 @@
                 line-height: 18px;
             }
         }
-        .active { background: #fff; }
+        .active { background: #fff; color: #000;}
     }
 }
 .sub_munu {
@@ -71,13 +71,15 @@
                 display: inline-block;
                 padding: 0 10px;
                 border-radius: 3px;
+                color: #000;;
             }
         }
         .active {
             a {
                 background: #92b0cc;
-                font-size: 14px;
+                font-size: 12px;
                 font-weight: bold;
+                color: #000;;
             }
         }
     }
