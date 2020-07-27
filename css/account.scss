@@ -85,7 +85,7 @@
     }
 }
 .wrap {
-    margin-top: 20px;
+    margin: 20px auto 50px;
 }
 .left_wrap {
     width: 169px;
@@ -95,18 +95,19 @@
         padding: 20px 0px;
         overflow: hidden;
         li {
+            font-size: 12px;
+            
             a {
                 display: block;
-                height: 30px;
                 text-decoration: none;
                 color: #000;
-                padding-left: 15px;
+                min-height: 12px;
+                padding: 8px 0 8px 15px;
                 cursor: pointer;
             }
             a:hover { background: #3c84bf; color: #fff; }
             width: 100%;
-            height: 30px;
-            line-height: 30px;
+            line-height: 1.4;
         }
         .active {
             background: #3c84bf;
@@ -212,4 +213,14 @@
     width: 970px;
     background: #fff;
     padding: 10px 20px;
+}
+.calendar {
+    width: 20px;
+    display: inline-block;
+    height: 20px;
+    margin-left: 10px;
+    vertical-align: middle;
+    img {
+        width: 100%;
+    }
 }

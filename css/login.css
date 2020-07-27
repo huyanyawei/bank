@@ -1,50 +1,114 @@
-/* line 1, login.scss */
-.login { width: 100%; height: 518px; background: url(../images/new-bg-1.jpg) no-repeat center center; background-size: 100% 110%; }
+.login {
+  width: 100%;
+  height: 518px;
+  background: url(../images/new-bg-1.jpg) no-repeat center center;
+  background-size: 100% 110%; }
 
-/* line 7, login.scss */
-.loginbar { position: absolute; right: 0; top: 50%; margin-top: -219px; width: 340px; height: 438px; padding: 13px; background: url(../images/login_form_bg_1.png) no-repeat; }
+.loginbar {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -219px;
+  width: 340px;
+  height: 438px;
+  padding: 13px;
+  background: url(../images/login_form_bg_1.png) no-repeat; }
 
-/* line 18, login.scss */
-.menuTab span { width: 50%; display: inline-block; height: 40px; line-height: 40px; text-align: center; cursor: pointer; }
-/* line 26, login.scss */
-.menuTab .userName { background: url("../images/bmdla.gif") no-repeat left; }
-/* line 29, login.scss */
-.menuTab .cart { background: url("../images/zjmdla.gif") no-repeat left; }
-/* line 32, login.scss */
-.menuTab .active { background: none; }
+.menuTab span {
+  width: 50%;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer; }
+.menuTab .userName {
+  background: url("../images/bmdla.gif") no-repeat left; }
+.menuTab .cart {
+  background: url("../images/zjmdla.gif") no-repeat left; }
+.menuTab .active {
+  background: none; }
 
-/* line 36, login.scss */
-.loginForm { width: 280px; margin: 10px auto 0; overflow: hidden; }
-/* line 40, login.scss */
-.loginForm ul { height: 280px; padding-top: 15px; display: none; }
-/* line 44, login.scss */
-.loginForm ul li { width: 100%; height: 34px; line-height: 34px; margin-bottom: 10px; overflow: hidden; }
-/* line 50, login.scss */
-.loginForm ul li span { float: left; width: 70px; height: 34px; text-align: center; background: url("../images/form_span.png") no-repeat; }
-/* line 57, login.scss */
-.loginForm ul li input { float: left; width: 190px; height: 34px; padding: 0 9px; background: url("../images/text.gif") no-repeat center right; }
-/* line 64, login.scss */
-.loginForm ul li select { width: 278px; height: 30px; line-height: 30px; padding: 2px 0; border-radius: 2px; }
-/* line 72, login.scss */
-.loginForm ul li.loginBtn { text-align: center; }
-/* line 74, login.scss */
-.loginForm ul li.loginBtn span { display: inline-block; background: url(../images/sub_bga.gif) repeat-x; height: 28px; line-height: 28px; width: 107px; font-size: 14px; font-weight: bold; color: #fff; margin-right: 18px; cursor: pointer; margin: 0 16px; overflow: hidden; }
-/* line 91, login.scss */
-.loginForm ul.active { display: block; }
-/* line 92, login.scss */
-.loginForm ol { margin-top: 10px; }
-/* line 94, login.scss */
-.loginForm ol li { font-size: 12px; line-height: 20px; background: url("../images/wyzs_bg.png") no-repeat left 8px; padding-left: 20px; color: #000; }
-/* line 100, login.scss */
-.loginForm ol li a { color: #000; text-decoration: underline; }
+.loginForm {
+  width: 280px;
+  margin: 10px auto 0;
+  overflow: hidden; }
+  .loginForm ul {
+    height: 270px;
+    padding-top: 25px;
+    display: none; }
+    .loginForm ul li {
+      width: 100%;
+      height: 34px;
+      line-height: 34px;
+      margin-bottom: 10px;
+      overflow: hidden; }
+      .loginForm ul li span {
+        float: left;
+        width: 70px;
+        height: 34px;
+        text-align: center;
+        background: url("../images/form_span.png") no-repeat; }
+      .loginForm ul li input {
+        float: left;
+        width: 190px;
+        height: 34px;
+        padding: 0 9px;
+        background: url("../images/text.gif") no-repeat center right; }
+      .loginForm ul li select {
+        width: 278px;
+        height: 30px;
+        line-height: 30px;
+        padding: 2px 0;
+        border-radius: 2px; }
+    .loginForm ul li.loginBtn {
+      text-align: center; }
+      .loginForm ul li.loginBtn span {
+        display: inline-block;
+        background: url(../images/sub_bga.gif) repeat-x;
+        height: 28px;
+        line-height: 28px;
+        width: 107px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+        margin-right: 18px;
+        cursor: pointer;
+        margin: 0 16px;
+        overflow: hidden; }
+  .loginForm ul.active {
+    display: block; }
+  .loginForm ol {
+    margin-top: 10px; }
+    .loginForm ol li {
+      font-size: 12px;
+      line-height: 20px;
+      background: url("../images/wyzs_bg.png") no-repeat left 8px;
+      padding-left: 20px;
+      color: #000; }
+      .loginForm ol li a {
+        color: #000;
+        text-decoration: underline; }
 
-/* line 107, login.scss */
-.footer { height: 29px; padding: 10px; overflow: hidden; }
-/* line 111, login.scss */
-.footer img { vertical-align: middle; }
-/* line 115, login.scss */
-.footer ul li { float: left; height: 15px; line-height: 15px; padding: 7px 10px 7px; }
-/* line 120, login.scss */
-.footer ul li i { display: inline-block; width: 15px; height: 15px; margin-right: 10px; background: url("../images/gn.gif") no-repeat left center; }
+.footer {
+  height: 29px;
+  padding: 10px;
+  overflow: hidden; }
+  .footer img {
+    vertical-align: middle; }
+  .footer ul li {
+    float: left;
+    height: 15px;
+    line-height: 15px;
+    padding: 7px 10px 7px; }
+    .footer ul li i {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-right: 10px;
+      background: url("../images/gn.gif") no-repeat left center; }
+
+#login {
+  margin: 0 auto;
+  float: none; }
 
 /*# sourceMappingURL=login.css.map */

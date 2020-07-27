@@ -16,7 +16,7 @@
       <div class="searchBar fl"><img src="./images/account/donghua.gif"><input type="text"></div>
       <div class="loginInfo fr"><span>欢迎首页</span> | <span>退出登录</span></div>
     </div>
-    <div class="w menu">
+    <div class="w menu mt20">
       <ul>
         <li><a href="/account.html"><span><img src="./images/account/main_nav_accountmanage.png"></span>
             <p>账户管理</p>
@@ -75,22 +75,23 @@
     <div class="wrap w">
       <div class="left_wrap fl">
         <ul>
-          <li><a href=""></a>我的账户 </a></li>
-          <li><a href="">账户明细查询 </a></li>
-          <li><a href="">当日来往账信息查询 </a></li>
-          <li><a href="">账户个性化设置 </a></li>
-          <li><a href=""> 网上交易查询 </a></li>
-          <li><a href=""> 跨行签约账户信息查询 </a></li>
-          <li><a href=""> 行内个人签约账户信息查询 </a></li>
-          <li><a href=""> 外币账户追加与删除 </a></li>
-          <li><a href="">商户服务 </a></li>
-          <li><a href=""> 当日账户明细特殊查询 </a></li>
-          <li><a href="">电子回单查询 </a></li>
+          <li><a href="">企业行内转账</a></li>
+          <li><a href="">企业跨行转账</a></li>
+          <li class="active"><a href="">企业向个人单笔转账</a></li>
+          <li><a href="">爱心捐款</a></li>
+          <li><a href="">跨行签约账户转账</a></li>
+          <li><a href="">单笔转账交易查询与维护</a></li>
+          <li><a href="">跨行签约账户限额查询</a></li>
+          <li><a href="">行内个人签约账户转账</a></li>
+          <li><a href="">行内个人签约账户资金归集设置</a></li>
+          <li><a href="">行内个人资金归集交易结果查询</a></li>
+          <li><a href="">中登上海专用交易</a></li>
+          <li><a href="">PDS系统入金</a></li>
         </ul>
         <div class="tel"><img src="./images/account/kefu.jpg" alt=""></div>
       </div>
       <div class="right_wrap fr bg">
-        <div class="crumbs">前位置： <a>支付结算</a> >> <a>单笔转账</a> >> 企业向个人转账</div>
+        <div class="crumbs">前位置： <a>支付结算</a> >> <a>单笔转账</a> >> 企业向个人单笔转账</div>
         <div class="transfer">
           <div class="transfreInfo">
             <ul>
@@ -130,7 +131,7 @@
             </ul>
             <ul>
               <li class="list01">期望日期<span class="required">*</span></li>
-              <li><input type="text" onclick="SetDate(this,'yyyy-MM-dd hh:mm:ss')"></li>
+              <li><input type="text" onclick="SetDate(this,'yyyy-MM-dd hh:mm:ss')"><i class="calendar"><img src="./images/timg.jpg"></i></li>
             </ul>
             <ul>
               <li class="list01">用途<span class="required">*</span></li>
@@ -149,9 +150,8 @@
             <ul>
               <li class="list01">收款银行</li>
               <li>
-                <input type="radio" name="" id="">广发
-                <input type="radio" name="" id="">招商
-                <input type="radio" name="" id="">人民银行
+                <input type="radio" name="" id="">华夏银行
+                <input type="radio" name="" id="">其他银行
               </li>
             </ul>
             <ul>
@@ -164,6 +164,8 @@
             <ul>
               <li class="list01">选择收款人<span class="required">*</span></li>
               <li>
+                <!-- 根据上面的选择进行展示 -->
+                <input type="text">
                 <select>
                   <option>张三</option>
                   <option selected="">李四</option>
