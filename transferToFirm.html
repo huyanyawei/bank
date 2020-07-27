@@ -75,9 +75,9 @@
     <div class="wrap w">
       <div class="left_wrap fl">
         <ul>
-          <li class="active"><a href="">企业行内转账</a></li>
-          <li><a href="">企业跨行转账</a></li>
-          <li><a href="">企业向个人单笔转账</a></li>
+          <li class="active"><a href="#">企业行内转账</a></li>
+          <li><a href="/skiptran.html">企业跨行转账</a></li>
+          <li><a href="/transferToPersonal.html">企业向个人单笔转账</a></li>
           <li><a href="">爱心捐款</a></li>
           <li><a href="">跨行签约账户转账</a></li>
           <li><a href="">单笔转账交易查询与维护</a></li>
@@ -91,7 +91,7 @@
         <div class="tel"><img src="./images/account/kefu.jpg" alt=""></div>
       </div>
       <div class="right_wrap fr bg">
-        <div class="crumbs">前位置： <a>支付结算</a> >> <a>单笔转账</a> >> 企业向个人转账</div>
+        <div class="crumbs">前位置： <a>支付结算</a> >> <a>单笔转账</a> >> 企业行内转账</div>
         <div class="transfer">
           <div class="transfreInfo">
 
@@ -111,7 +111,8 @@
             </ul>
             <ul class="showBalance">
               <li class="list01">余额</li>
-              <li id="balance">00</li>
+              <li id="balance"></li>
+              <input type="hidden" id="availableMoney">
             </ul>
             <ul>
               <li class="list01">币种</li>
@@ -119,7 +120,7 @@
             </ul>
             <ul>
               <li class="list01">转账金额<span class="required">*</span></li>
-              <li><input type="text"></li>
+              <li><input type="text" id="transferAmount"></li>
             </ul>
             <ul>
               <li class="list01">金额大写</li>
@@ -127,13 +128,14 @@
             </ul>
             <ul>
               <li class="list01">期望日期<span class="required">*</span></li>
-              <li><input type="text" onclick="SetDate(this,'yyyy-MM-dd hh:mm:ss')"><i class="calendar"><img src="./images/timg.jpg"></i></li>
+              <li><input id="expectedDate" type="text" onclick="SetDate(this,'yyyy-MM-dd hh:mm:ss')"><i
+                  class="calendar"><img src="./images/timg.jpg"></i></li>
             </ul>
             <ul>
               <li class="list01">用途录入方式</li>
               <li>
-                <input type="radio" name="" id="">选择用途
-                <input type="radio" name="" id="">输入用途
+                <input type="radio" name="1" id="" checked>选择用途
+                <input type="radio" name="1" id="">输入用途
               </li>
             </ul>
 
@@ -158,18 +160,20 @@
               <li class="list01">收款账户<span class="required">*</span></li>
               <li>
                 <select>
-                  <option>张三</option>
-                  <option selected="">6333333</option>
-                  <option>王五</option>
+                  <option>621483017909888</option>
                 </select>
               </li>
             </ul>
             <ul>
-              <li class="list01">装账方式</li>
+              <li class="list01">转账方式</li>
               <li>企业内部转账</li>
             </ul>
           </div>
           <div class="subTransferData"><span class="confirm">确认</span><span>重置</span></div>
+        </div>
+        <div class="setSuccess trans">
+          <span><img src="./images/account/small.jpg" alt="">提交成功！</span>
+          <p>账户转账成功</p>
         </div>
         <div class="tip">
           <h3>客户提示：</h3>
@@ -188,6 +192,7 @@
 <script src="./js/com.js"></script>
 <script>
   $(function () {
+    $('.trans').hide()
     $('.showBalance').hide()
     $(".transfreInfo").on("click", "#getBalance", function () {
       let data = { "accountNo": "6228481006388483999" }
@@ -205,6 +210,7 @@
         success: function (data) {
           if (data.status == "10001") {
             $("#balance").html(data.availableMoney)
+            $("#availableMoney").val(data.availableMoney)
             $('.showBalance').show()
           } else {
             alert(data.msg)
@@ -212,31 +218,35 @@
         }
       });
     })
+    const formData = [{ key: 'transferAmount', msg: '请输入转账金额' }, { key: 'availableMoney', msg: '请查询可用余额' }, { key: 'expectedDate', msg: '请选择期望日期' }]
     $(".subTransferData").on("click", ".confirm", function () {
-      let data = {
+      for (let i = 0; i < formData.length; i++) {
+        if (!$("#" + formData[i].key).val()) {
+          alert(formData[i].msg)
+          return
+        }
+      }
+
+      let datas = {
         "payAccountNo": "6228481006388483124",
         "accountNoTo": "621483017909888",
         "accountNameTo": "hujunwe",
         "currency": 1,
         "transferType": 1,
-        "availableMoney": 100000.88,
-        "expectedDate": "2020-07-25",
+        "availableMoney": $("#availableMoney").val(),
+        "expectedDate": $("#expectedDate").val(),
         "transPurpose": 1,
         "receivingBank": "华夏银行",
-        "transferAmount": 10000.25,
+        "transferAmount": $("#transferAmount").val(),
         "transferMethod": 1,
         "remark": "企业向个人转账"
       }
 
-      let that = $(this);
-      user = $("#user").val();
-      pw = $("#pw").val();
-      data = { "pid": user, "password": pw }
       $.ajax({
         url: window.HOSTname + '/dbank/accountTransfers/transferToOtherAccount',
         type: 'POST',
         contentType: "application/json",
-        data: JSON.stringify(data),
+        data: JSON.stringify(datas),
         dataType: "json",
         async: true,
         timeout: 1000,
@@ -246,7 +256,7 @@
         },
         success: function (data) {
           if (data.status == "10001") {
-            debugger
+            $('.trans').show()
           } else {
             alert(data.msg)
           }

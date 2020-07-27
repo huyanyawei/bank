@@ -42,7 +42,7 @@
             <li><span>经办人</span><input type="text"></li>
             <li><span>证件号码</span><input type="text"></li>
             <li><span>登录密码</span><input type="password"></li>
-            <li class="loginBtn"  id="login"><span>登录</span></li>
+            <li class="loginBtn" id="login"><span>登录</span></li>
           </ul>
           <ol>
             <li>如登录遇到问题，请下载并运行“<a href="">网银助手</a>”，进行检测和修复。</li>
@@ -63,8 +63,8 @@
       </ul>
     </div>
   </div>
-  <script src="./js/com.js"></script>
   <script src="./js/jquery.js"></script>
+  <script src="./js/com.js"></script>
   <script src="./js/login.js"></script>
   <script>
     $(function () {
@@ -96,15 +96,15 @@
           }
         });
       })
-      function setMainBg(){
+      function setMainBg() {
         var headerH = $(".header").outerHeight(true) || 60,
-            footerH = $(".footer").outerHeight(true) || 49,
-            windowH = $(window).outerHeight(true),
-            mainH = $(".login,.loginPosition");
-        mainH.css({"height":windowH - headerH - footerH})
+          footerH = $(".footer").outerHeight(true) || 49,
+          windowH = $(window).outerHeight(true),
+          mainH = $(".login,.loginPosition");
+        mainH.css({ "height": windowH - headerH - footerH })
       }
       setMainBg();
-      $(window).resize(function(){
+      $(window).resize(function () {
         setMainBg();
       });
     })
