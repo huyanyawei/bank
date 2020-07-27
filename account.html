@@ -123,12 +123,12 @@
 
     // var handlebarsInhtml = Handlebars.compile($("#my-account").html());
     // $("#myAccount").append(handlebarsInhtml(JSON.parse(data)));
-    let pid = localStorage.getItem("pid")
+    let pid = sessionStorage.getItem("pid")
     $.ajax({
       url: window.HOSTname + '/dbank/accountInfos/getAllAccountInfo',
       type: 'POST',
       contentType: "application/json",
-      data: JSON.stringify({ pid: 1504040188808160913 }),
+      data: JSON.stringify({ pid: pid }),
       dataType: "json",
       async: true,
       timeout: 1000,

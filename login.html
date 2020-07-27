@@ -88,7 +88,7 @@
           },
           success: function (data) {
             if (data.status == "10001") {
-              localStorage.setItem("pid", user)
+              sessionStorage.setItem("pid", user)
               window.location.href = "http://" + window.location.host + "/account.html";
             } else {
               alert(data.msg)
