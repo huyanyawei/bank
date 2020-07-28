@@ -125,7 +125,7 @@
     $("#myAccount").append(handlebarsInhtml(JSON.parse(data)));
     setTimeout(() => {
       let special = $('.special').height()
-      $('.special').siblings('li').css("height", special)
+      $('.special').siblings('li').css({"height":special,"line-height":special+"px"})
     })
     let pid = sessionStorage.getItem("pid")
     $.ajax({
