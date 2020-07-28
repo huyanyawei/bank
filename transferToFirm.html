@@ -209,12 +209,12 @@
     // $('.showBalance').hide()
     // $(".transfreInfo").on("click", "#getBalance", function () {
     // let data = { "accountNo": "6228481006388483999" }
-    var pid = sessionStorage.getItem("pid")
+    // var pid = sessionStorage.getItem("pid")
     $.ajax({
       url: window.HOSTname + '/dbank/accountInfos/getAccountInfoByAccountNo',
       type: 'POST',
       contentType: "application/json",
-      data: JSON.stringify({ "accountNo": pid }),
+      data: JSON.stringify({ "accountNo": "10241000000334682" }),
       dataType: "json",
       async: true,
       timeout: 1000,

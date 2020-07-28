@@ -123,10 +123,6 @@
 
     // var handlebarsInhtml = Handlebars.compile($("#my-account").html());
     // $("#myAccount").append(handlebarsInhtml(JSON.parse(data)));
-    setTimeout(() => {
-      let special = $('.special').height()
-      $('.special').siblings('li').css({ "height": special, "line-height": special + "px" })
-    })
     var pid = sessionStorage.getItem("pid")
     $.ajax({
       url: window.HOSTname + '/dbank/accountInfos/getAllAccountInfo',
@@ -155,6 +151,10 @@
           });
           var handlebarsInhtml = Handlebars.compile($("#my-account").html());
           $("#myAccount").append(handlebarsInhtml(data.list));
+          setTimeout(() => {
+            let special = $('.special').height()
+            $('.special').siblings('li').css({ "height": special, "line-height": special + "px" })
+          })
         } else {
           alert(data.msg)
         }
