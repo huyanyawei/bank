@@ -98,13 +98,13 @@
 
             <ul>
               <li class="list01">付款人信息</li>
-              <li>张三</li>
+              <li></li>
             </ul>
             <ul>
               <li class="list01">付款人账户<span class="required">*</span></li>
               <li>
                 <select>
-                  <option selected="">6228481006388483999</option>
+                  <option selected="">10241000000334682</option>
                 </select>
                 <span class="moreSelect" id="getBalance">查询可用余额</span>
               </li>
@@ -120,7 +120,7 @@
             </ul>
             <ul>
               <li class="list01">转账金额<span class="required">*</span></li>
-              <li><input type="text" id="transferAmount"></li>
+              <li><input type="text" id="transferAmount" placeholder="请输入金额"></li>
             </ul>
             <!-- <ul>
               <li class="list01">金额大写</li>
@@ -128,8 +128,8 @@
             </ul> -->
             <ul>
               <li class="list01">期望日期<span class="required">*</span></li>
-              <li><input id="expectedDate" type="text" onclick="SetDate(this,'yyyy-MM-dd hh:mm:ss')"><i
-                  class="calendar"><img src="./images/timg.jpg"></i></li>
+              <li><input id="expectedDate" type="text" onclick="SetDate(this,'yyyy-MM-dd hh:mm:ss')" autocomplete="off"
+                  placeholder="请选择日期"><i class="calendar"><img src="./images/timg.jpg"></i></li>
             </ul>
             <ul>
               <li class="list01">用途录入方式</li>
@@ -159,9 +159,10 @@
             <ul>
               <li class="list01">收款账户<span class="required">*</span></li>
               <li>
-                <select>
+                <input type="text" name="" id="accountNoTo" placeholder="请输入账户">
+                <!-- <select>
                   <option>621483017909888</option>
-                </select>
+                </select> -->
               </li>
             </ul>
             <ul>
@@ -186,39 +187,52 @@
       </div>
     </div>
   </div>
+  <div class="message-w none">
+    <div class=" message_me">
+      <p style="clear:both;" class="w-rule-title"><span class="fl">提示</span><span class="off_off fr">X</span></p>
+      <p class="message_me-con">
+        <img src="images/pay.png" alt="">
+      </p>
+      <div class="modal-footer">
+        <a href="##" class="off_off btn btn-danger" data-dismiss="modal" onclick="submitMyForm()">确定</a>
+      </div>
+    </div>
+  </div>
 </body>
 <script src="./js/jquery.js"></script>
 <script src="./js/date.js"></script>
+<script src="./js/mypop.js"></script>
 <script src="./js/com.js"></script>
 <script>
   $(function () {
     $('.trans').hide()
-    $('.showBalance').hide()
-    $(".transfreInfo").on("click", "#getBalance", function () {
-      let data = { "accountNo": "6228481006388483999" }
-      $.ajax({
-        url: window.HOSTname + '/dbank/accountInfos/getAccountInfoByAccountNo',
-        type: 'POST',
-        contentType: "application/json",
-        data: JSON.stringify(data),
-        dataType: "json",
-        async: true,
-        timeout: 1000,
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-          return false;
-        },
-        success: function (data) {
-          if (data.status == "10001") {
-            $("#balance").html(data.availableMoney)
-            $("#availableMoney").val(data.availableMoney)
-            $('.showBalance').show()
-          } else {
-            alert(data.msg)
-          }
+    // $('.showBalance').hide()
+    // $(".transfreInfo").on("click", "#getBalance", function () {
+    // let data = { "accountNo": "6228481006388483999" }
+    var pid = sessionStorage.getItem("pid")
+    $.ajax({
+      url: window.HOSTname + '/dbank/accountInfos/getAccountInfoByAccountNo',
+      type: 'POST',
+      contentType: "application/json",
+      data: JSON.stringify({ "accountNo": pid }),
+      dataType: "json",
+      async: true,
+      timeout: 1000,
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        return false;
+      },
+      success: function (data) {
+        if (data.status == "10001") {
+          $("#balance").html(data.availableMoney)
+          $("#availableMoney").val(data.availableMoney)
+          // $('.showBalance').show()
+        } else {
+          alert(data.msg)
         }
-      });
-    })
-    const formData = [{ key: 'transferAmount', msg: '请输入转账金额' }, { key: 'availableMoney', msg: '请查询可用余额' }, { key: 'expectedDate', msg: '请选择期望日期' }]
+      }
+    });
+    // })
+    const formData = [{ key: 'transferAmount', msg: '请输入转账金额' }, { key: 'expectedDate', msg: '请选择期望日期' }, { key: 'accountNoTo', msg: '请输入收款账户' }/*{ key: 'availableMoney', msg: '请查询可用余额' },*/]
     $(".subTransferData").on("click", ".confirm", function () {
       for (let i = 0; i < formData.length; i++) {
         if (!$("#" + formData[i].key).val()) {
@@ -226,47 +240,54 @@
           return
         }
       }
-
-      let datas = {
-        "payAccountNo": "6228481006388483124",
-        "accountNoTo": "621483017909888",
-        "accountNameTo": "hujunwe",
-        "currency": 1,
-        "transferType": 1,
-        "availableMoney": $("#availableMoney").val(),
-        "expectedDate": $("#expectedDate").val(),
-        "transPurpose": 1,
-        "receivingBank": "华夏银行",
-        "transferAmount": $("#transferAmount").val(),
-        "transferMethod": 1,
-        "remark": "企业向个人转账"
-      }
-
-      $.ajax({
-        url: window.HOSTname + '/dbank/accountTransfers/transferToOtherAccount',
-        type: 'POST',
-        contentType: "application/json",
-        data: JSON.stringify(datas),
-        dataType: "json",
-        async: true,
-        timeout: 1000,
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-          opersignNo = "";
-          return false;
-        },
-        success: function (data) {
-          if (data.status == "10001") {
-            $('.trans').show()
-          } else {
-            alert(data.msg)
-          }
-        }
+      var pop01 = $(".message-w");
+      $(pop01).myPop({
+        closeBtn: "off_off "
       });
     })
-    $(".calendar").on("click", function(){
+    $(".calendar").on("click", function () {
       $(this).siblings("input").trigger("click");
     })
   })
+
+
+  function submitMyForm() {
+    let datas = {
+      "payAccountNo": "10241000000334682",
+      "accountNoTo": $("#accountNoTo").val(),
+      "accountNameTo": "hujunwe",
+      "currency": 1,
+      "transferType": 1,
+      "availableMoney": $("#availableMoney").val(),
+      "expectedDate": $("#expectedDate").val(),
+      "transPurpose": 1,
+      "receivingBank": "华夏银行",
+      "transferAmount": $("#transferAmount").val(),
+      "transferMethod": 1,
+      "remark": "企业行内转账"
+    }
+
+    $.ajax({
+      url: window.HOSTname + '/dbank/accountTransfers/transferToOtherAccount',
+      type: 'POST',
+      contentType: "application/json",
+      data: JSON.stringify(datas),
+      dataType: "json",
+      async: true,
+      timeout: 1000,
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        opersignNo = "";
+        return false;
+      },
+      success: function (data) {
+        if (data.status == "10001") {
+          window.location.href = "http://" + window.location.host + "/account.html";
+        } else {
+          alert(data.msg)
+        }
+      }
+    });
+  }
 </script>
 
 </html>
