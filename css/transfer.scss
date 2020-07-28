@@ -95,3 +95,33 @@
     }
   }
 }
+.udon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 362px;
+  height: 366px;
+  margin-top: -183px;
+  margin-left: -181px;
+  overflow: hidden;
+  background: #f0f0f0 url(../images/yd.png) no-repeat;
+  z-index: 2;
+  display: none;
+  .udonBtn {
+    margin-top: 320px;
+    height: 30px;
+    text-align: center;
+    overflow: hidden;
+    span {
+      display: inline-block;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      cursor: pointer;
+      padding: 0 15px;
+      margin: 0 10px;
+      background: #3c84bf;
+      color: #fff;
+    }
+  }
+}

@@ -5,4 +5,8 @@ $(function(){
         e.stopPropagation();
         $(this).addClass("active").siblings("li").removeClass("active");
     })
+
+    $(".udon").on("click", "span", function(){
+        $(".udon").hide();
+    })
 })
