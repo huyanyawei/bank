@@ -33,3 +33,4 @@ a:active { color: #666; }/*浮动和清除浮动*/
 .header { height: 50px; padding-top: 10px ; }
 .mt10 { margin-top: 10px; }
 .mt20 { margin-top: 20px; }
+.confirm{cursor: pointer;}

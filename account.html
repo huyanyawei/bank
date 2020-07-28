@@ -110,19 +110,23 @@
 <script src="./js/handlebars-v4.0.5.js"></script>
 <script>
   $(function () {
-    // Handlebars.registerHelper('loud', function (val, type) {
-    //   switch (type) {
-    //     case 'index': return val + 1;
-    //     case 'accountOtherName': return val == null ? '未定义' : val;
-    //     case 'currency': return val == 1 ? '人民币' : '其他';
-    //   }
-    //   return val;
-    // });
-    // let data =
-    //   '{"mySavings":[{"id":1,"name":"卢小龙","pid":"1504040188808160913","accountNo":"6228481006388483999","accountName":"龙腾科技","accountOtherName":null,"accountOpenBank":"中国人民银行","currency":1,"availableMoney":1000000.01,"accountType":1,"remark":null,"createTime":"2020-07-24 20:28:12","modifyTime":null},{"id":5,"name":"卢小龙","pid":"1504040188808160913","accountNo":"6228481006388483124","accountName":"科技3","accountOtherName":null,"accountOpenBank":"中国人民银行","currency":1,"availableMoney":889997.25,"accountType":1,"remark":null,"createTime":"2020-07-24 21:23:24","modifyTime":null}],"allSavingsCount":"1889997.26","myLoan":[{"id":2,"name":"卢小龙","pid":"1504040188808160913","accountNo":"6228481006388483888","accountName":"龙腾国际","accountOtherName":null,"accountOpenBank":"中国人民银行","currency":1,"availableMoney":1000000,"accountType":2,"remark":null,"createTime":"2020-07-24 20:28:12","modifyTime":null},{"id":6,"name":"卢小龙","pid":"1504040188808160913","accountNo":"6228481006388483125","accountName":"科技4","accountOtherName":null,"accountOpenBank":"中国人民银行","currency":1,"availableMoney":1000000,"accountType":2,"remark":null,"createTime":"2020-07-24 21:23:24","modifyTime":null}],"loansCount":"2000000.00","myFinancialMgmt":[{"id":3,"name":"卢小龙","pid":"1504040188808160913","accountNo":"6228481006388483123","accountName":"科技1","accountOtherName":null,"accountOpenBank":"中国人民银行","currency":1,"availableMoney":1000000.02,"accountType":3,"remark":null,"createTime":"2020-07-24 21:23:23","modifyTime":null},{"id":7,"name":"卢小龙","pid":"1504040188808160913","accountNo":"6228481006388483126","accountName":"科技5","accountOtherName":null,"accountOpenBank":"中国人民银行","currency":1,"availableMoney":1000000,"accountType":3,"remark":null,"createTime":"2020-07-24 21:23:24","modifyTime":null}],"myFinancialCount":"2000000.00","myOtherAccount":[{"id":4,"name":"卢小龙","pid":"1504040188808160913","accountNo":"6228481006388483112","accountName":"科技2","accountOtherName":null,"accountOpenBank":"华夏银行","currency":1,"availableMoney":1000000,"accountType":4,"remark":null,"createTime":"2020-07-24 21:23:24","modifyTime":null}]}';
+    Handlebars.registerHelper('loud', function (val, type) {
+      switch (type) {
+        case 'index': return val + 1;
+        case 'accountOtherName': return val == null ? '未定义' : val;
+        case 'currency': return val == 1 ? '人民币' : '其他';
+      }
+      return val;
+    });
+    let data =
+      '{"mySavings":[{"id":1,"name":"卢小龙","pid":"1504040188808160913","accountNo":"6228481006388483999","accountName":"中农寰穹国际供应链管理（北京）有限公司","accountOtherName":null,"accountOpenBank":"中国人民银行","currency":1,"availableMoney":1000000.01,"accountType":1,"remark":null,"createTime":"2020-07-24 20:28:12","modifyTime":null},{"id":5,"name":"卢小龙","pid":"1504040188808160913","accountNo":"6228481006388483124","accountName":"中农寰穹国际供应链管理（北京）有限公司","accountOtherName":null,"accountOpenBank":"中国人民银行","currency":1,"availableMoney":889997.25,"accountType":1,"remark":null,"createTime":"2020-07-24 21:23:24","modifyTime":null}],"allSavingsCount":"1889997.26","myLoan":[{"id":2,"name":"卢小龙","pid":"1504040188808160913","accountNo":"6228481006388483888","accountName":"中农寰穹国际供应链管理（北京）有限公司","accountOtherName":null,"accountOpenBank":"中国人民银行","currency":1,"availableMoney":1000000,"accountType":2,"remark":null,"createTime":"2020-07-24 20:28:12","modifyTime":null},{"id":6,"name":"卢小龙","pid":"1504040188808160913","accountNo":"6228481006388483125","accountName":"中农寰穹国际供应链管理（北京）有限公司","accountOtherName":null,"accountOpenBank":"中国人民银行","currency":1,"availableMoney":1000000,"accountType":2,"remark":null,"createTime":"2020-07-24 21:23:24","modifyTime":null}],"loansCount":"2000000.00","myFinancialMgmt":[{"id":3,"name":"卢小龙","pid":"1504040188808160913","accountNo":"6228481006388483123","accountName":"中农寰穹国际供应链管理（北京）有限公司","accountOtherName":null,"accountOpenBank":"中国人民银行","currency":1,"availableMoney":1000000.02,"accountType":3,"remark":null,"createTime":"2020-07-24 21:23:23","modifyTime":null},{"id":7,"name":"卢小龙","pid":"1504040188808160913","accountNo":"6228481006388483126","accountName":"中农寰穹国际供应链管理（北京）有限公司","accountOtherName":null,"accountOpenBank":"中国人民银行","currency":1,"availableMoney":1000000,"accountType":3,"remark":null,"createTime":"2020-07-24 21:23:24","modifyTime":null}],"myFinancialCount":"2000000.00","myOtherAccount":[{"id":4,"name":"卢小龙","pid":"1504040188808160913","accountNo":"6228481006388483112","accountName":"中农寰穹国际供应链管理（北京）有限公司","accountOtherName":null,"accountOpenBank":"华夏银行","currency":1,"availableMoney":1000000,"accountType":4,"remark":null,"createTime":"2020-07-24 21:23:24","modifyTime":null}]}';
 
-    // var handlebarsInhtml = Handlebars.compile($("#my-account").html());
-    // $("#myAccount").append(handlebarsInhtml(JSON.parse(data)));
+    var handlebarsInhtml = Handlebars.compile($("#my-account").html());
+    $("#myAccount").append(handlebarsInhtml(JSON.parse(data)));
+    setTimeout(() => {
+      let special = $('.special').height()
+      $('.special').siblings('li').css("height", special)
+    })
     let pid = sessionStorage.getItem("pid")
     $.ajax({
       url: window.HOSTname + '/dbank/accountInfos/getAllAccountInfo',
@@ -174,7 +178,7 @@
       <li class="list01">{{loud @index 'index'}}</li>
       <li class="list02">{{loud accountOtherName 'accountOtherName' }} </li>
       <li class="list03">{{accountNo}}</li>
-      <li class="list04">{{accountName}}</li>
+      <li class="list04 special">{{accountName}}</li>
       <li class="list05">{{loud currency 'currency'}}</li>
       <li class="list06">{{availableMoney}}</li>
     </ul>
@@ -201,7 +205,7 @@
       <li class="list01">{{loud @index 'index'}}</li>
       <li class="list02">{{loud accountOtherName 'accountOtherName' }} </li>
       <li class="list03">{{accountNo}}</li>
-      <li class="list04">{{accountName}}</li>
+      <li class="list04 special">{{accountName}}</li>
       <li class="list05">{{loud currency 'currency'}}</li>
       <li class="list06">{{availableMoney}}</li>
     </ul>
@@ -227,7 +231,7 @@
       <li class="list01">{{loud @index 'index'}}</li>
       <li class="list02">{{loud accountOtherName 'accountOtherName' }} </li>
       <li class="list03">{{accountNo}}</li>
-      <li class="list04">{{accountName}}</li>
+      <li class="list04 special">{{accountName}}</li>
       <li class="list05">{{loud currency 'currency'}}</li>
       <li class="list06">{{availableMoney}}</li>
     </ul>
@@ -243,7 +247,7 @@
     <ul class="theadTitle">
       <li class="list01">序号</li>
       <li class="list02">账户别名</li>
-      <li class="list06">开户行</li>
+      <li class="list03">开户行</li>
       <li class="list03">账号</li>
       <li class="list04">账号名称</li>
       <li class="list05">币种</li>
@@ -252,9 +256,9 @@
     <ul>
       <li class="list01">{{loud @index 'index'}}</li>
       <li class="list02">{{loud accountOtherName 'accountOtherName' }} </li>
-      <li class="list06">{{accountOpenBank}} </li>
+      <li class="list03" style="border-right: 1px solid #bfbfbf;">{{accountOpenBank}} </li>
       <li class="list03">{{accountNo}}</li>
-      <li class="list04">{{accountName}}</li>
+      <li class="list04 special">{{accountName}}</li>
       <li class="list05">{{loud currency 'currency'}}</li>
     </ul>
     {{/each}}
