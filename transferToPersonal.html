@@ -286,6 +286,9 @@
         }
       });
     })
+    $(".calendar").on("click", function(){
+      $(this).siblings("input").trigger("click");
+    })
   })
 </script>
 
