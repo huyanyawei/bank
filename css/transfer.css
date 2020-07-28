@@ -83,7 +83,7 @@
       margin-right: 10px; }
 
 .udon {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   width: 362px;
