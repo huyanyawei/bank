@@ -7,6 +7,11 @@
   <title>Document</title>
   <link href="./css/base.css" rel="stylesheet">
   <link href="./css/account.css" rel="stylesheet">
+  <style type="text/css">
+    .right_wrap .myAccount .thead .special {
+      padding: 5px 0;
+    }
+  </style>
 </head>
 
 <body>
@@ -219,10 +224,10 @@
           });
           var handlebarsInhtml = Handlebars.compile($("#my-account").html());
           $("#myAccount").html(handlebarsInhtml(data.list));
-          setTimeout(() => {
+          setTimeout(function () {
             let special = $('.special').height()
             $('.special').siblings('li').css({ "height": special, "line-height": special + "px" })
-          })
+          });
         } else {
           alert(data.msg)
         }
