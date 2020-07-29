@@ -33,4 +33,62 @@ a:active { color: #666; }/*浮动和清除浮动*/
 .header { height: 50px; padding-top: 10px ; }
 .mt10 { margin-top: 10px; }
 .mt20 { margin-top: 20px; }
-.confirm{cursor: pointer;}
+.confirm,.calendar,.off_off{cursor: pointer;}
+
+
+
+.markall {
+	position:absolute; top:0; left:0;
+	width:100%; height:100%;
+	z-index:99997;
+	background:url(../images/one_a.png) repeat;
+}
+.pop{position:fixed; z-index:99999; top:50%; left:50%; }
+
+.box_one{
+	width:498px;padding-top:10px;
+	margin:0 auto;height:329px;
+	z-index:99998;
+	/* background:url(../images_new/one_b.png) repeat; */
+}
+.none{display:none;}
+.message-w{
+    background: #fff;
+}
+.message_me-con{
+    text-align: center;
+    background: rgb(240,240,240);
+}
+.message_me {
+    background: #fff;
+    width: 440px;
+    padding-top: 0px;
+    margin: 0 auto;
+    height: 420px;
+    background: rgb(240,240,240);
+}
+.w-rule-title {
+    height: 40px;
+    background: rgb(78,143,207);
+    color: #fff;
+    line-height: 40px;
+    padding: 0 20px;
+    font-size: 14px;
+}
+.modal-footer a {
+    display: inline-block;
+    font-size: 12px;
+    padding: 4px;
+    width: 110px;
+    border-radius: 0;
+    margin-right: 10px;
+    color: #fff;
+    background: rgb(78,143,207);
+    border-color: #ccc;
+    border: 1px solid #ebebeb;
+    position: relative;
+    top: -26px;
+}
+.modal-footer {
+    text-align: center;
+}
