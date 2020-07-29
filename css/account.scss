@@ -159,8 +159,8 @@
             .list02 { width: 200px;border-right: 1px solid #bfbfbf}
             .list03 { width: 200px; border-left: 1px solid #bfbfbf;}
             .list04 { width: 200px;border-left: 1px solid #bfbfbf;border-right: 1px solid #bfbfbf}
-            .list05 { width: 100px;}
-            .list06 { width: 213px;border-left: 1px solid #bfbfbf}
+            .list05 { width: 100px;border-right: 1px solid #bfbfbf}
+            .list06 { width: 213px;}
             .special { line-height: 18px; padding: 7px 0;}
             .theadTitle {
                 background: #c6daea;
@@ -177,7 +177,7 @@
                 width: 100%;
                 overflow: hidden;
             }
-            .list07 { width: 754px;}
+            .list07 { width: 754px;border-right: 1px solid #bfbfbf}
         }
         .mySavings,.myLoan,.myFinancialMgmt,.myOtherAccount {
             .list03 { border-left: none;}
