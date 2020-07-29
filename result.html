@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link href="./css/base.css" rel="stylesheet">
   <link href="./css/account.css" rel="stylesheet">
-  <link href="./css/result.css" rel="stylesheet">
+  <link href="./css/transfer.css" rel="stylesheet">
 </head>
+
 <body>
   <div class="account">
     <div class="header w">
@@ -16,10 +18,10 @@
     </div>
     <div class="w menu mt20">
       <ul>
-        <li class="active"><a href="account.html"><span><img src="./images/account/main_nav_accountmanage.png"></span>
+        <li><a href="account.html"><span><img src="./images/account/main_nav_accountmanage.png"></span>
             <p>账户管理</p>
           </a></li>
-        <li><a href="transferToFirm.html"><span><img src="./images/account/main_nav_transfer.png"></span>
+        <li class="active"><a href="transferToFirm.html"><span><img src="./images/account/main_nav_transfer.png"></span>
             <p>支付结算</p>
           </a></li>
         <li><a href="#"><span><img src="./images/account/main_nav_balance.png"></span>
@@ -62,47 +64,158 @@
     </div>
     <div class="sub_munu">
       <ul>
-        <li class="active"><a href="">账户查询</a></li>
-        <li><a href="">法人账户透支</a></li>
-        <li><a href="">签约</a></li>
-        <li><a href="">银企对账</a></li>
-        <li><a href="">中小企业信贷</a></li>
-        <li><a href="">银关通</a></li>
-        <li><a href="">网络贷</a></li>
-        <li><a href="">子账户管理</a></li>
-        <li><a href="">单位结算卡管理</a></li>
+        <li class="active"><a href="">单笔转账</a></li>
+        <li><a href="">批量转账</a></li>
+        <li><a href="">代发工资</a></li>
+        <li><a href="">集团服务</a></li>
+        <li><a href="">网银手续费缴纳</a></li>
+        <li><a href="">上海同城</a></li>
+        <li><a href="">银税通</a></li>
+        <li><a href="">非税收入代缴</a></li>
       </ul>
     </div>
     <div class="wrap w">
       <div class="left_wrap fl">
         <ul>
-          <li><a href="">我的账户 </a></li>
-          <li><a href="">账户明细查询 </a></li>
-          <li class="active"><a href="">当日来往账信息查询 </a></li>
-          <li><a href="">账户个性化设置 </a></li>
-          <li><a href="">    网上交易查询 </a></li>
-          <li><a href=""> 跨行签约账户信息查询 </a></li>
-          <li><a href=""> 行内个人签约账户信息查询 </a></li>
-          <li><a href=""> 外币账户追加与删除 </a></li>
-          <li><a href="">商户服务 </a></li>
-          <li><a href=""> 当日账户明细特殊查询 </a></li>
-          <li><a href="">电子回单查询 </a></li>
+          <li><a href="/transferToFirm.html">企业行内转账</a></li>
+          <li><a href="#">企业跨行转账</a></li>
+          <li><a href="/transferToPersonal.html">企业向个人单笔转账</a></li>
+          <li><a href="">爱心捐款</a></li>
+          <li><a href="">跨行签约账户转账</a></li>
+          <li><a href="">单笔转账交易查询与维护</a></li>
+          <li><a href="">跨行签约账户限额查询</a></li>
+          <li><a href="">行内个人签约账户转账</a></li>
+          <li><a href="">行内个人签约账户资金归集设置</a></li>
+          <li><a href="">行内个人资金归集交易结果查询</a></li>
+          <li><a href="">中登上海专用交易</a></li>
+          <li><a href="">PDS系统入金</a></li>
         </ul>
         <div class="tel"><img src="./images/account/kefu.jpg" alt=""></div>
       </div>
       <div class="right_wrap fr bg">
-        <div class="crumbs">前位置： <a>账户管理</a> >> <a>账户查询</a> >> 账户明细查询</div>
-        <div class="result mt10">
-          <div class="setSuccess mt20">
-            <span><img src="./images/account/small.jpg" alt="">交易提醒！</span>
-            <p>没找到符合条件都记录</p>
+        <div class="crumbs">前位置： <a>支付结算</a> >> <a>单笔转账</a></div>
+        <div class="transfer">
+          <div class="setSuccess ">
+            <span><img src="./images/account/small.jpg" alt="">提交成功！</span>
+            <p>账户转账成功</p>
           </div>
         </div>
-        
+
+        <div class="tip">
+          <h3>客户提示：</h3>
+          <ul>
+            <li>当您使用“快速到账”和“同城票交”方式时，不能选择非工作日作为期望日期；
+            <li>您最多可以在用途栏输入30个汉字或60个字母、数字、字符；
+            <li>输入收款人时，可以使用“列表显示”、“模糊查询”及“手工录入收款行”三种方式。收款人可添加至常汇户中，在“服务中心—收款人（常汇户）管理”中进行维护；
+            <li>请您正确填写转账信息，因收款行、账号、户名等转账信息填写错误造成对方银行退款，手续费不退回；
+            <li>交易确认页面回显的应收手续费指根据我行电子银行收费标准应收取的转账手续费，实收手续费指根据我行优惠政策实际收取的转账手续费，具体收费标准及优惠政策请参照我行网站首页“收费标准”栏目或咨询95577。
+            <li>注：“实时转出”是按期望日期实时发起转账，“普通转出”是延迟三小时发起转账，“次日转出”是延迟到次日9点之后发起转账（交易具体发起时间约在次日9点至10点之间）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="message-w none">
+    <div class=" message_me">
+      <p style="clear:both;" class="w-rule-title"><span class="fl">提示</span><span class="off_off fr">X</span></p>
+      <p class="message_me-con">
+        <img src="images/pay.png" alt="">
+      </p>
+      <div class="modal-footer">
+        <a href="##" class="off_off btn btn-danger" data-dismiss="modal" onclick="myFunction()">确定</a>
       </div>
     </div>
   </div>
 </body>
-<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="./js/jquery.js"></script>
 <script src="./js/date.js"></script>
+<script src="./js/mypop.js"></script>
+<script src="./js/com.js"></script>
+<script>
+  $(function () {
+    $('.trans').hide()
+    // $('.showBalance').hide()
+    // $(".transfreInfo").on("click", "#getBalance", function () {
+    // var pid = sessionStorage.getItem("pid")
+    $.ajax({
+      url: window.HOSTname + '/dbank/accountInfos/getAccountInfoByAccountNo',
+      type: 'POST',
+      contentType: "application/json",
+      data: JSON.stringify({ "accountNo": "10241000000334682" }),
+      dataType: "json",
+      async: true,
+      timeout: 1000,
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        return false;
+      },
+      success: function (data) {
+        if (data.status == "10001") {
+          $("#balance").html(data.availableMoney)
+          $("#availableMoney").val(data.availableMoney)
+          // $('.showBalance').show()
+        } else {
+          alert(data.msg)
+        }
+      }
+    });
+    // })
+    const formData = [{ key: 'transferAmount', msg: '请输入转账金额' }, { key: 'accountNameTo', msg: '请输入公司名称' }, { key: 'expectedDate', msg: '请选择期望日期' }]
+    $(".subTransferData").on("click", ".confirm", function () {
+      for (let i = 0; i < formData.length; i++) {
+        if (!$("#" + formData[i].key).val()) {
+          alert(formData[i].msg)
+          return
+        }
+      }
+      var pop01 = $(".message-w");
+      $(pop01).myPop({
+        closeBtn: "off_off "
+      });
+    })
+
+    $(".calendar").on("click", function () {
+      $(this).siblings("input").trigger("click");
+    })
+  })
+
+
+  function myFunction() {
+    let datas = {
+      "payAccountNo": "10241000000334682",
+      "accountNoTo": "621483017909888",
+      "accountNameTo": $("#accountNameTo").val(),
+      "currency": 1,
+      "transferType": 1,
+      "availableMoney": $("#availableMoney").val(),
+      "expectedDate": $("#expectedDate").val(),
+      "transPurpose": 1,
+      "receivingBank": "华夏银行",
+      "transferAmount": $("#transferAmount").val(),
+      "transferMethod": 1,
+      "remark": "企业跨行转账"
+    }
+
+    $.ajax({
+      url: window.HOSTname + '/dbank/accountTransfers/transferToOtherAccount',
+      type: 'POST',
+      contentType: "application/json",
+      data: JSON.stringify(datas),
+      dataType: "json",
+      async: true,
+      timeout: 1000,
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        opersignNo = "";
+        return false;
+      },
+      success: function (data) {
+        if (data.status == "10001") {
+          window.location.href = "http://" + window.location.host + "/account.html";
+        } else {
+          alert(data.msg)
+        }
+      }
+    });
+  }
+</script>
+
 </html>

@@ -145,9 +145,10 @@
               <li class="list01">用途<span class="required">*</span></li>
               <li>
                 <select>
-                  <option>薪水</option>
-                  <option selected="">佣金</option>
-                  <option>补贴</option>
+                  <option>货款 </option>
+                  <option selected="">往来款 </option>
+                  <option>工资</option>
+                  <option>其他合法款项</option>
                 </select>
                 <!-- 根据上面的选择对下面进行展示隐藏 -->
                 <input type="text" name="" id="" placeholder=支持模糊搜索>
@@ -278,12 +279,13 @@
       async: true,
       timeout: 1000,
       error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert("转账失败")
         opersignNo = "";
         return false;
       },
       success: function (data) {
         if (data.status == "10001") {
-          window.location.href = "http://" + window.location.host + "/account.html";
+          window.location.href = "http://" + window.location.host + "/result.html";
         } else {
           alert(data.msg)
         }
