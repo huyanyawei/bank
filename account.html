@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=10">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link href="./css/base.css" rel="stylesheet">
@@ -225,8 +226,8 @@
           var handlebarsInhtml = Handlebars.compile($("#my-account").html());
           $("#myAccount").html(handlebarsInhtml(data.list));
           setTimeout(function () {
-            let special = $('.special').height()
-            $('.special').siblings('li').css({ "height": special, "line-height": special + "px" })
+            var special = $('.special').height();
+            $('.special').siblings('li').css({ "height": special, "line-height": special + "px" });
           });
         } else {
           alert(data.msg)

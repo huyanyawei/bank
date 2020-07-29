@@ -3,11 +3,12 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=10">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link href="./css/base.css" rel="stylesheet">
+  <link href="./css/login.css" rel="stylesheet">
 </head>
-<link href="./css/base.css" rel="stylesheet">
-<link href="./css/login.css" rel="stylesheet">
 
 <body>
   <div class="header w">
@@ -69,8 +70,8 @@
   <script>
     $(function () {
       $(".loginBtn").on("click", "span", function () {
-        let data = {}
-        let that = $(this);
+        var data = {};
+        var that = $(this);
         user = $("#user").val();
         pw = $("#pw").val();
         data = { "pid": user, "password": pw }

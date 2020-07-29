@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=10">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link href="./css/base.css" rel="stylesheet">
@@ -235,9 +236,9 @@
       }
     });
     // })
-    const formData = [{ key: 'transferAmount', msg: '请输入转账金额' }, { key: 'expectedDate', msg: '请选择期望日期' }, { key: 'accountNoTo', msg: '请输入收款账户' }/*{ key: 'availableMoney', msg: '请查询可用余额' },*/]
+    var formData = [{ key: 'transferAmount', msg: '请输入转账金额' }, { key: 'expectedDate', msg: '请选择期望日期' }, { key: 'accountNoTo', msg: '请输入收款账户' }/*{ key: 'availableMoney', msg: '请查询可用余额' },*/]
     $(".subTransferData").on("click", ".confirm", function () {
-      for (let i = 0; i < formData.length; i++) {
+      for (var i = 0; i < formData.length; i++) {
         if (!$("#" + formData[i].key).val()) {
           alert(formData[i].msg)
           return
@@ -255,7 +256,7 @@
 
 
   function submitMyForm() {
-    let datas = {
+    var datas = {
       "payAccountNo": "10241000000334682",
       "accountNoTo": $("#accountNoTo").val(),
       "accountNameTo": "hujunwe",
