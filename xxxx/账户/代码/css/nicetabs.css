@@ -1,0 +1,66 @@
+.nav_bigbox_left {
+	WIDTH: 5px; BACKGROUND: url(../images/newimages/menu_1_left.jpg); FLOAT: left
+}
+.nav_bigbox_right {
+	WIDTH: 5px; BACKGROUND: url(../images/newimages/menu_1_right.jpg); FLOAT: left
+}
+.header UL {
+	LIST-STYLE-TYPE: none; HEIGHT: 34px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; CLEAR: both; MARGIN: 0px; PADDING-RIGHT: 0px
+}
+.header LI {
+	FONT-SIZE: 12px; BACKGROUND: url(../images/mainmenu/menu_line_bor.jpg) no-repeat 0px 0px; FLOAT: left; FONT-WEIGHT: bold; PADDING-BOTTOM: 4px; TEXT-ALIGN: center; PADDING-TOP: 0px; PADDING-LEFT: 3px; MARGIN: 0px; LINE-HEIGHT: 30px; PADDING-RIGHT: 3px
+}
+#lefter {
+	FONT-SIZE: 12px; FLOAT: left; COLOR: #676465; PADDING-BOTTOM: 0px; PADDING-TOP: 2px; PADDING-LEFT: 6px; MARGIN: 0px auto 0px -40px; PADDING-RIGHT: 5px
+}
+#lefter UL {
+	FONT-SIZE: 12px
+}
+#lefter LI {
+	FONT-SIZE: 12px; WORD-WRAP: break-word; WIDTH: 164px; BACKGROUND: url(../images/newimages/accountbgbar.jpg) no-repeat left center; WORD-BREAK: normal; FLOAT: left; FONT-WEIGHT: bold; MARGIN: 0px
+}
+#lefter LI A {
+	FONT-SIZE: 12px; TEXT-DECORATION: none; WIDTH: 154px; BORDER-BOTTOM: #ccc 1px solid; FLOAT: left; FONT-WEIGHT: bold; COLOR: #676465; PADDING-BOTTOM: 9px; TEXT-ALIGN: left; PADDING-TOP: 9px; PADDING-LEFT: 5px; MARGIN: 0px auto; PADDING-RIGHT: 0px
+}
+#lefter LI.selected A {
+	LIST-STYLE-TYPE: none; TEXT-DECORATION: none; WIDTH: 154px; BACKGROUND: #ccc; COLOR: #000; TEXT-ALIGN: left; MARGIN: 0px auto
+}
+.header > UL A {
+	TEXT-DECORATION: none
+}
+.header A {
+	TEXT-DECORATION: none; FLOAT: none
+}
+.header LI.selected {
+	BORDER-LEFT-WIDTH: 0px; FONT-SIZE: 12px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; FONT-WEIGHT: bold; BORDER-TOP-WIDTH: 0px
+}
+.header LI.selected A {
+	FONT-SIZE: 14px; TEXT-DECORATION: none; WIDTH: 60px; FONT-WEIGHT: bold; COLOR: #5d5d5d; PADDING-BOTTOM: 4px; PADDING-TOP: 6px; PADDING-LEFT: 3px; LINE-HEIGHT: 30px; PADDING-RIGHT: 3px
+}
+.header LI:hover {
+	TEXT-DECORATION: none; COLOR: #000; DISPLAY: block
+}
+#header LI:hover A {
+	TEXT-DECORATION: none; COLOR: #000; DISPLAY: block
+}
+.menuList {
+	
+}
+.menuList LI.selected UL.submenu {
+	WIDTH: 1000px; BACKGROUND: none transparent scroll repeat 0% 0%; WHITE-SPACE: nowrap; TABLE-LAYOUT: fixed; POSITION: absolute; FLOAT: left; COLOR: #000; TEXT-ALIGN: center; LEFT: 110px; MARGIN: 0px auto; Z-INDEX: 3; DISPLAY: block; TOP: 96px
+}
+.menuList LI.selected UL.submenu A {
+	FONT-SIZE: 12px; TEXT-DECORATION: none; WIDTH: 106px; BACKGROUND: none transparent scroll repeat 0% 0%; FLOAT: left; FONT-WEIGHT: bold; TEXT-ALIGN: center; MARGIN: 0px; LINE-HEIGHT: 17px; PADDING-RIGHT: 2px
+}
+.menuList LI.selected UL.submenu A:hover {
+	OVERFLOW: hidden; HEIGHT: 29px; WIDTH: 106px; BACKGROUND: url(../images/mainmenu/menu_head_on.jpg) no-repeat center top; COLOR: #000 !important; PADDING-BOTTOM: 5px; TEXT-ALIGN: center; LINE-HEIGHT: 17px
+}
+.menuList LI.selected UL.submenu A.selected {
+	OVERFLOW: hidden; HEIGHT: 29px; WIDTH: 106px; BACKGROUND: url(../images/mainmenu/menu_head_on.jpg) no-repeat center top; COLOR: #da2430 !important; PADDING-BOTTOM: 5px; TEXT-ALIGN: center; LINE-HEIGHT: 17px
+}
+.menuList UL.submenu {
+	WIDTH: 90%; BACKGROUND: none transparent scroll repeat 0% 0%; DISPLAY: none
+}
+.menuList LI.selected UL.submenu LI {
+	BACKGROUND: none transparent scroll repeat 0% 0%; WHITE-SPACE: nowrap; BORDER-BOTTOM-WIDTH: 0px !important; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px
+}

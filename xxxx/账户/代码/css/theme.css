@@ -1,0 +1,147 @@
+DIV.calendar {
+	POSITION: relative
+}
+.calendar {
+	FONT-SIZE: 11px; CURSOR: default; BORDER-TOP: #bdb2bf 1px solid; FONT-FAMILY: "trebuchet ms",verdana,tahoma,sans-serif; BORDER-RIGHT: #bdb2bf 1px solid; BACKGROUND: url(normal-bg.gif); BORDER-BOTTOM: #bdb2bf 1px solid; COLOR: #000; BORDER-LEFT: #bdb2bf 1px solid
+}
+.calendar TABLE {
+	FONT-SIZE: 11px; CURSOR: default; BORDER-TOP: #bdb2bf 1px solid; FONT-FAMILY: "trebuchet ms",verdana,tahoma,sans-serif; BORDER-RIGHT: #bdb2bf 1px solid; BACKGROUND: url(normal-bg.gif); BORDER-BOTTOM: #bdb2bf 1px solid; COLOR: #000; BORDER-LEFT: #bdb2bf 1px solid
+}
+.calendar {
+	BORDER-TOP-COLOR: #797979; BORDER-LEFT-COLOR: #797979; BORDER-BOTTOM-COLOR: #797979; BORDER-RIGHT-COLOR: #797979
+}
+.calendar .button {
+	BACKGROUND: url(title-bg.gif) repeat-x 0px 100%; FONT-WEIGHT: bold; COLOR: #000; PADDING-BOTTOM: 2px; TEXT-ALIGN: center; PADDING-TOP: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px
+}
+.calendar .nav {
+	FONT-FAMILY: verdana,tahoma,sans-serif
+}
+.calendar .nav DIV {
+	BACKGROUND: url(menuarrow.gif) no-repeat 100% 100%
+}
+.calendar THEAD TR {
+	BACKGROUND: url(title-bg.gif) repeat-x 0px 100%; COLOR: #000
+}
+.calendar THEAD .title {
+	BACKGROUND: url(title-bg.gif) repeat-x 0px 100%; FONT-WEIGHT: bold; COLOR: #000; PADDING-BOTTOM: 2px; TEXT-ALIGN: center; PADDING-TOP: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px
+}
+.calendar THEAD .headrow {
+	
+}
+.calendar THEAD .name {
+	BORDER-BOTTOM: #797979 1px solid; COLOR: #000; PADDING-BOTTOM: 2px; TEXT-ALIGN: center; PADDING-TOP: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px
+}
+.calendar THEAD .weekend {
+	COLOR: #c44
+}
+.calendar THEAD .hilite {
+	BACKGROUND: url(hover-bg.gif); BORDER-BOTTOM: #797979 1px solid; PADDING-BOTTOM: 1px; PADDING-TOP: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px
+}
+.calendar THEAD .active {
+	BACKGROUND: url(active-bg.gif); BORDER-BOTTOM: #797979 1px solid; COLOR: #fff; PADDING-BOTTOM: 0px; PADDING-TOP: 3px; PADDING-LEFT: 3px; PADDING-RIGHT: 1px
+}
+.calendar THEAD .daynames {
+	BACKGROUND: url(dark-bg.gif)
+}
+.calendar TBODY .day {
+	FONT-FAMILY: verdana,tahoma,sans-serif; WIDTH: 2em; COLOR: #000; PADDING-BOTTOM: 2px; TEXT-ALIGN: right; PADDING-TOP: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 4px
+}
+.calendar TBODY .othermonth.day {
+	FONT-SIZE: 80%; COLOR: #999
+}
+.calendar TBODY .oweekend.othermonth.day {
+	COLOR: #f99
+}
+.calendar TABLE .wn {
+	BORDER-RIGHT: #797979 1px solid; BACKGROUND: url(dark-bg.gif); PADDING-BOTTOM: 2px; PADDING-TOP: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 3px
+}
+.calendar TBODY .rowhilite TD {
+	BACKGROUND: url(rowhover-bg.gif)
+}
+.calendar TBODY .rowhilite TD.wn {
+	BACKGROUND: url(rowhover-bg.gif)
+}
+.calendar TBODY TD.today {
+	FONT-WEIGHT: bold
+}
+.calendar TBODY TD.hilite {
+	BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid; BACKGROUND: url(hover-bg.gif); BORDER-BOTTOM: #bbb 1px solid; PADDING-BOTTOM: 1px; PADDING-TOP: 1px; PADDING-LEFT: 1px; BORDER-LEFT: #bbb 1px solid; PADDING-RIGHT: 3px
+}
+.calendar TBODY TD.active {
+	PADDING-BOTTOM: 0px; PADDING-TOP: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px
+}
+.calendar TBODY TD.weekend {
+	COLOR: #c44
+}
+.calendar TBODY TD.selected {
+	BORDER-TOP: #797979 1px solid; BORDER-RIGHT: #797979 1px solid; BACKGROUND: url(active-bg.gif); BORDER-BOTTOM: #797979 1px solid; FONT-WEIGHT: bold; COLOR: #fff; PADDING-BOTTOM: 1px; PADDING-TOP: 1px; PADDING-LEFT: 1px; BORDER-LEFT: #797979 1px solid; PADDING-RIGHT: 3px
+}
+.calendar TBODY .disabled {
+	COLOR: #999
+}
+.calendar TBODY .emptycell {
+	VISIBILITY: hidden
+}
+.calendar TBODY .emptyrow {
+	DISPLAY: none
+}
+.calendar TFOOT .footrow {
+	BACKGROUND: #565; COLOR: #fff; TEXT-ALIGN: center
+}
+.calendar TFOOT .ttip {
+	BACKGROUND: url(status-bg.gif) repeat-x 0px 0px; COLOR: #000; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px
+}
+.calendar TFOOT .hilite {
+	BORDER-TOP: #084 1px solid; BORDER-RIGHT: #084 1px solid; BACKGROUND: #afa; BORDER-BOTTOM: #084 1px solid; COLOR: #000; PADDING-BOTTOM: 1px; PADDING-TOP: 1px; PADDING-LEFT: 1px; BORDER-LEFT: #084 1px solid; PADDING-RIGHT: 1px
+}
+.calendar TFOOT .active {
+	BACKGROUND: #7c7; PADDING-BOTTOM: 0px; PADDING-TOP: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 0px
+}
+.calendar .combo {
+	FONT-SIZE: 90%; CURSOR: default; BORDER-TOP: #797979 0px solid; BORDER-RIGHT: #797979 1px solid; WIDTH: 4em; BACKGROUND: url(normal-bg.gif); BORDER-BOTTOM: #797979 1px solid; POSITION: absolute; COLOR: #000; LEFT: 0px; BORDER-LEFT: #797979 1px solid; Z-INDEX: 100; DISPLAY: none; TOP: 0px
+}
+.calendar .combo .label {
+	PADDING-BOTTOM: 1px; TEXT-ALIGN: center; PADDING-TOP: 1px; PADDING-LEFT: 1px; PADDING-RIGHT: 1px
+}
+.calendar .combo .label-IEfix {
+	PADDING-BOTTOM: 1px; TEXT-ALIGN: center; PADDING-TOP: 1px; PADDING-LEFT: 1px; PADDING-RIGHT: 1px
+}
+.calendar .combo .label-IEfix {
+	WIDTH: 4em
+}
+.calendar .combo .hilite {
+	BACKGROUND: url(hover-bg.gif); COLOR: #000
+}
+.calendar .combo .active {
+	BACKGROUND: url(active-bg.gif); FONT-WEIGHT: bold; COLOR: #fff
+}
+.calendar TD.time {
+	BORDER-TOP: #797979 1px solid; BACKGROUND: url(dark-bg.gif); PADDING-BOTTOM: 1px; TEXT-ALIGN: center; PADDING-TOP: 1px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px
+}
+.calendar TD.time .hour {
+	BACKGROUND: url(normal-bg.gif); FONT-WEIGHT: bold; COLOR: #000; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 6px; PADDING-RIGHT: 5px
+}
+.calendar TD.time .minute {
+	BACKGROUND: url(normal-bg.gif); FONT-WEIGHT: bold; COLOR: #000; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 6px; PADDING-RIGHT: 5px
+}
+.calendar TD.time .ampm {
+	BACKGROUND: url(normal-bg.gif); FONT-WEIGHT: bold; COLOR: #000; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 6px; PADDING-RIGHT: 5px
+}
+.calendar TD.time .hour {
+	FONT-FAMILY: monospace
+}
+.calendar TD.time .minute {
+	FONT-FAMILY: monospace
+}
+.calendar TD.time .ampm {
+	TEXT-ALIGN: center
+}
+.calendar TD.time .colon {
+	FONT-WEIGHT: bold; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 3px; PADDING-RIGHT: 2px
+}
+.calendar TD.time SPAN.hilite {
+	BACKGROUND: url(hover-bg.gif); COLOR: #000
+}
+.calendar TD.time SPAN.active {
+	BACKGROUND: url(active-bg.gif); COLOR: #fff
+}

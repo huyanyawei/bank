@@ -1,0 +1,76 @@
+@page  {size: 11in 8.5in; margin: 0.25in; border: 1px solid silver; padding-top: 5px; }
+.jmesa {
+	WIDTH: 100%; PADDING-BOTTOM: 15px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px auto; PADDING-RIGHT: 0px
+}
+.jmesa CAPTION {
+	FONT-SIZE: 13px; WORD-BREAK: break-all; FONT-WEIGHT: bold; COLOR: #444444; TEXT-ALIGN: left; PADDING-TOP: 3px; PADDING-LEFT: 10px; CAPTION-SIDE: top
+}
+.jmesa .table {
+	BORDER-TOP: silver 1px; BORDER-RIGHT: silver 1px; WIDTH: 100%; BORDER-BOTTOM: silver 1px; WORD-BREAK: break-all; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; PADDING-LEFT: 2px; BORDER-LEFT: silver 1px; PADDING-RIGHT: 2px
+}
+.toolbar TABLE {
+	MARGIN-TOP: 3px; MARGIN-LEFT: 0px; MARGIN-RIGHT: auto
+}
+.jmesa .toolbar TD {
+	WORD-BREAK: break-all; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 1px; PADDING-RIGHT: 1px
+}
+.jmesa .toolbar SELECT {
+	FONT-SIZE: 11px; BORDER-TOP: #c4c3c2 1px solid; BORDER-RIGHT: #c4c3c2 1px solid; BORDER-BOTTOM: #c4c3c2 1px solid; BORDER-LEFT: #c4c3c2 1px solid
+}
+.jmesa .c {
+	BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-TOP-WIDTH: 0px
+}
+.jmesa .filter TD {
+	PADDING-BOTTOM: 3px; PADDING-TOP: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px
+}
+.jmesa .tbody INPUT {
+	WHITE-SPACE: nowrap; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px
+}
+.jmesa .filter .dynFilter {
+	FONT-SIZE: 11px; CURSOR: pointer; BORDER-TOP: #c0c0c0 1px solid; HEIGHT: 15px; FONT-FAMILY: verdana, arial, helvetica, sans-serif; BORDER-RIGHT: #c0c0c0 1px solid; BORDER-BOTTOM: #c0c0c0 1px solid; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: #c0c0c0 1px solid; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #ffffff
+}
+.jmesa .filter #dynFilterDiv {
+	BORDER-TOP: #c0c0c0 1px solid; HEIGHT: 17px; BORDER-RIGHT: #c0c0c0 1px solid; BORDER-BOTTOM: #c0c0c0 1px solid; POSITION: absolute; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: -2px; BORDER-LEFT: #c0c0c0 1px solid; MARGIN: 0px; TOP: -2px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #ffffff
+}
+.jmesa .filter #dynFilterInput {
+	BORDER-TOP-STYLE: none; FONT-SIZE: 12px; BORDER-LEFT-STYLE: none; FONT-FAMILY: verdana, arial, helvetica, sans-serif; BORDER-BOTTOM-STYLE: none; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; BORDER-RIGHT-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #ffffff
+}
+.jmesa .filter #dynFilterDroplistDiv {
+	HEIGHT: 17px; POSITION: absolute; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: -2px; MARGIN: 0px; Z-INDEX: 2; TOP: -2px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #ffffff
+}
+.jmesa .filter #dynFilterDroplist {
+	FONT-SIZE: 12px; BORDER-TOP: #c0c0c0 1px solid; FONT-FAMILY: verdana, arial, helvetica, sans-serif; BORDER-RIGHT: #c0c0c0 1px solid; BORDER-BOTTOM: #c0c0c0 1px solid; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: #c0c0c0 1px solid; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #ffffff
+}
+.jmesa .header TD {
+	FONT-SIZE: 12px; BORDER-TOP: #1567a9 4px solid; HEIGHT: 28px; FONT-FAMILY: 'SimSun, Verdana, Helvetica, sans-serif'; BORDER-RIGHT: #bfbfbf 1px solid; BORDER-BOTTOM: #bfbfbf 1px solid; FONT-WEIGHT: bold; COLOR: #555555; PADDING-BOTTOM: 5px; TEXT-ALIGN: center; PADDING-TOP: 5px; BORDER-LEFT: #bfbfbf 1px solid; BACKGROUND-COLOR: #c6daea
+}
+.jmesa .odd TD {
+	FONT-SIZE: 12px; BORDER-TOP: #bfbfbf 1px solid; HEIGHT: 28px; FONT-FAMILY: 'SimSun, Verdana, Helvetica, sans-serif'; BORDER-RIGHT: #bfbfbf 1px solid; BORDER-BOTTOM: #bfbfbf 1px solid; PADDING-BOTTOM: 5px; TEXT-ALIGN: center; PADDING-TOP: 5px; BORDER-LEFT: #bfbfbf 1px solid; BACKGROUND-COLOR: #e3edf6
+}
+.jmesa .even TD {
+	FONT-SIZE: 12px; BORDER-TOP: #bfbfbf 1px solid; HEIGHT: 28px; FONT-FAMILY: 'SimSun, Verdana, Helvetica, sans-serif'; BORDER-RIGHT: #bfbfbf 1px solid; BORDER-BOTTOM: #bfbfbf 1px solid; PADDING-BOTTOM: 5px; TEXT-ALIGN: center; PADDING-TOP: 5px; BORDER-LEFT: #bfbfbf 1px solid; BACKGROUND-COLOR: #e3edf6
+}
+.jmesa .highlight TD {
+	FONT-SIZE: 12px; BORDER-TOP: #bfbfbf 1px solid; HEIGHT: 28px; FONT-FAMILY: 'SimSun, Verdana, Helvetica, sans-serif'; BORDER-RIGHT: #bfbfbf 1px solid; BORDER-BOTTOM: #bfbfbf 1px solid; PADDING-BOTTOM: 5px; TEXT-ALIGN: center; PADDING-TOP: 5px; BORDER-LEFT: #bfbfbf 1px solid; BACKGROUND-COLOR: #e3edf6
+}
+.jmesa .statusBar TD {
+	FONT-SIZE: 12px; FONT-FAMILY: 'SimSun, Verdana, Helvetica, sans-serif'; COLOR: #555555; TEXT-ALIGN: right; PADDING-TOP: 5px
+}
+.jmesa .dropShadow {
+	PADDING-BOTTOM: 14px; PADDING-TOP: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 14px
+}
+.jmesa .wsColumn {
+	FONT-SIZE: 11px; CURSOR: pointer; HEIGHT: 15px; FONT-FAMILY: verdana, arial, helvetica, sans-serif; BORDER-BOTTOM: #c0c0c0 1px solid; POSITION: relative; WORD-BREAK: break-all; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px
+}
+.jmesa .wsColumnError {
+	FONT-SIZE: 11px; CURSOR: pointer; HEIGHT: 15px; FONT-FAMILY: verdana, arial, helvetica, sans-serif; BORDER-BOTTOM: #ec4646 1px dashed; POSITION: relative; COLOR: #ec4646; PADDING-BOTTOM: 0px; FONT-STYLE: italic; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px
+}
+.jmesa .wsColumnChange {
+	FONT-SIZE: 11px; CURSOR: pointer; HEIGHT: 15px; FONT-FAMILY: verdana, arial, helvetica, sans-serif; BORDER-BOTTOM: #005e8f 1px dashed; POSITION: relative; COLOR: #005e8f; PADDING-BOTTOM: 0px; FONT-STYLE: italic; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px
+}
+.jmesa #wsColumnDiv {
+	BORDER-TOP: #c0c0c0 1px solid; HEIGHT: 17px; BORDER-RIGHT: #c0c0c0 1px solid; BORDER-BOTTOM: #c0c0c0 1px solid; POSITION: absolute; WORD-BREAK: break-all; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: -2px; BORDER-LEFT: #c0c0c0 1px solid; MARGIN: 0px; TOP: -2px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #ededed
+}
+.jmesa #wsColumnInput {
+	BORDER-TOP-STYLE: none; FONT-SIZE: 12px; BORDER-LEFT-STYLE: none; FONT-FAMILY: verdana, arial, helvetica, sans-serif; BORDER-BOTTOM-STYLE: none; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; BORDER-RIGHT-STYLE: none; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #ededed
+}

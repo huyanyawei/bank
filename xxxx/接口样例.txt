@@ -1,0 +1,140 @@
+登录：
+localhost:8080/users/login
+请求参数：
+{
+    "pid":"1504040188808160913",
+    "password":"123456"
+
+}
+
+返回参数：
+{
+    "msg": "登录成功",
+    "status": "10001"
+}
+
+
+我的账户：
+localhost:8080/accountInfos/getAllAccountInfo
+
+请求参数：
+{
+    "pid":"1504040188808160913"
+}
+
+返回参数：
+
+{
+	//我的存款
+    "mySavings": [
+        {
+            "id": 1,
+            "name": "卢小龙",
+            "pid": "1504040188808160913",
+            "accountNo": "6228481006388483999",
+            "accountName": "龙腾科技",
+            "accountOtherName": null,
+            "currency": 1,
+            "availableMoney": 1000000.01,
+            "accountType": 1,
+            "remark": null,
+            "createTime": "2020-07-24 20:28:12",
+            "modifyTime": null
+        },
+        {
+            "id": 5,
+            "name": "卢小龙",
+            "pid": "1504040188808160913",
+            "accountNo": "6228481006388483124",
+            "accountName": "科技3",
+            "accountOtherName": null,
+            "currency": 1,
+            "availableMoney": 1000000.01,
+            "accountType": 1,
+            "remark": null,
+            "createTime": "2020-07-24 21:23:24",
+            "modifyTime": null
+        }
+    ],
+	//人民币合计
+    "allSavingsCount": "2000000.02",
+	//我的贷款
+    "myLoan": [
+        {
+            "id": 2,
+            "name": "卢小龙",
+            "pid": "1504040188808160913",
+            "accountNo": "6228481006388483888",
+            "accountName": "龙腾国际",
+            "accountOtherName": null,
+            "currency": 1,
+            "availableMoney": 1000000.00,
+            "accountType": 2,
+            "remark": null,
+            "createTime": "2020-07-24 20:28:12",
+            "modifyTime": null
+        },
+        {
+            "id": 6,
+            "name": "卢小龙",
+            "pid": "1504040188808160913",
+            "accountNo": "6228481006388483125",
+            "accountName": "科技4",
+            "accountOtherName": null,
+            "currency": 1,
+            "availableMoney": 1000000.00,
+            "accountType": 2,
+            "remark": null,
+            "createTime": "2020-07-24 21:23:24",
+            "modifyTime": null
+        }
+    ],
+	我的理财
+    "myFinancialMgmt": [
+        {
+            "id": 3,
+            "name": "卢小龙",
+            "pid": "1504040188808160913",
+            "accountNo": "6228481006388483123",
+            "accountName": "科技1",
+            "accountOtherName": null,
+            "currency": 1,
+            "availableMoney": 1000000.02,
+            "accountType": 3,
+            "remark": null,
+            "createTime": "2020-07-24 21:23:23",
+            "modifyTime": null
+        },
+        {
+            "id": 7,
+            "name": "卢小龙",
+            "pid": "1504040188808160913",
+            "accountNo": "6228481006388483126",
+            "accountName": "科技5",
+            "accountOtherName": null,
+            "currency": 1,
+            "availableMoney": 1000000.00,
+            "accountType": 3,
+            "remark": null,
+            "createTime": "2020-07-24 21:23:24",
+            "modifyTime": null
+        }
+    ],
+	我的他行账户
+    "myOtherAccount": [
+        {
+            "id": 4,
+            "name": "卢小龙",
+            "pid": "1504040188808160913",
+            "accountNo": "6228481006388483112",
+            "accountName": "科技2",
+            "accountOtherName": null,
+            "currency": 1,
+            "availableMoney": 1000000.00,
+            "accountType": 4,
+            "remark": null,
+            "createTime": "2020-07-24 21:23:24",
+            "modifyTime": null
+        }
+    ]
+}

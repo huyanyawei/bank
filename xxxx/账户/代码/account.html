@@ -1,0 +1,1276 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0146)https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/myAccount2_accountListQuery.html -->
+<HTML><HEAD><META content="IE=7.0000" http-equiv="X-UA-Compatible">
+<TITLE>华夏银行网上企业银行</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<DIV id=SafeAgent 
+style="HEIGHT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px auto; DISPLAY: none; PADDING-RIGHT: 0px">
+<OBJECT id=CFCACrypto name=CFCACrypto 
+codeBase="/gluebanking/cabocx/CryptoKit.HXB.x86.cab#version=2,6,0,1" 
+classid=clsid:51384C04-8D6A-484A-9829-884FB9EC4DFF></OBJECT>
+<OBJECT id=hxkeydll name=hxkeydll 
+codeBase="/gluebanking/cabocx/feitian.dll#version=1,0,0,5" 
+classid=clsid:32A825B9-8114-4532-9154-AE477AB92491></OBJECT></DIV>
+<META content=IE=EmulateIE7 http-equiv=X-UA-Compatible>
+<META content=no-store http-equiv=Cache-Control>
+<META content=no-cache http-equiv=Pragma>
+<META content=0 http-equiv=Expires>
+<META name=generator 
+content="Glue 2.0"><!-- StartOfPrinterFriendlyPage2 --><LINK rel=stylesheet 
+type=text/css href="css/default.css" media=all><LINK rel=stylesheet 
+type=text/css href="css/nicetabs.css" media=all><!--<link rel="stylesheet" type="text/css" media="all" href="/gluebanking/styles/xtree.css?ver=2010-04-17 00:02" />--><LINK 
+rel=stylesheet type=text/css href="css/jmesa.css" media=all><LINK 
+rel=stylesheet type=text/css 
+href="css/jmesa-pdf.css?ver=2010-04-17 00:02" media=all><LINK 
+rel=stylesheet type=text/css href="css/theme.css" media=all><LINK 
+rel=stylesheet type=text/css href="css/table.css" media=all><!--<link rel="stylesheet" type="text/css" media="all" href="/gluebanking/styles/newmenu.css?ver=2010-04-17 00:02" />--><LINK 
+rel=stylesheet type=text/css href="css/style.css" media=all>
+<SCRIPT type=text/javascript>var contextPath = "/gluebanking/images";</SCRIPT>
+
+<SCRIPT type=text/javascript src="js/public.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/money.js"></SCRIPT>
+<!--<script type="text/javascript" src="/gluebanking/scripts/dtree.js?ver=2010-04-17 00:02"></script>-->
+<SCRIPT type=text/javascript src="js/nicetabs.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src=""></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/jquery.bgiframe.pack.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/jmesa.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/calendar.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/calendar-lang.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/calendar-setup.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/grchange.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/convertmoney.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/ca.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/ca_sign.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/customer.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/jquery.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/script.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/slider.js"></SCRIPT>
+<!-- EndOfPrinterFriendlyPage2 -->
+<SCRIPT>
+//右侧菜单不显示
+function rightMenuNoShow(){
+	
+	try{
+		document.getElementById('clickBar').className = 'bar_topopen';
+		document.getElementById('topArea').style.display = 'none';	
+	}catch(ee)
+	{
+	}
+}
+
+//初始化菜单和DN标志
+function init(){
+
+	try{
+		//屏蔽键盘
+		document.onkeydown=DisableKey;
+		//屏蔽鼠标
+		document.oncontextmenu = nocontextmenu; //对ie5.0以上
+		document.onmousemove=keyclick;
+		//document.onmousedown = norightclick; //对其它浏览器
+		
+		document.getElementById('clickBar').className = 'bar_topclose';
+		document.getElementById('topArea').style.display = 'none';
+		/*
+		if('' == '1'){
+			alert("证书验证出错");
+			window.close();
+		}*/
+	}
+	catch(ee)
+	{
+	}
+}
+
+
+	function logout() {
+		doLogout('/gluebanking/ibm_security_logout');
+	}
+	function showLeft() {
+		try{
+			var bar = document.getElementById('splitBar');
+			var left = document.getElementById('leftArea');
+			if (bar.className == 'bar_open') {
+				bar.className = 'bar_close';
+				left.style.display = 'none';
+			} else {
+				bar.className = 'bar_open';
+				left.style.display = '';
+			}
+		}catch(e)
+		{
+		}
+	}
+   function menu_control(){
+	   try{
+	   			var bar = document.getElementById('clickBar');
+	   		var top = document.getElementById('topArea');
+	   
+		   if (bar.className == 'bar_topclose') {
+				bar.className = 'bar_topopen';
+				top.style.display = '';
+			} else {
+				bar.className = 'bar_topclose';
+				top.style.display = 'none';
+			}
+	   }catch(e)
+	   {
+	   }
+	  
+   }
+	
+
+	//主菜单控制函数开始-------------------------------------------------------------------------------------------------------------------
+	//设置主菜单中缺省选种的菜单,在菜单的初始化完成后直接调用此方法
+	function activeMainMenu() 
+	{
+		try{
+			document.getElementById('mainMenu_accountmanage').src ="/gluebanking/images/mainmenu/accountmanage_on.jpg";
+		}catch(ee)
+		{
+		}
+	}
+	//设置菜被选中
+	function enabledMainMenu(menuId) {
+		try{
+			var currentMenu = 'mainMenu_'+menuId;
+			var graphPath = '/gluebanking/images/mainmenu/'+menuId+'_on.jpg';
+			document.getElementById(currentMenu).src =graphPath;
+		}catch(ee)
+		{
+		}
+	}
+	//设置菜单没有被选中
+	function disabledMainMenu(menuId) {
+		try{
+			var mainMenuId = 'accountmanage';
+			var currentMenu = 'mainMenu_'+menuId;
+			var graphPath = '/gluebanking/images/mainmenu/'+menuId+'_off.jpg';
+			if(menuId!=mainMenuId)
+			{
+				document.getElementById(currentMenu).src =graphPath;
+			}
+		}catch(ee)
+		{
+		}
+	}
+	
+	//屏蔽键盘开始------------------------------------------------
+	function DisableKey()
+	{
+		var src = window.event.srcElement;
+        var tag = src.tagName ? src.tagName.toUpperCase() : '';
+        var typ = (tag == 'INPUT') ? src.type.toUpperCase() : '';
+        var isTextArea = (tag == 'TEXTAREA');
+        var isTextField = ((tag == 'INPUT') && (typ == 'TEXT'));
+        var isText = isTextField || isTextArea;
+        var disabled = isText ? src.disabled : false;
+        var readOnly = isText ? src.readOnly : false;
+        
+		try{
+				if (
+				(window.event.keyCode==8&&(!isText || disabled || readOnly))//8 退格键
+				||(window.event.keyCode==78&&window.event.ctrlKey)//78 Ctrl N
+				||window.event.keyCode==37//37 Alt 方向键 ←
+				||window.event.keyCode==39//39 Alt 方向键 →
+				||window.event.keyCode==116//116 F5 刷新键
+				||(window.event.keyCode==82&&window.event.ctrlKey)//82 Ctrl R
+				||window.event.keyCode==121//121 shift F10
+				||window.event.keyCode==115//115 屏蔽Alt F4
+				||(window.event.keyCode==13&&(event.srcElement.type))//编辑Enter键
+				||(window.event.keyCode==13&&(event.srcElement.isTextEdit))//编辑Enter键
+				)
+				{
+					window.event.keyCode=0;
+					//alert('此功能系统已经禁止使用！');
+					window.event.returnvalue=false;
+					return false;
+				}
+
+					
+					
+		}catch(ee)
+		{
+			
+		}
+	}
+	//屏蔽键盘结束------------------------------------------------
+	
+		//屏蔽鼠标开始------------------------------------------------
+	if (window.Event) 
+	{
+		try{
+			document.captureEvents(Event.MOUSEUP); 
+		}catch(e)
+		{
+		}
+	}
+
+	function nocontextmenu() 
+	{
+		try{
+			event.cancelBubble = true
+			event.returnValue = false;
+			return false;
+		}catch(e)
+		{
+		}
+	
+	}
+
+	function norightclick(e) 
+	{
+		try{
+			if (window.Event) 
+			{
+				if (e.which == 2 || e.which == 3)
+				return false;
+			}
+			else
+			if (event.button == 2 || event.button == 3)
+			{
+				event.cancelBubble = true
+				event.returnValue = false;
+				return false;
+			}
+		}catch(ee)
+		{
+		}
+	}
+	
+	function keyclick() {
+		if (event.button==1) //左键拖
+		{
+			return false;
+		}
+	}
+	//屏蔽鼠标结束------------------------------------------------
+		
+	
+	//主菜单控制函数结束-------------------------------------------------------------------------------------------------------------------
+	//更新背景图片信息
+	function updateBgImage(url,imgName,backImageIndex){
+	$(".bg img").attr("src", "/gluebanking/" + url +"/"+ imgName);
+	$.ajax({
+		   url: '/gluebanking/accountmanage/accountset/welcomePage_updateSession.html?_SAFE_GARD_=28-8-F9DD2BFAFAA1AB18A314E628BACEF09E',
+		   type:"get",
+		   async:false,
+		   data:'&backImgName='+imgName+"&backImageIndex="+backImageIndex,
+		   dataType: 'html',
+		   error: function(XMLHttpRequest, textStatus, errorThrown){
+	    },
+		   success: function(data){
+		    
+		   }
+		});
+
+}
+</SCRIPT>
+<!--[if IE 6]>
+    <script src="/gluebanking/scripts/ui201401/DD_belatedPNG.js"></script>
+	<script>
+	  DD_belatedPNG.fix('*');
+	</script>
+<![endif]--><!--[if IE 7]>
+<STYLE>.yhgg {
+	BACKGROUND-POSITION: 10px 50%
+}
+.sbj {
+	MARGIN-LEFT: 10px
+}
+.index-side UL LI {
+	HEIGHT: 28px; LINE-HEIGHT: 28px
+}
+.index_n_bottom {
+	MARGIN-TOP: 26px; FLOAT: left
+}
+</STYLE>
+<![endif]--><!--[if IE 8]>
+	<style>
+		.index-side ul li {
+			height: 28px;
+			line-height: 28px;
+		}
+        
+    </style>
+<![endif]-->
+<DIV id=skin_container class="skin_container rgba-black-70" 
+style="DISPLAY: none">
+<UL class=fix>
+  <LI onclick="updateBgImage('images/ui201401','pi1_1.jpg','1')"><IMG 
+  src="images/pi1.jpg"><SPAN><IMG 
+  src="images/xuanzhong.png"></SPAN> </LI>
+  <LI onclick="updateBgImage('images/ui201401','pi2_1.jpg','2')" class=on><IMG 
+  src="images/pi2.jpg"><SPAN><IMG 
+  src="images/xuanzhong.png"></SPAN> </LI>
+  <LI onclick="updateBgImage('images/ui201401','pi3_1.jpg','3')"><IMG 
+  src="images/pi3.jpg"><SPAN><IMG 
+  src="images/xuanzhong.png"></SPAN> </LI>
+  <LI onclick="updateBgImage('images/ui201401','pi4_1.jpg','4')"><IMG 
+  src="images/pi4.jpg"><SPAN><IMG 
+  src="images/xuanzhong.png"></SPAN> </LI>
+  <LI onclick="updateBgImage('images/ui201401','pi5_1.jpg','5')"><IMG 
+  src="images/pi5.jpg"><SPAN><IMG 
+  src="images/xuanzhong.png"></SPAN> </LI></UL></DIV><!-- 背景图片 -->
+<DIV class=bg><IMG src="images/pi2_1.jpg"></DIV><!--主内容区域 -->
+<DIV class=wrap>
+<DIV class=content><!-- 头部区域 -->
+<META content=IE=EmulateIE7 http-equiv=X-UA-Compatible>
+<META content=no-store http-equiv=Cache-Control>
+<META content=no-cache http-equiv=Pragma>
+<META content=0 http-equiv=Expires>
+<META name=generator content="Glue 2.0">
+<SCRIPT type=text/javascript>
+$(function () 
+{
+	var isIE=!!window.ActiveXObject;
+    var isIE6=isIE&&!window.XMLHttpRequest;	
+	$("#search-b").on("click",function(){
+		var businame=$("#search-t").val();
+		 var signBase64=StringUtil.base64Encode(businame);
+		 if(businame!=null && businame!="" ){
+			 $.ajax({
+					url:  '/gluebanking/accountmanage/accountset/welcomePage_showSearchInfo.html?_SAFE_GARD_=28-9-F9DD2BFAFAA1AB18A314E628BACEF09E',
+				    type: 'GET',
+				    data:'&businame='+signBase64,
+				    cache:false,
+				    dataType: 'html',
+				    error: function(XMLHttpRequest, textStatus, errorThrown){
+				   },
+				    success: function(data){
+					    if(data == null){
+						    return;
+					    }
+				    	var callOk = data.indexOf("<div id=\"searchInfo\"");
+				    	var start=data.indexOf("<li>");
+				    	var end=data.indexOf("</li>");
+				    	if (callOk >0)
+						{	
+				    		if(data.substring(start+4,end)=="对不起，没有查询到符合条件的交易！请重新输入关键字查询！"){
+				    			$(".search_none").css("display","block");
+				    			$(".search_none").html($.trim(data));
+				    		}else{
+				    			if(isIE){if(isIE6){ $("select").hide(); }};
+				    			$(".search_jiaoyi").css("display","block");			
+								$(".search_jiaoyi").html($.trim(data));
+				    			
+				    		}
+							
+							
+						}
+				    }
+				});	
+
+			 }else{
+				 alert("请输入关键字!");
+
+			 }
+	});
+
+ 	$("#search-t").on("keyup",function(){
+		var businame=$("#search-t").val();
+		//  CR17271-C 大数据埋码 start
+		try {
+			_iss.push(['_event', 'search', 'search1', businame]);
+			_BFD.BFD_INFO = {        
+		        "menu_one" : "", 		  	//一级菜单名称        
+		        "menu_two" : "" ,		  	//二级菜单名称
+		        "menu_name" : "" ,		  	//三级级菜单名称
+		        "step_name" : "智慧搜索"  	//步骤名称
+			}
+		} catch (e) {}
+		// CR17271-C 大数据埋码 end
+		 var signBase64=StringUtil.base64Encode(businame);
+		 if(businame!=null && businame!=""){
+				 
+			 $.ajax({
+					url:  '/gluebanking/accountmanage/accountset/welcomePage_showSearchInfo.html?_SAFE_GARD_=28-10-F9DD2BFAFAA1AB18A314E628BACEF09E',
+				    type: 'GET',
+				    data:'&businame='+signBase64,
+				    cache:false,
+				    dataType: 'html',
+				    error: function(XMLHttpRequest, textStatus, errorThrown){
+				   },
+				    success: function(data){
+					    //alert(data);
+					    if(data == null){
+						    return;
+					    }
+					  	var callOk = data.indexOf("<div id=\"searchInfo1\"");
+				    	if (callOk >0)
+						{
+				    		if(isIE){if(isIE6){ $("select").hide(); }};
+				    		$(".search_jiaoyi").css("display","block");			
+							$(".search_jiaoyi").html($.trim(data));
+							$(".search_none").css("display","none");
+						}
+				    	else
+				    	{
+				    		$(".search_jiaoyi").css("display","none");
+				    	}
+				    }
+				});	
+
+			 }else{
+				$(".search_jiaoyi").css("display","none");
+		  		$(".search_none").css("display","none");
+			}
+		//$(".search_jiaoyi").show();
+	});
+	$("#search-t").on("focus",function(){
+		var businame=$("#search-t").val();
+		 var signBase64=StringUtil.base64Encode(businame);
+		 if(businame!=null && businame!=""){
+			 $.ajax({
+					url:  '/gluebanking/accountmanage/accountset/welcomePage_showSearchInfo.html?_SAFE_GARD_=28-11-F9DD2BFAFAA1AB18A314E628BACEF09E',
+				    type: 'GET',
+				    data:'&businame='+signBase64,
+				    cache:false,
+				    dataType: 'html',
+				    error: function(XMLHttpRequest, textStatus, errorThrown){
+				   },
+				    success: function(data){
+					    //alert(data);
+					    if(data == null){
+						    return;
+					    }
+				    	var callOk = data.indexOf("<div id=\"searchInfo1\"");
+				    	if (callOk >0)
+						{	
+				    		if(isIE){if(isIE6){ $("select").hide(); }};
+				    		$(".search_jiaoyi").css("display","block");			
+							$(".search_jiaoyi").html($.trim(data));
+							$(".search_none").css("display","none");
+						}
+				    }
+				});	
+
+			 }else{
+				$(".search_jiaoyi").css("display","none");
+		  		$(".search_none").css("display","none");
+
+			}
+
+
+	});
+
+	$("body").on("click",function(){
+		if(isIE){if(isIE6){ $("select").show(); }};
+		$(".search_jiaoyi").hide();
+		$(".search_none").hide();
+	});
+	
+});
+
+function loginredirect(){	 
+ 	 var requestContent='';
+	 $.ajax({
+			url:  '/gluebanking/accountmanage/accountset/welcomePage_requestContent.html?_SAFE_GARD_=28-12-F9DD2BFAFAA1AB18A314E628BACEF09E',
+		    type: 'GET',
+		    data:'',
+		    cache:false,
+		    dataType: 'html',
+		    async:false,
+		    error: function(XMLHttpRequest, textStatus, errorThrown){
+		   },
+		    success: function(data){
+		    	requestContent = data;
+		    }
+		}); 
+	 
+	 var sslIp = '123.113.35.210, 172.16.61.19';
+	 String.prototype.replaceAll = function (s1,s2){
+		 return this.replace(new RegExp(s1,"gm"),s2);
+	 }
+	 var realRequestContent = requestContent.replaceAll("\\+","%2B");
+	 var requestCashClientUrl = 'https://dbank.hxb.com.cn/CASHCLIENT/';
+	 var cfcaVersion = getCFCAVersion();
+	 window.open(requestCashClientUrl+"j_security_check_redirect?requestContent="+realRequestContent+"&sslIp="+sslIp+"&cfcaVersion="+cfcaVersion);
+	 
+	$('#pop').attr('href',"javascript:void(0)");
+	$('#pop').attr('disabled',true);
+	setTimeout(function(){
+		 $('#pop').attr('href',"javascript:loginredirect();");
+		 $('#pop').attr('disabled',false);
+	},10000);
+}
+</SCRIPT>
+
+<DIV id=header_first class=header_first><!-- 搜索功能 -->
+<DIV class=search><IMG class=search_d src="images/donghua.gif"> <INPUT 
+id=search-t class=search-t maxLength=15 name=businame placeholder="点击此处查找网银功能"> <INPUT id=search-b class=search-b type=button> </DIV>
+<DIV class=search_jiaoyi style="DISPLAY: none"></DIV>
+<DIV class=search_none style="DISPLAY: none"></DIV><!-- 欢迎首页 -->
+<DIV class=tuichu><A style="FONT-FAMILY: 宋体" 
+href="https://dbank.hxb.com.cn/gluebanking/welcomemanage/welcomeset/welcomePage_show.html?_SAFE_GARD_=28-13-F9DD2BFAFAA1AB18A314E628BACEF09E">欢迎首页</A> 
+<SPAN class=shu>丨</SPAN> <!-- 现金管理客户端 --><!-- 退出登录 --><A onclick=logout() 
+id=tuichu style="FONT-FAMILY: 宋体" 
+href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/myAccount2_accountListQuery.html?_SAFE_GARD_=20-135-FEEB9F8E87A52736F9F9FC5D8E7F2D52#">退出登录</A> 
+</DIV>
+<DIV class=logo>
+<H1><A 
+href="https://dbank.hxb.com.cn/gluebanking/welcomemanage/welcomeset/welcomePage_show.html?_SAFE_GARD_=28-14-F9DD2BFAFAA1AB18A314E628BACEF09E">华夏龙网</A></H1></DIV>
+<DIV class=h_info></DIV><!-- 一级导航 -->
+<DIV class=main_nav>
+<DIV class="clearfix navTop"><!-- 一级菜单 -->
+<UL class=firstMenuList><!-- 账户管理 --><A class="topMenu menu" 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/welcome_accountset.html?_SAFE_GARD_=28-15-F9DD2BFAFAA1AB18A314E628BACEF09E"><IMG 
+  id=mainMenu_accountmanage class=naveImg alt=账户管理 
+  src="images/main_nav_accountmanage.png" width=58 height=59> <SPAN 
+  class=navText>账户管理</SPAN> </A><SPAN class=topMenuLine></SPAN><!-- 支付结算 --><A 
+  class="topMenu menu" 
+  href="https://dbank.hxb.com.cn/gluebanking/transfer/welcome_singleTransfer.html?_SAFE_GARD_=28-25-F9DD2BFAFAA1AB18A314E628BACEF09E"><IMG 
+  id=mainMenu_transfer class=naveImg alt=支付结算 
+  src="images/main_nav_transfer.png" width=58 height=59> <SPAN 
+  class=navText>支付结算</SPAN> </A><SPAN class=topMenuLine></SPAN><!-- 集团结算 --><A 
+  class="topMenu menu" 
+  href="https://dbank.hxb.com.cn/gluebanking/balance/welcome_sysmanage.html?_SAFE_GARD_=28-34-F9DD2BFAFAA1AB18A314E628BACEF09E"><IMG 
+  id=mainMenu_balance class=naveImg alt=集团结算 
+  src="images/main_nav_balance.png" width=58 height=59> <SPAN 
+  class=navText>集团结算</SPAN> </A><SPAN class=topMenuLine></SPAN><!-- 投资理财 --><A 
+  class="topMenu menu" 
+  href="https://dbank.hxb.com.cn/gluebanking/financing/welcome_enterpriseDeposit.html?_SAFE_GARD_=28-43-F9DD2BFAFAA1AB18A314E628BACEF09E"><IMG 
+  id=mainMenu_financing class=naveImg alt=投资理财 
+  src="images/main_nav_financing.png" width=58 height=59> <SPAN 
+  class=navText>投资理财</SPAN> </A><SPAN class=topMenuLine></SPAN><!-- 普惠宝 --><A 
+  class="topMenu menu" 
+  href="https://dbank.hxb.com.cn/gluebanking/fundtreasure/fundproduct/welcome_fundtreasure.html?_SAFE_GARD_=28-53-F9DD2BFAFAA1AB18A314E628BACEF09E"><IMG 
+  id=mainMenu_fundtreasure class=naveImg alt=普惠宝 
+  src="images/main_nav_fundtreasure.png" width=58 height=59> <SPAN 
+  class=navText>普惠宝</SPAN> </A><SPAN class=topMenuLine></SPAN><!-- E商宝 --><A 
+  class="topMenu menu" 
+  href="https://dbank.hxb.com.cn/gluebanking/ebusiness/welcome_ebusi.html?_SAFE_GARD_=28-55-F9DD2BFAFAA1AB18A314E628BACEF09E"><IMG 
+  id=mainMenu_ebusiness class=naveImg alt=电子商务 
+  src="images/main_nav_ebusiness.png" width=58 height=59> <SPAN 
+  class=navText>电子商务</SPAN> </A><SPAN class=topMenuLine></SPAN><!-- 供应链金融 --><A 
+  class="topMenu menu" 
+  href="https://dbank.hxb.com.cn/gluebanking/SCF/welcome_scf.html?_SAFE_GARD_=28-65-F9DD2BFAFAA1AB18A314E628BACEF09E"><IMG 
+  id=mainMenu_SCF class=naveImg alt=供应链金融 
+  src="images/main_nav_SCF.png" width=58 height=59> <SPAN 
+  class=navText>供应链金融</SPAN> </A><SPAN class=topMenuLine></SPAN><!-- 国际结算 --><A 
+  class="topMenu menu" 
+  href="https://dbank.hxb.com.cn/gluebanking/international/welcome_international.html?_SAFE_GARD_=28-71-F9DD2BFAFAA1AB18A314E628BACEF09E"><IMG 
+  id=mainMenu_international class=naveImg alt=国际业务 
+  src="images/main_nav_international.png" width=58 height=59> <SPAN 
+  class=navText>国际业务</SPAN> </A><SPAN class=topMenuLine></SPAN><!-- 电子票据 --><A 
+  class="topMenu menu" 
+  href="https://dbank.hxb.com.cn/gluebanking/draft/welcome_draft.html?_SAFE_GARD_=28-75-F9DD2BFAFAA1AB18A314E628BACEF09E"><IMG 
+  id=mainMenu_draft class=naveImg alt=票据业务 
+  src="images/main_nav_draft.png" width=58 height=59> <SPAN 
+  class=navText>票据业务</SPAN> </A><SPAN class=topMenuLine></SPAN><!-- 票据池 --><A 
+  class="topMenu menu" 
+  href="https://dbank.hxb.com.cn/gluebanking/billpool/welcome_bpool.html?_SAFE_GARD_=28-78-F9DD2BFAFAA1AB18A314E628BACEF09E"><IMG 
+  id=mainMenu_billpool class=naveImg alt=票据池 
+  src="images/main_nav_billpool.png" width=58 height=59> <SPAN 
+  class=navText>票据池</SPAN> </A><SPAN class=topMenuLine></SPAN><!-- 资金池 --><A 
+  class="topMenu menu" 
+  href="https://dbank.hxb.com.cn/gluebanking/cashpool/welcome_cashpooling.html?_SAFE_GARD_=28-90-F9DD2BFAFAA1AB18A314E628BACEF09E"><IMG 
+  id=mainMenu_cashpool class=naveImg alt=资金池 
+  src="images/main_nav_cashpool.png" width=58 height=59> <SPAN 
+  class=navText>资金池</SPAN> </A><SPAN class=topMenuLine></SPAN><!-- 授权中心 --><A 
+  class="topMenu menu" 
+  href="https://dbank.hxb.com.cn/gluebanking/warrantCenter/welcome_warrantCenter.html?_SAFE_GARD_=28-98-F9DD2BFAFAA1AB18A314E628BACEF09E"><IMG 
+  id=mainMenu_warrantCenter class=naveImg alt=授权中心 
+  src="images/main_nav_warrantCenter.png" width=58 height=59> <SPAN 
+  class=navText>授权中心</SPAN> </A><SPAN class=topMenuLine></SPAN><!-- 服务中心 --><A 
+  class="topMenu menu" 
+  href="https://dbank.hxb.com.cn/gluebanking/customer/welcome_customerCenter.html?_SAFE_GARD_=28-109-F9DD2BFAFAA1AB18A314E628BACEF09E"><IMG 
+  id=mainMenu_customer class=naveImg alt=服务中心 
+  src="images/main_nav_customer.png" width=58 height=59> <SPAN 
+  class=navText>服务中心</SPAN> </A><SPAN class=topMenuLine></SPAN><!-- 系统退出 -->
+  <DIV id=bg_change><A class="topMenu menu" 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/myAccount2_accountListQuery.html?_SAFE_GARD_=20-135-FEEB9F8E87A52736F9F9FC5D8E7F2D52#"><IMG 
+  id=mainMenu_bgChange class=bg_naveImg style="LEFT: 27px" alt=背景更换 
+  src="images/main_nav_bgChange.gif"> <SPAN class=navText>背景更换</SPAN> 
+  </A></DIV></UL></DIV></DIV><!-- 二级菜单与三级菜单关联 -->
+<DIV class="clearfix navBottom">
+<DIV class="clearfix nvA">
+<UL class=secondMenuList><A class=navFooterBtn 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/welcome2_accountList.html?_SAFE_GARD_=28-118-F9DD2BFAFAA1AB18A314E628BACEF09E">账户查询</A> 
+  <A class=navFooterBtnMiddle 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/acctOverdraft/welcome2_acctOverdraft.html?_SAFE_GARD_=28-119-F9DD2BFAFAA1AB18A314E628BACEF09E">法人账户透支</A> 
+  <A class=navFooterBtn 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/sign/welcome2_sign.html?_SAFE_GARD_=28-120-F9DD2BFAFAA1AB18A314E628BACEF09E">签约</A> 
+  <A class=navFooterBtn 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/statement/welcome2_statement.html?_SAFE_GARD_=28-121-F9DD2BFAFAA1AB18A314E628BACEF09E">银企对账</A> 
+  <A class=navFooterBtnMiddle 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/enterpriseCredit/welcome2_enterpriseCredit.html?_SAFE_GARD_=28-122-F9DD2BFAFAA1AB18A314E628BACEF09E">中小企业信贷</A> 
+  <A class=navFooterBtn 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/yinguantong/welcome2_yinguantong.html?_SAFE_GARD_=28-123-F9DD2BFAFAA1AB18A314E628BACEF09E">银关通</A> 
+  <A class=navFooterBtn 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/selfLoan/welcome2_selfLoan.html?_SAFE_GARD_=28-124-F9DD2BFAFAA1AB18A314E628BACEF09E">网络贷</A> 
+  <A class=navFooterBtn 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/subAcctManage/welcome2_subAcctManage.html?_SAFE_GARD_=28-125-F9DD2BFAFAA1AB18A314E628BACEF09E">子账户管理</A> 
+  <A class=navFooterBtnMiddle 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/unitCardManage/welcome2_unitCard.html?_SAFE_GARD_=28-126-F9DD2BFAFAA1AB18A314E628BACEF09E">单位结算卡管理</A> 
+</UL></DIV></DIV></DIV><INPUT id=loginTypeId type=hidden value=1 name=loginType>
+<SCRIPT language=JavaScript>
+	function doLogout(value){
+		if (confirm('提示:您确定退出本系统吗？')){
+			var custno=357565545;
+			$.ajax({
+				url:  '/gluebanking/accountmanage/accountset/welcomePage_updateImage.html?_SAFE_GARD_=28-127-F9DD2BFAFAA1AB18A314E628BACEF09E',
+			    type: 'GET',
+			    data:'&custno='+custno,
+			    cache:false,
+			    async:false,
+			    dataType: 'html',
+			    error: function(XMLHttpRequest, textStatus, errorThrown){
+				    alert("更新客户表图片信息有误！");
+			   	},
+			    success: function(data){
+				}
+			});
+			var logInType = document.getElementById("loginTypeId");
+			if (null!=logInType && null!=logInType.value && 1 == logInType.value) {
+         	    var keyno=""; 
+         	    var usebkey=0;
+              	try{
+              		  keyno=hxkeydll.GetKeySN('2038942151');                   
+             	}catch(e){
+             		
+                }
+              	try{
+              		usebkey=hxkeydll.CheckToken('');               
+             	}catch(e){
+           		
+                }
+				if((keyno&&keyno.length>5)||usebkey==1){
+					if(confirm('为保障您的资金安全，请您在退出网上企业银行前，先拔出华夏盾。如果您确定在不拔出华夏盾的情况下退出网上企业银行，请点击“确定”，否则点击“取消”返回。')){
+							exitWindow();
+							go(value);
+					}
+	            }else{
+	            	
+	            	exitWindow();
+	            	go(value);
+	            }
+			}else{
+				
+				exitWindow();
+				go(value);
+			}
+		}
+	}
+	
+	function exitWindow(){
+		window.top.opener = null; 
+		window.top.open('', '_self'); 
+		window.top.close();
+	}
+		
+</SCRIPT>
+ <!-- 交易区 -->
+<DIV class="main_content fix" style="MARGIN-TOP: 20px; DISPLAY: block">
+<META content=IE=EmulateIE7 http-equiv=X-UA-Compatible>
+<META content=no-store http-equiv=Cache-Control>
+<META content=no-cache http-equiv=Pragma>
+<META content=0 http-equiv=Expires>
+<META name=generator content="Glue 2.0">
+<SCRIPT type=text/javascript src="js/webcall.js"></SCRIPT>
+
+<DIV id=mainLeftBox class=mainLeftBox>
+<DIV id=leftNav class=leftNav>
+<DIV id=glueLeftMenu class="clearfix navBox leftMenuList">
+<UL class=leftMenuList><A 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/myAccount2_accountListQuery.html?_SAFE_GARD_=28-128-F9DD2BFAFAA1AB18A314E628BACEF09E"><SPAN 
+  class=third_small_text>我的账户</SPAN></A> <A 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/historyAccountQuery_init.html?_SAFE_GARD_=28-130-F9DD2BFAFAA1AB18A314E628BACEF09E"><SPAN 
+  class=third_small_text>账户明细查询</SPAN></A> <A 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/accountInAndOutTodateQuery_init.html?_SAFE_GARD_=28-131-F9DD2BFAFAA1AB18A314E628BACEF09E"><SPAN 
+  class=third_small_text>当日来往账信息查询</SPAN></A> <A 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/accountcustomize_queryflow.html?_SAFE_GARD_=28-132-F9DD2BFAFAA1AB18A314E628BACEF09E"><SPAN 
+  class=third_small_text>账户个性化设置</SPAN></A> <A 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/onlineBusinessQuery_input.html?_SAFE_GARD_=28-133-F9DD2BFAFAA1AB18A314E628BACEF09E"><SPAN 
+  class=third_small_text>网上交易查询</SPAN></A> <A 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/agreementAcctInfoQuery_query.html?_SAFE_GARD_=28-134-F9DD2BFAFAA1AB18A314E628BACEF09E"><SPAN 
+  class=third_small_text>跨行签约账户信息查询</SPAN></A> <A 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/inerTreatyAcctInfoQuery_query.html?_SAFE_GARD_=28-135-F9DD2BFAFAA1AB18A314E628BACEF09E"><SPAN 
+  class=third_small_text>行内个人签约账户信息查询</SPAN></A> <A 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/foreigncurrAddandDel_input.html?_SAFE_GARD_=28-136-F9DD2BFAFAA1AB18A314E628BACEF09E"><SPAN 
+  class=third_small_text>外币账户追加与删除</SPAN></A> <A 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/merchantServices_input.html?_SAFE_GARD_=28-137-F9DD2BFAFAA1AB18A314E628BACEF09E"><SPAN 
+  class=third_small_text>商户服务</SPAN></A> <A 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/specialAccountDeatilsInquiryOnThatDay_detailinfo.html?_SAFE_GARD_=28-138-F9DD2BFAFAA1AB18A314E628BACEF09E"><SPAN 
+  class=third_small_text>当日账户明细特殊查询</SPAN></A> <A 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/electronicReceiptQry_init.html?_SAFE_GARD_=28-139-F9DD2BFAFAA1AB18A314E628BACEF09E"><SPAN 
+  class=third_small_text>电子回单查询</SPAN></A> <!----></UL></DIV></DIV>
+<DIV id=zxkf_img class=zxkf_img><A 
+onclick="openChatNew('https://xiaolongren.hxb.com.cn/im/IMClient/login/check?username=4e2mg0gA+vW7RpugPSdOXg==&amp;userno=F13epItIhOZbSe60oOgwnA==&amp;enter=DMT_FUNCTION_2&amp;sf=1');" 
+href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/myAccount2_accountListQuery.html?_SAFE_GARD_=20-135-FEEB9F8E87A52736F9F9FC5D8E7F2D52#"><IMG 
+src="images/kefu.jpg"></A> </DIV></DIV><!-- 交易区内容 -->
+<DIV id=transaction_content class=transaction_content><!-- StartOfPrinterFriendlyPage1 -->
+<DIV class=transaction_content_n><!-- StartOfPrinterFriendlyPage2 --><LINK 
+rel=stylesheet type=text/css href="css/default.css" media=all><LINK 
+rel=stylesheet type=text/css href="css/nicetabs.css" media=all><!--<link rel="stylesheet" type="text/css" media="all" href="/gluebanking/styles/xtree.css?ver=2010-04-17 00:02" />--><LINK 
+rel=stylesheet type=text/css href="css/jmesa.css" media=all><LINK 
+rel=stylesheet type=text/css 
+href="cssjmesa-pdf.css?ver=2010-04-17 00:02" media=all><LINK 
+rel=stylesheet type=text/css href="css/theme.css" media=all><LINK 
+rel=stylesheet type=text/css href="css/table.css" media=all><!--<link rel="stylesheet" type="text/css" media="all" href="/gluebanking/styles/newmenu.css?ver=2010-04-17 00:02" />--><LINK 
+rel=stylesheet type=text/css href="css/style.css" media=all>
+<SCRIPT type=text/javascript>var contextPath = "/gluebanking/images";</SCRIPT>
+
+<SCRIPT type=text/javascript src="js/public.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/money.js"></SCRIPT>
+<!--<script type="text/javascript" src="/gluebanking/scripts/dtree.js?ver=2010-04-17 00:02"></script>-->
+<SCRIPT type=text/javascript src="js/nicetabs.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/jquery.pack.js"></SCRIPT>
+
+
+
+<SCRIPT type=text/javascript src="js/jmesa.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/calendar.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/calendar-lang.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/calendar-setup.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/grchange.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/convertmoney.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/ca.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/ca_sign.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/customer.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/jquery.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/script.js"></SCRIPT>
+
+<SCRIPT type=text/javascript src="js/slider.js"></SCRIPT>
+<SCRIPT type=text/javascript src="js/jquery.bgiframe.pack.js">
+</SCRIPT>
+<!-- EndOfPrinterFriendlyPage2 -->
+<FORM id=SAccountInfoForm method=post name=SAccountInfoForm 
+action=/gluebanking/#><INPUT type=hidden name=acctno> <INPUT type=hidden 
+name=secondno> <INPUT type=hidden name=specialflag> <INPUT type=hidden 
+name=useoldacctno> <INPUT type=hidden name=oldacctno> <INPUT type=hidden 
+name=accounttype> <INPUT type=hidden value=28-0-F9DD2BFAFAA1AB18A314E628BACEF09E 
+name=_SAFE_GARD_> </FORM>
+<FORM id=AccountInfoDetailForm method=post name=AccountInfoDetailForm 
+action=/gluebanking/accountmanage/accountset/historyAccountQuery_init.html><INPUT 
+type=hidden name=acctno> <INPUT type=hidden 
+value=28-1-F9DD2BFAFAA1AB18A314E628BACEF09E name=_SAFE_GARD_> </FORM>
+<FORM id=SHAccountInfoDetailForm method=post name=SHAccountInfoDetailForm 
+action=/gluebanking/#><INPUT type=hidden name=acctno> <INPUT type=hidden 
+name=secondno> <INPUT type=hidden value=Y name=myaccountflag></INPUT> <INPUT 
+type=hidden value=28-2-F9DD2BFAFAA1AB18A314E628BACEF09E name=_SAFE_GARD_> 
+</FORM>
+<DIV class=demo_control_step style="_width: 99%">
+<DIV class=demo_control_stepb>当前位置： <SPAN 
+id=currentpos>账户管理&nbsp;&gt;&gt;&nbsp;账户查询&nbsp;&gt;&gt;&nbsp;我的账户</SPAN></DIV>
+<DIV class=demo_tablegr></DIV></DIV><!--  start message --><!-- 根据CR1444修改，将此处的欢迎语去掉 2012-03-05 yinweimin --><!-- my save start -->
+<DIV class=m_text_font14>我的存款</DIV>
+<TABLE class=result_table style="WIDTH: 98%" cellSpacing=0 cellPadding=0 
+border=0>
+  <TBODY>
+  <TR class=result_head>
+    <TD class=m_listTitle width="5%">序号</TD>
+    <TD class=m_listTitle width="20%">账户别名</TD>
+    <TD class=m_listTitle width="20%">账号</TD>
+    <TD class=m_listTitle width="20%">账户名称</TD>
+    <TD class=m_listTitle width="10%">币种</TD>
+    <TD class=m_listTitle width="25%">可用余额</TD></TR>
+  <TR onmouseover="this.className = 'result_over';" 
+  onmouseout="this.className = 'm_bg2';" class=m_bg2>
+    <TD class=m_listText width="5%">1</TD>
+    <TD class=m_listText width="20%" align=left><A 
+      onclick="querySAcctInfo('10241000000334682','','0','','/gluebanking/accountmanage/accountset/saveAccountInfoSet_query.html?_SAFE_GARD_=28-3-F9DD2BFAFAA1AB18A314E628BACEF09E','12','');" 
+      href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/myAccount2_accountListQuery.html?_SAFE_GARD_=20-135-FEEB9F8E87A52736F9F9FC5D8E7F2D52#">未定义 
+      </A></TD>
+    <TD class=m_listText width="20%">10241000000334682 </TD>
+    <TD class=m_listText width="20%">中农寰穹国际供应链管理（北京）有限公司</TD>
+    <TD class=m_listText width="10%">人民币</TD>
+    <TD class=m_listText width="25%">
+      <DIV id=10241000000334682>更新中... </DIV></TD></TR>
+  <TR onmouseover="this.className = 'result_over';" 
+  onmouseout="this.className = 'm_bg1';" class=m_bg1 
+    style="FONT-WEIGHT: bold"><TD class=m_listtext-red 
+    style="TEXT-ALIGN: left; PADDING-LEFT: 5%" colSpan=6>
+      <DIV class=div_quickmenu_center><A 
+      onclick="queryAccinfoDetail('10241000000334682');" 
+      href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/myAccount2_accountListQuery.html?_SAFE_GARD_=20-135-FEEB9F8E87A52736F9F9FC5D8E7F2D52#">账户明细查询 
+      </A></DIV></TD></TR>
+  <TR id=tr_savetotal style="DISPLAY: none">
+    <TD class=m_listText style="TEXT-ALIGN: right; PADDING-RIGHT: 2%" 
+      colSpan=5>人民币合计:</TD>
+    <TD class=m_listText style="HEIGHT: 0px" width="25%" align=center>
+      <DIV id=savetotal></DIV></TD></TR></TBODY></TABLE><!-- my save end -->
+<TABLE>
+  <TBODY></TBODY></TABLE><!-- my loan start -->
+<DIV class=m_text_font14>我的贷款</DIV>
+<TABLE class=result_table style="WIDTH: 98%" cellSpacing=0 cellPadding=0 
+border=0>
+  <TBODY>
+  <TR class=result_head>
+    <TD class=m_listTitle width="5%">序号</TD>
+    <TD class=m_listTitle width="20%">账户别名</TD>
+    <TD class=m_listTitle width="20%">账号</TD>
+    <TD class=m_listTitle width="20%">账户名称</TD>
+    <TD class=m_listTitle width="10%">币种</TD>
+    <TD class=m_listTitle width="25%">可用余额</TD></TR>
+  <TR>
+    <TD class=m_listText style="TEXT-ALIGN: right; PADDING-RIGHT: 2%" 
+      colSpan=5>人民币合计:</TD>
+    <TD class=m_listText style="HEIGHT: 0px" width="25%" align=center>
+      <DIV id=loantotal></DIV></TD></TR></TBODY></TABLE><!-- my loan end -->
+<TABLE>
+  <TBODY></TBODY></TABLE><!-- my finance start -->
+<DIV class=m_text_font14>我的投资理财</DIV>
+<TABLE class=result_table style="WIDTH: 98%" cellSpacing=0 cellPadding=0 
+border=0>
+  <TBODY>
+  <TR class=result_head>
+    <TD class=m_listTitle width="5%">序号</TD>
+    <TD class=m_listTitle width="20%">账户别名</TD>
+    <TD class=m_listTitle width="20%">账号</TD>
+    <TD class=m_listTitle width="20%">账户名称</TD>
+    <TD class=m_listTitle width="10%">币种</TD>
+    <TD class=m_listTitle width="25%">参考市值</TD></TR>
+  <TR>
+    <TD class=m_listText style="TEXT-ALIGN: right; PADDING-RIGHT: 2%" 
+      colSpan=5>人民币合计:</TD><INPUT id=financetotalhidden type=hidden> 
+    <TD class=m_listText style="HEIGHT: 0px" width="25%" align=center>
+      <DIV id=financetotal></DIV></TD></TR></TBODY></TABLE>
+<FORM id=trustQueryForm method=post name=trustQueryForm 
+action=/gluebanking/accountmanage/accountset/myAccount2_trustproductquery.html?_SAFE_GARD_=28-4-F9DD2BFAFAA1AB18A314E628BACEF09E><INPUT 
+id=trustAcctno type=hidden name=trustAcctno> </FORM><!-- my finance end --><!-- my otherbank acct start -->
+<DIV class=m_text_font14>我的他行账户</DIV>
+<DIV id=myotheracct>
+<TABLE class=result_table style="WIDTH: 98%" cellSpacing=0 cellPadding=0 
+border=0>
+  <TBODY>
+  <TR class=result_head>
+    <TD class=m_listTitle width="5%">序号</TD>
+    <TD class=m_listTitle width="20%">账户别名</TD>
+    <TD class=m_listTitle width="20%">开户行</TD>
+    <TD class=m_listTitle width="20%">账号</TD>
+    <TD class=m_listTitle width="20%">账户名称</TD>
+    <TD class=m_listTitle width="15%">币种</TD></TR></TBODY></TABLE></DIV><!-- my otherbank acct end -->
+<DIV 
+style="WIDTH: 98%; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px 0px 0px 2px; PADDING-RIGHT: 0px">
+<SCRIPT language=javascript>
+	var titleMsg = '客户提示：';
+	Hmsg = new Array();
+	Hmsg[1]='通过本交易您可查看已签约至网上企业银行的所有账户信息，系统按账户类型分为我的存款、我的贷款、我的投资理财及我的他行账户四类显示；';
+	Hmsg[2]='点击账户链接，可查询账户基本信息；';
+	Hmsg[3]='点击账户下方的快捷方式可进入快捷菜单页面，快捷方式可在账户个性化设置中维护。';
+	newHelpMessage(titleMsg, Hmsg);
+	</SCRIPT>
+</DIV>
+<TABLE height=50 cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR></TR></TBODY></TABLE><BR><BR><BR><BR>
+<SCRIPT>
+var interval = 0;
+var ajaxstaus=2;
+var t2;
+
+$(document).ready(function(){
+	// getOtherAcct();
+	// t2= window.setInterval(getOtherAcct,2000);
+	if('' == null || '' == ''){
+	//    getData();
+		//  t = window.setInterval(function(){getData()},1000 );		 
+	}
+	/*根据CR1444修改，将此方法移到欢迎页
+	getMessage();*/
+});
+function updateBalance(){ 
+	var saveNo="".split("|");
+	for(var i=0;i<saveNo.length;i++){
+		var id=saveNo[i+1];
+		var val=$("#"+id).html();
+		if(val!=null&&val.indexOf('更新')>-1){
+			
+			$("#"+id).html("------");	
+		}
+    }
+    
+}
+function getData(){
+
+	if(ajaxstaus==0){
+		return ;
+	 }
+ 
+	var localURL=document.location.toString();
+	 
+	if(localURL.indexOf('accountset/myAccount2_accountListQuery')<1||interval>30){
+	 
+	  window.clearInterval(t);
+	  updateBalance();
+      return ;
+	}
+	interval = interval + 1;
+	ajaxstaus=0;
+	$.ajax({
+		url:  '/gluebanking/accountmanage/accountset/myAccount2_refreshbalance.html?_SAFE_GARD_=28-5-F9DD2BFAFAA1AB18A314E628BACEF09E',
+	    type: 'GET',
+	    cache:false,
+	    dataType: 'html',
+	    error: function(XMLHttpRequest, textStatus, errorThrown){
+			ajaxstaus=1;
+	       // alert('查询余额出错,请稍后再试!');
+	    },
+	    success: function(data){
+	        if(data == null){
+				    return;
+			    }
+	    	var callOk = data.indexOf("<div id=\"updateAjax\">");	  
+			if (callOk == null || callOk == ""){
+				return;
+			} 
+			
+			//调用截取函数进行组合成数�?
+			var acctlist = getData1(data,"8");
+			for(var i=0;i<acctlist.length;i++){
+				 
+				if(acctlist[i][3] == '1'){
+					window.clearInterval(t);
+				  if("1"=='1') {
+					$("#tr_savetotal").show(); 	
+				 	$('#savetotal').html(acctlist[i][4]); 
+					}
+					$('#loantotal').html(acctlist[i][5]);
+					$('#financetotalhidden').val(acctlist[i][6]);
+				}
+				if(i == 0){
+					acctlist[0][0] = $.trim((acctlist[0][0].substr(acctlist[0][0].indexOf("</div>"))).replace("</div>"," "));
+				}
+				if(acctlist[i][1] == '1'){
+					if(acctlist[i][7] == '0'){
+						if(acctlist[i][8]!='null'&&acctlist[i][8]!=''&&acctlist[i][8]!=null){
+							$('#'+acctlist[i][0]+acctlist[i][8]).html(acctlist[i][2]);
+						}else{
+							$('#'+acctlist[i][0]).html(acctlist[i][2]);
+						}
+						
+					}else if(acctlist[i][7] == 'fund'){
+						$('#fund'+acctlist[i][0]).html(acctlist[i][2]);
+					}else if(acctlist[i][7] == 'gold'){
+						$('#gold'+acctlist[i][0]).html(acctlist[i][2]);
+					}else if(acctlist[i][7] == 'product'){
+						$('#product'+acctlist[i][0]).html(acctlist[i][2]);
+					}else if(acctlist[i][7] == 'finance'){
+						$('#finance'+acctlist[i][0]).html(acctlist[i][2]);
+					}
+				}
+			}
+			ajaxstaus=2;
+			//计算我的投资理财部分参考市值总和		
+			countFinancetotal();
+	    }
+	});
+}
+/**
+ * 是否正在查询我的他行帐户
+ */
+var _queryOtherAccting=false;
+/**
+ * 通过异步方式获得我的他行帐户信息
+ */
+function getOtherAcct()
+{
+	if(_queryOtherAccting) return false;
+	_queryOtherAccting=true;
+	$.ajax({
+		url:  '/gluebanking/accountmanage/accountset/myAccount2_otheraccountquery.html?_SAFE_GARD_=28-6-F9DD2BFAFAA1AB18A314E628BACEF09E',
+	    type: 'GET',
+	    cache:false,
+	    dataType: 'html',
+	    success: function(data){
+	    	var pos_begin=data.indexOf("ajaxResult_begin")+16;
+	      var pos_end=data.indexOf("ajaxResult_end");
+	      if (pos_end>pos_begin)
+	      {
+	      	window.clearInterval(t2);
+	      }
+	      else{
+	      	pos_begin=data.indexOf("ajaxError_begin")+16;
+	      	pos_end=data.indexOf("ajaxError_end");
+	      }
+	      if (pos_end>pos_begin)
+	      {
+	      	$("#myotheracct").html(data.substring(pos_begin,pos_end));	      	
+	      }
+	    },
+	    complete: function(data,textStatus){
+	    	_queryOtherAccting=false;
+	    }
+	});
+}
+function querySAcctInfo(acctno,secondno,useoldacctno,oldacctno,action,accounttype,specialflag){
+	SAccountInfoForm.acctno.value=acctno;
+	SAccountInfoForm.useoldacctno.value=useoldacctno;
+	SAccountInfoForm.oldacctno.value=oldacctno;
+	SAccountInfoForm.secondno.value=secondno;
+	SAccountInfoForm.specialflag.value=specialflag;
+	SAccountInfoForm.accounttype.value=accounttype;
+	if (accounttype == 13 || accounttype == 14) {
+		SAccountInfoForm.action='/gluebanking/accountmanage/accountset/saveAccountInfoSet_queryMsg.html?_SAFE_GARD_=28-7-F9DD2BFAFAA1AB18A314E628BACEF09E';
+	} else {
+		SAccountInfoForm.action=action;
+	}
+    document.SAccountInfoForm.submit();
+}
+function queryAccinfoDetail(acctno){
+	AccountInfoDetailForm.acctno.value=acctno;
+	 document.AccountInfoDetailForm.submit();
+}
+function querySHAccinfoDetail(action,acctno,secondno){
+	SHAccountInfoDetailForm.action=action;
+	SHAccountInfoDetailForm.acctno.value=acctno;
+	SHAccountInfoDetailForm.secondno.value=secondno;
+	 document.SHAccountInfoDetailForm.submit();
+}
+/**
+ * 计算我的投资理财部分参考市值总和   by JingXiaoLe
+ */
+function countFinancetotal(){
+	var val = $('#trust').html();
+	var financeTotalVal = $('#financetotalhidden').val();
+	if(financeTotalVal != undefined && financeTotalVal != null && financeTotalVal != ""){
+		financeTotalVal = financeTotalVal.replace(/,/g,"");
+	}
+	if(val != undefined && val != null && val.indexOf('------') == -1 && val != ""){
+		val = val.replace(/,/g,"");
+	}
+	if((val == undefined) || (val != null  && val.indexOf('------')>-1) || (val == null) || (val == "")){
+		$('#financetotal').html(formatMoney(financeTotalVal));
+	}else if(financeTotalVal == "" || financeTotalVal == null){
+		$('#financetotal').html(formatMoney(val));
+	}else{
+		$('#financetotal').html(formatMoney(parseFloat(val)+parseFloat(financeTotalVal)));
+	}
+}
+function initTrustQuery(){
+	document.trustQueryForm.submit();
+}
+function formatMoney(money){
+	if(!money) return;
+	var intnum = "";
+	var intnumm = money.toString();
+	var sign = "";
+	if(intnumm.indexOf('-') > -1){
+		intnumm = intnumm.replace(/-/g,'');
+		sign = "-";
+	}
+	if(intnumm.indexOf('.') > -1){
+		intnumm = intnumm.split('.')[0];
+	}
+	intnumm = intnumm.split('');
+	var point = 0;
+	for(var i = intnumm.length - 1; i >= 0; i--){
+		if(point == 3){
+			intnum = ',' + intnum;
+			point = 0;
+		}
+		intnum = intnumm[i].toString() + intnum;
+		point++;
+	}
+	var finalnum = "";
+	if(money.toString().indexOf('.') > -1){
+		var pointnum = String(money).split('.')[1];
+		if(pointnum.length < 2){
+			pointnum = pointnum + "0";
+		}
+		return sign + intnum + '.' + pointnum;
+	}else{
+		return sign + intnum + ".00";
+	}
+	
+}
+</SCRIPT>
+</DIV><!-- EndOfPrinterFriendlyPage1 --></DIV></DIV></DIV>
+<META content=IE=EmulateIE7 http-equiv=X-UA-Compatible>
+<META content=no-store http-equiv=Cache-Control>
+<META content=no-cache http-equiv=Pragma>
+<META content=0 http-equiv=Expires>
+<META name=generator content="Glue 2.0">
+<DIV id=tips-bg class="tips-bg filter"></DIV>
+<DIV id=safety-tips class="safety-tips fixed-right">
+<DIV id=tipscon class="tipscon clearfix"><IMG id=tipsimg 
+src="images/kuaijie.png"> 
+<DIV class=tipstext>
+<DIV class=tipstext_n>
+<DIV class=tipstext_n_n>
+<UL id=kjcd class=kjcd>
+  <LI><A 
+  href="https://dbank.hxb.com.cn/gluebanking/transfer/singleTransfer/spanbanktrans_input.html?_SAFE_GARD_=28-140-F9DD2BFAFAA1AB18A314E628BACEF09E"><EM>企业跨行转账</EM></A> 
+  </LI>
+  <LI><A 
+  href="https://dbank.hxb.com.cn/gluebanking/transfer/singleTransfer/InnerTransEachOther_Input.html?_SAFE_GARD_=28-141-F9DD2BFAFAA1AB18A314E628BACEF09E"><EM>企业内部转账</EM></A> 
+  </LI>
+  <LI><A 
+  href="https://dbank.hxb.com.cn/gluebanking/transfer/singleTransfer/comtoperinnertransfer_input.html?_SAFE_GARD_=28-142-F9DD2BFAFAA1AB18A314E628BACEF09E"><EM>企业向个人单笔转账</EM></A> 
+  </LI>
+  <LI><A 
+  href="https://dbank.hxb.com.cn/gluebanking/transfer/singleTransfer/innertransfer_input.html?_SAFE_GARD_=28-143-F9DD2BFAFAA1AB18A314E628BACEF09E"><EM>企业行内转账</EM></A> 
+  </LI>
+  <LI><A 
+  href="https://dbank.hxb.com.cn/gluebanking/transfer/batchTransfer/batchfilecreate_select.html?_SAFE_GARD_=28-144-F9DD2BFAFAA1AB18A314E628BACEF09E"><EM>批量转账文件生成</EM></A> 
+  </LI>
+  <LI><A 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/myAccount2_accountListQuery.html?_SAFE_GARD_=28-145-F9DD2BFAFAA1AB18A314E628BACEF09E"><EM>我的账户</EM></A> 
+  </LI>
+  <LI><A 
+  href="https://dbank.hxb.com.cn/gluebanking/accountmanage/accountset/historyAccountQuery_init.html?_SAFE_GARD_=28-146-F9DD2BFAFAA1AB18A314E628BACEF09E"><EM>账户明细查询</EM></A> 
+  </LI>
+  <LI><A 
+  href="https://dbank.hxb.com.cn/gluebanking/transfer/singleTransfer/dictatequeryandmain_init.html?_SAFE_GARD_=28-147-F9DD2BFAFAA1AB18A314E628BACEF09E"><EM>单笔转账交易查询与维护</EM></A> 
+  </LI>
+  <LI><A 
+  href="https://dbank.hxb.com.cn/gluebanking/transfer/batchTransfer/batchTransferCancel_inputBatch.html?_SAFE_GARD_=28-148-F9DD2BFAFAA1AB18A314E628BACEF09E"><EM>批量转账业务查询与维护</EM></A> 
+  </LI>
+  <LI><A 
+  href="https://dbank.hxb.com.cn/gluebanking/warrantCenter/query/authInfoQueryWarrant_init.html?_SAFE_GARD_=28-149-F9DD2BFAFAA1AB18A314E628BACEF09E"><EM>授权记录查询</EM></A> 
+  </LI></UL></DIV></DIV></DIV></DIV></DIV>
+<SCRIPT>
+//缺省执行
+$(document).ready(function(){
+	//window.onscroll = changeRightMenuEvent; 
+});
+
+$(function () 
+ {	
+	//判断是否为IE6
+    var isIE=!!window.ActiveXObject;
+    var isIE6=isIE&&!window.XMLHttpRequest;
+    
+	 $('#tipscon').click(function(){
+		 if($(this).hasClass("on")){
+			 $(this).removeClass("on");
+			 if(isIE){if(isIE6){ 
+				 $("select").show();
+				 $('#safety-tips').animate({'width': 30},500);
+			 }};
+			 if(isIE){if(!isIE6){ 
+				 $('#safety-tips').animate({'width': 30},500);
+			 }};
+		 }else{
+			 $(this).addClass("on");
+			 if(isIE){if(isIE6){ $("select").hide();}};
+			 $('#safety-tips').animate({
+                'width': 250
+            },
+            500);
+		 }
+    }); 
+ });
+
+//右侧菜单显示
+function rightMenuShow(){
+	try{
+		document.getElementById('clickBar').className = 'bar_topopen';
+		document.getElementById('topArea').style.display = '';	
+	}catch(ee)
+	{
+	}
+}
+
+//滚动时菜单事件
+function changeRightMenuEvent(){
+	try{
+			var ieVer = navigator.appVersion;
+			var index = 0;
+			var posY  = 0;
+			index = parseInt(ieVer.indexOf("compatible; MSIE 6"));
+			//不是ie6以下的版本 
+			if(index<0)
+			{
+			    if (window.innerHeight) 
+				{
+			        posY = 95 - parseInt(window.pageYOffset);
+			    }
+				else if (document.documentElement && document.documentElement.scrollTop) 
+				{
+					posY = 95 - parseInt(document.documentElement.scrollTop);
+				}
+				else if (document.body) 
+				{
+					posY = 95 - parseInt(document.body.scrollTop);
+			    }
+			    document.getElementById("rightMenu").style.top = posY+ "px"; 
+			}
+	}
+	catch(ee)
+	{
+
+	}
+}
+</SCRIPT>
+<!-- CR17271-C 大数据埋码 start -->
+<SCRIPT type=text/javascript>
+	
+	try{
+		var _iss = _iss || [];
+		window["_BFD"] = window["_BFD"] || {};
+		_BFD.client_id = "Chxqywy";
+		_BFD.BFD_USER = {	
+			"user_id" : "357565545", //网站当前用户id，如果未登录就为0或空字符串		
+			"user_cookie" : document.cookie 		
+		};
+		_BFD.script = document.createElement("script");
+		_BFD.script.type = "text/javascript";
+		_BFD.script.async = true;
+		_BFD.script.charset = "utf-8";
+		_BFD.script.src = (('https:' == document.location.protocol ? 'https://' : 'http://') + 'daq.hxb.com.cn:8443/service/companybank.js?a12e1ffceabe75af9abda074763277fe');
+		document.getElementsByTagName("head")[0].appendChild(_BFD.script);
+	} catch(e){}
+
+</SCRIPT>
+<!-- CR17271-C 大数据埋码 end --></DIV>
+<SCRIPT>
+//缺省执行
+$(document).ready(function(){
+	// init();
+});
+
+window.onbeforeunload = function(){
+	
+	if(event.clientX>260&&event.clientY<0||event.altKey){
+		 
+
+		if(!document.all.hxkeydll||!document.all.hxkeydll.object){
+			return ;
+		} 
+		try{
+			  var keyno=hxkeydll.GetKeySN('2038942151');
+				if(keyno&&keyno.length>10){
+					alert('为保障您的资金安全，请您将华夏盾从电脑上拔出。');
+		 		}
+					  
+		}catch(e){
+			if(hxkeydll.CheckToken('')==1){
+				alert('为保障您的资金安全，请您将华夏盾从电脑上拔出。');
+				
+			}
+		}
+	}
+}
+</SCRIPT>
+</BODY></HTML>

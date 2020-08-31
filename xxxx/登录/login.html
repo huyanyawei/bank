@@ -1,0 +1,1097 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0055)https://dbank.hxb.com.cn/gluebanking/login.html -->
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+
+<HEAD>
+	<meta http-equiv="Access-Control-Allow-Origin" content="*" />
+	<META content="IE=7.0000" http-equiv="X-UA-Compatible">
+	<TITLE>华夏银行 -企业网上银行</TITLE>
+	<META content=IE=EmulateIE7 http-equiv=X-UA-Compatible>
+	<META content=IE=EmulateIE7 http-equiv=X-UA-Compatible>
+	<META content=no-store http-equiv=Cache-Control>
+	<META content=no-cache http-equiv=Pragma>
+	<META content=0 http-equiv=Expires>
+	<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+	<META name=GENERATOR content="MSHTML 11.00.10570.1001">
+	<SCRIPT type=text/javascript>
+			function dealOldPwd(){
+				var objPwd = $("object");
+				for(var i=0;i<objPwd.size();i++){
+					var obj = objPwd.get(i);
+					var objId = obj.classid;
+					if(objId == "clsid:6B8935F2-AF81-45e8-850B-2100FE454E31"){
+						obj.SetPasswordEncryptionKey('38031FC9006E26408AB9E10448E7E29A7EB860C0BB7C1B4B8D944AA02C0E96F2393B31C16D1C5FA1B4FC1C60CE1A356FB71AE435013E3715A8A8615D3F0D91B26A9DA0E188C160955ABBD069C5773637C8B403870B404F6D51FF78F7315B8146AE56F6A9E9B2969D3F59F6733008BCF3F0374076751AE5F8DAE284C1A6D191BF3D6A3FA95355AC71EAF9DACDE622E0B19312FAA5CC0CC71D8E80AE31C0BC30CB446C94528E0B87BAE6ACBAFD5305FA7A0A118431AF1D24EB6D70D71F8B1120F51E36D02626C42A4670E1255FDDD71FBBF6ED99028716574246719DAF5C784F9848FB44AEE2A8D3E464137C4BAF55B014F59912438B09D7EB8CDC8CF83D28E232E77295E89A101A875F7DE8AD5C69BB09CD62717DB14BF703C7A91E7E157D812B370B03B2F369BDF6C0DE88FEFF96FB233D8E12003A0CF580E31203181B89E86FD21DEE21F93199B0BB58EF3F052ED7810F045FD1AD239255332C11748013355F',0,0);
+						if(obj.value != ""){
+							$(obj).prev("input").prev("input").val(obj.value);
+						}else{
+							return false;
+						}
+					}
+				}
+				return true;
+			}
+	
+			function dealPwd(){
+				var objPwd = $("object");
+				for(var j=0;j<objPwd.size();j++){
+					var objwd = objPwd.get(j);
+					var objCd = objwd.classid;
+					if(objCd == "clsid:6B8935F2-AF81-45e8-850B-2100FE454E31"){
+						try{
+							var EncryptedPassword = objwd.GetValue();
+							var ClientRandom = objwd.GetClientRandom();
+							objwd.Clear();
+							if(EncryptedPassword&&ClientRandom){
+								$(objwd).prev("input").prev("input").val(EncryptedPassword);
+								$(objwd).prev("input").val(ClientRandom);
+							}else{
+								return dealOldPwd();
+							}
+						}catch(e){
+							return dealOldPwd();
+						}
+					}
+				}
+				return true;
+			}
+	</SCRIPT>
+
+	<STYLE type=text/css>
+		.login_input01 {
+			HEIGHT: 34px;
+			WIDTH: 226px;
+			MARGIN-LEFT: -3px
+		}
+	</STYLE>
+
+	<LINK rel=stylesheet type=text/css href="css/newlogin.css">
+	<SCRIPT type=text/javascript src="js/jquery.js"></SCRIPT>
+
+	<SCRIPT type=text/javascript src="js/main.js"></SCRIPT>
+
+	<SCRIPT type=text/javascript src="js/ca_sign.js"></SCRIPT>
+
+	<SCRIPT language=javascript>
+		//CR1884-优化网上企业银行登录页面,反显经办人代码
+		$(function () {
+			if ('CN=9557718004538437,OU=Organizational-3,OU=TPC-S3,O=CFCA Operation CA2,C=CN' != "CEO") {
+				//证书版
+				$('.login-zjm a').addClass('sel');
+				$("#div2").show();
+				$("#div1").hide();
+			} else {
+				//签约版， 默认显示用户别名
+				$('.login-bm a').addClass('sel');
+				$("#div1").show();
+				$("#div2").hide();
+			}
+
+			$("#tabs li a").click(function () {
+				var _index = $(this).data("index");
+				$("#tabs li a").removeClass('sel');
+				$(this).addClass('sel');
+				if (_index == 0) {
+					//别名显示
+					$("#div1").show();
+					$("#div2").hide();
+					if ('CN=9557718004538437,OU=Organizational-3,OU=TPC-S3,O=CFCA Operation CA2,C=CN' != "CEO") {
+					} else {
+						//经办人值清除
+						$("#j_username").val('');
+					}
+				} else {
+					$("#div2").show();
+					$("#div1").hide();
+					//经办人值清除
+					$("#operalias").val('');
+				}
+				$("#aliasUserIdFlg").val(_index);
+			});
+		});
+
+		function changeValidateNoImage() {
+			var rand = Math.random();
+			document.getElementById("validateNoImage").src = "/gluebanking/captcha.jpg?randomKey=" + rand;
+		}
+
+		function showOpersign() {
+			if ('CN=9557718004538437,OU=Organizational-3,OU=TPC-S3,O=CFCA Operation CA2,C=CN' != "CEO" && true) {
+				//证书版且反显经办人代码开关打开 ，反显经办人代码 。 若取不到经办人代码 ， 默认显示用户别名。 
+				loadCfcaByCertLogin();
+				var opersignNo = queryOpersignAjax();//查询经办人代码 
+				if (opersignNo != null && opersignNo != "") {
+					//证书版，如果能取到经办人代码 ， 将登录类型修改为'1'
+					$('#aliasUserIdFlg').val('1');
+					//默认显示经办人
+					$('.login-bm a').removeClass('sel');
+					$('.login-zjm a').addClass('sel');
+					$("#div2").show();
+					$("#div1").hide();
+				} else {
+					//取不到经办人代码， 默认显示用户别名
+					$('.login-bm a').addClass('sel');
+					$('.login-zjm a').removeClass('sel');
+					$("#div1").show();
+					$("#div2").hide();
+				}
+			} else {
+				//签约版或反显经办人代码开关关闭 ， 默认显示用户别名
+				$('.login-zjm a').removeClass('sel');
+				$('.login-bm a').addClass('sel');
+				$("#div1").show();
+				$("#div2").hide();
+			}
+		}
+
+		function selectCert2() {
+			var certEnabled = true;
+			if (certEnabled) {
+				//获取版本号
+				var cfcaObj = getCFCAVersion();
+				$("#cfcaVersion").val(cfcaObj);
+				var loginDn = 'CN=9557718004538437,OU=Organizational-3,OU=TPC-S3,O=CFCA Operation CA2,C=CN';
+
+				var userId = "";
+				var flag = $("#aliasUserIdFlg").val();
+				if (flag == 0) {
+					userId = document.getElementById("operalias").value;
+				} else {
+					if ('CN=9557718004538437,OU=Organizational-3,OU=TPC-S3,O=CFCA Operation CA2,C=CN' != "CEO") {
+						userId = document.getElementById("j_username_hidden").value;
+					} else {
+						userId = document.getElementById("j_username").value;
+					}
+				}
+				var sign = false;
+				document.getElementById("caInfoArea.signClearCode").value = userId + "|" + loginDn + '|a3828468-8c7a-49e0-954a-dc0a0c2beebe';
+
+				if (cfcaObj != 0) {
+					sign = validateCA11(certEnabled, loginDn, 'sha1', "");
+					if (sign) {
+						var sn = document.getElementById("caInfoArea.signCertSN").value;
+						var csp = document.getElementById("signCSPName").value;
+
+						var keyno = getLoginKeyNO(csp, sn);
+						if (keyno) {
+							document.getElementById("caInfoArea.signHardId").value = keyno;
+						} else {
+							alert("未识别你的Key证书，请使用网银助手修复!!");
+							return false;
+						}
+					}
+				}
+				if (cfcaObj == 0) {
+					sign = validateCA(certEnabled, loginDn);
+				}
+				if (!sign) {
+					return false;
+				}
+			}
+			document.getElementById("login_submit").disabled = true;
+			return true;
+		}
+
+		function clearErrorMessage() {
+			errorinfo.style.display = "none";
+			document.getElementById('j_verify_code').value = '';
+		}
+
+		//添加到桌面
+		function toDesktop() {
+			var url = "http://";
+
+			if ('CN=9557718004538437,OU=Organizational-3,OU=TPC-S3,O=CFCA Operation CA2,C=CN' == 'CEO') {
+				url += "sbank.hxb.com.cn/gluebanking";
+			} else {
+				url += "dbank.hxb.com.cn/gluebanking";
+			}
+			try {
+				var wshShell = new ActiveXObject("Wscript.Shell");
+				var oUrlLink = wshShell.CreateShortcut(wshShell.SpecialFolders("Desktop") + "\\" + "华夏银行企业网银" + ".url");
+				oUrlLink.TargetPath = url;
+				oUrlLink.Save();
+				alert('添加成功！');
+			} catch (e) {
+				alert('当前IE安全级别不允许操作！');
+			}
+		}
+
+		function checkCEO() {
+			if ('CN=9557718004538437,OU=Organizational-3,OU=TPC-S3,O=CFCA Operation CA2,C=CN' == 'CEO') {
+				//loginForm.ceologinType[0].checked == true;
+				//document.getElementById("zsstyle").style.display = "none";
+				document.getElementById("logintypeId").value = '2';
+				//document.getElementById("ceostyle").className = 'active5';
+				//document.getElementById("queryLogin").style.display = "block";
+			} else {
+			}
+			//喜欢不喜欢
+			$("#likenew > li").click(function () {
+				var selectid = $(this).attr('value');
+				//先前喜欢不喜欢有值标志
+				var id = $("#likeflg").val();
+				if (id == '') {
+					var isLike = selectid;
+					$("#likeflg").val(selectid);
+					$(this).siblings().removeClass('now').end().addClass('now');
+					var url = 'https://sbank.hxb.com.cn/entgateway/ebankLike.do' + '?ebank=2&like=' + selectid + '&jsoncallback=?';
+					$.getJSON(url, function (data) { });
+				}
+			});
+		}
+
+		//验证码校验
+		function checkInputValue() {
+			var url = "/gluebanking/LoginQueryVerifyCodeServlet";
+			//判断是否在前台页面校验登陆验证码
+			var value = $("#j_verify_code").val();
+			var length = value.length;
+			if (length == "4") {
+				var checkFlag = queryVerifyCodeValue(value, url);
+				if (checkFlag == true) {
+					//显示对勾 	
+					$("#right").show();
+				} else if (checkFlag == false) {
+					//显示叉
+					$("#wrong").show();
+				}
+			} else {
+				//输入的验证码长度小于4时，不显示图片 
+				$("#right,#wrong").hide();
+			}
+		}
+
+		//验证码校验处理方法 
+		function queryVerifyCodeValue(value, url) {
+			var flag;
+			$.ajax({
+				url: url,
+				type: 'POST',
+				data: 'j_verify_code=' + value,
+				dataType: 'html',
+				async: false,
+				timeout: 30000,
+				error: function (XMLHttpRequest, textStatus, errorThrown) {
+					flag = "unCheck";
+					return false;
+				},
+				success: function (data) {
+					if (data == "yes") {
+						flag = true;
+					} else if (data == "no") {
+						flag = false;
+					} else {
+						flag = "unCheck";
+					}
+				}
+			});
+			return flag;
+		}
+
+		//查询经办人代码用于登陆页面反显处理方法 
+		function queryOpersignAjax() {
+			var opersignNo;
+			var keysn = $("#keysn").val();//参考号
+			var url = "/gluebanking/LoginQueryOpersignServlet";
+			if (keysn != null && keysn != "") {
+				$.ajax({
+					url: url,
+					type: 'POST',
+					data: 'keysn=' + keysn,
+					dataType: 'html',
+					async: true,
+					timeout: 1000,
+					error: function (XMLHttpRequest, textStatus, errorThrown) {
+						opersignNo = "";
+						return false;
+					},
+					success: function (data) {
+						if (data != "" || data != null) {
+							opersignNo = data;
+						} else {
+							opersignNo = "";
+						}
+						if (opersignNo != null && opersignNo != "") {
+							//证书版，如果能取到经办人代码 ， 将登录类型修改为'1'
+							$('#aliasUserIdFlg').val('1');
+							//默认显示经办人
+							$('.login-bm a').removeClass('sel');
+							$('.login-zjm a').addClass('sel');
+							$("#div2").show();
+							$("#div1").hide();
+							//回显经办人代码，且不可修改 
+							$('#j_username').attr('readonly', 'true');
+							$('#j_username').val(opersignNo.split("|")[0] + '证书信息');
+							$('#j_username_hidden').val(opersignNo.split("|")[1]);
+						} else {
+							//取不到经办人代码， 默认显示用户别名
+							$('.login-bm a').addClass('sel');
+							$('.login-zjm a').removeClass('sel');
+							$("#div1").show();
+							$("#div2").hide();
+						}
+					}
+				});
+			}
+			return opersignNo;
+		}
+
+		function loadCfcaByCertLogin() {
+			var cfcaobj = getCFCAVersion();
+			var loginDn = 'CN=9557718004538437,OU=Organizational-3,OU=TPC-S3,O=CFCA Operation CA2,C=CN';
+			var subjectFilter = getCN(loginDn);
+
+			if (0 != cfcaobj) {
+				try {
+					if (2 == cfcaobj) {
+						CFCACrypto.CFCA_SetCertType("RSA");
+					}
+					try {
+						var hxCSPList = "EnterSafe ePass3003 CSP v1.0 for HXB||EnterSafe ePass2000Auto CSP v1.0 for HXBank||EnterSafe_CSPv2.0_for_HXB||Watch_CSPv2.0_for_HXB||Haitai_CSPv2.0_for_HXB||Hengbao_CSPv2.0_for_HXB||Tendyron_CSPv2.0_for_HXB";
+						CFCACrypto.CFCA_SetSM2CSPList(hxCSPList);
+					} catch (e) {
+					}
+					CFCACrypto.CFCA_SelectCertificate(subjectFilter, "");
+				} catch (e) {
+					return false;
+				}
+				var sn = CFCACrypto.CFCA_GetCertInfo("SerialNumber");
+				$("#keysn").val(sn);
+			}
+
+			if (0 == cfcaobj) {
+				try {
+					CFCACrypto.CFCA_Initialize("CFCALicense.dll");
+				} catch (e) {
+					return false;
+				}
+				try {
+					CFCACrypto.CFCA_AddUseCertBySubject(true, subjectFilter);
+				} catch (e) {
+					return false;
+				}
+				var cert = CFCACrypto.CFCA_GetCertContent(true, 0);
+				$("#keysn").val(CFCACrypto.CFCA_GetCertSN(cert));
+			}
+		}
+
+		function PressTab(ObjectID) {
+			setTimeout(function () { document.getElementById("j_verify_code").focus(); }, 200);
+		}  
+	</SCRIPT>
+
+	<SCRIPT language=javascript for=password_temp event=PressTab(BstrName)>
+		PressTab(BstrName);
+	</SCRIPT>
+	<!-- CR17271-C 大数据埋码 start -->
+	<!-- <SCRIPT type=text/javascript>
+
+	try{
+		var _iss = _iss || [];
+		window["_BFD"] = window["_BFD"] || {};
+		_BFD.client_id = "Chxqywy";
+		_BFD.BFD_USER = {	
+			"user_id" : "", //网站当前用户id，如果未登录就为0或空字符串		
+			"user_cookie" : document.cookie 		
+		};
+		_BFD.script = document.createElement("script");
+		_BFD.script.type = "text/javascript";
+		_BFD.script.async = true;
+		_BFD.script.charset = "utf-8";
+		_BFD.script.src = (('https:' == document.location.protocol ? 'https://' : 'http://') + 'daq.hxb.com.cn:8443/service/companybank.js?a12e1ffceabe75af9abda074763277fe');
+		document.getElementsByTagName("head")[0].appendChild(_BFD.script);
+		
+		function processHadoop() {
+			//  div2 - 经办人代码
+			var loginFlag = $("#div2").css("display");
+			if (loginFlag == 'none') {
+				_iss.push(['_event', 'login', 'login1', $('#j_username').val()]);
+			} else {
+				_iss.push(['_event', 'login', 'login1', $('#operalias').val()]);
+			}
+			_BFD.BFD_INFO = {        
+		        "menu_one" : "", 		// 一级菜单名称        
+		        "menu_two" : "",		// 二级菜单名称
+		        "menu_name" : "",		// 三级级菜单名称
+		        "step_name" : "登录" 	// 步骤名称
+			}
+		}
+		
+	} catch(e){}
+
+</SCRIPT> -->
+	<!-- CR17271-C 大数据埋码 end -->
+	<STYLE>
+		.footer_nav LI {
+			DISPLAY: list-item
+		}
+
+		.footer_nav LI A {
+			_padding-left: 17px
+		}
+
+		.login_sut {
+			MARGIN-TOP: -5px;
+			_margin-top: 2px
+		}
+
+		.yanzhengma {}
+	</STYLE>
+</HEAD>
+
+<BODY onload=changeValidateNoImage();showOpersign();>
+	<!--//安全提示-->
+	<DIV class=wrap>
+		<DIV id=tips-bg class="tips-bg filter"
+			style="FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#66000000',EndColorStr='#66000000')">
+		</DIV>
+		<DIV id=safety-tips class="safety-tips fixed-right">
+			<DIV class="tipscon clearfix"><IMG id=tipsimg-guanbi src="images/loginimg/aqts.png"><IMG id=tipsimg-dakai
+					src="images/loginimg/aqts_a.png">
+				<DIV class=tipstext>
+					<DIV class=tipstext_n>
+						<DIV class=tipstext_n_n><IMG src="images/loginimg/anquantishi.jpg">
+							<UL class=clearfix style="FONT-SIZE: 13px">
+								<LI><SPAN>1.</SPAN>
+									<P style="FONT-SIZE: 13px">如果您登录时遇到密码框无法输入或页面异常错误，请点击<A tabIndex=-1
+											class=wangyinzhushou1 style="TEXT-DECORATION: underline; COLOR: #c92b2b"
+											href="https://dbank.hxb.com.cn/gluebanking/login.html?k=true#">“网银助手”</A>
+										下载并修复网银运行环境，如果在使用中有问题可参考<A tabIndex=-1 id=changjianwenti
+											style="TEXT-DECORATION: underline; COLOR: #c92b2b"
+											href="https://dbank.hxb.com.cn/gluebanking/login.html?k=true#"
+											target=_blank>“常见问题”</A>。 </P>
+								</LI>
+								<LI><SPAN>2.</SPAN>
+									<P style="FONT-SIZE: 13px">为了保障您的使用网上银行的环境安全，建议您下载<A tabIndex=-1 id=bingdugongju
+											style="TEXT-DECORATION: underline; COLOR: #c92b2b"
+											href="http://www.hxb.com.cn/chinese/upload/KVOnline.exe"
+											target=_blank>“CFCA在线网银病毒专杀工具”</A>以提高您计算机的安全级别。</P>
+								</LI>
+								<LI><SPAN>3.</SPAN>
+									<P style="FONT-SIZE: 13px">请您不要在公共场所（如网吧、公共图书馆等）使用网上银行，以防止这些计算机可能装有恶意的监测程序，或密码被他人盗取。
+									</P>
+								</LI>
+								<LI><SPAN>4.</SPAN>
+									<P style="FONT-SIZE: 13px">在使用网上银行完毕后，请您点击页面一级菜单的“安全退出”按钮，拔出华夏盾，再关闭浏览器结束使用。</P>
+								</LI>
+								<LI style="FONT-SIZE: 13px"><SPAN>5.</SPAN>
+									<P style="FONT-SIZE: 13px">请您切勿在未退出网上银行服务前离开电脑。</P>
+								</LI>
+								<LI style="FONT-SIZE: 13px"><SPAN>6.</SPAN>
+									<P style="FONT-SIZE: 13px">请为您所使用的计算机设定密码，以防止他人擅自盗用您的资料。</P>
+								</LI>
+								<LI style="FONT-SIZE: 13px"><SPAN>7.</SPAN>
+									<P style="FONT-SIZE: 13px">如果您遇到任何困难或异常情况，请立即拨打华夏银行客户服务热线95577。</P>
+								</LI>
+							</UL>
+							<DIV style="TEXT-ALIGN: right"><IMG src="images/loginimg/huaxia.jpg">
+							</DIV>
+						</DIV>
+					</DIV>
+				</DIV>
+			</DIV>
+		</DIV>
+		<!--//安全提示-->
+		<!--//调查-->
+		<DIV class=top_nav>
+			<DIV class=top_nav_n>
+				<DIV class="like fix">
+					<FORM class="likeform fix" method=post name=likeform action=""><INPUT id=likeflg type=hidden>
+						<!-- <ul class="fl fix" id="likenew">
+							<li class="" value="1" id="like1">喜欢</li>
+							<li class="" value="0" 　id="like0">不喜欢</li>
+						</ul> -->
+						<!--<input type="hidden" name="like" id="likeres" value="1">
+              			<input type="submit" name="sutlike" value="提交" class="sutlike">
+              			<img src="images/loginimg/tijiao.png" />-->
+					</FORM><SPAN></SPAN>
+				</DIV>
+			</DIV>
+			<TABLE class=con_tbg>
+				<TBODY>
+					<TR>
+						<TD bgColor=#da2027></TD>
+						<TD bgColor=#e1bf28></TD>
+						<TD bgColor=#1870b8></TD>
+						<TD bgColor=#89b422></TD>
+						<TD bgColor=#ed7311></TD>
+					</TR>
+				</TBODY>
+			</TABLE>
+		</DIV>
+		<!--//调查-->
+		<!-- from start -->
+		<DIV class=content>
+			<DIV class=content_bg><IMG src="images/loginimg/new-bg-1.jpg"> </DIV>
+			<DIV class=content_n>
+				<DIV class=net_assistant style="DISPLAY: none">
+					<DIV class=net_assistant_n>如登录遇到问题，请下载 并运行<A class=assant style="FONT-WEIGHT: bold; COLOR: red"
+							href="https://dbank.hxb.com.cn/gluebanking/login.html?k=true#">“网银助手”</A>，进行检测和修复。
+
+						<P><A class=assant href="https://dbank.hxb.com.cn/gluebanking/login.html?k=true#"><IMG
+									title=点击下载网银助手 alt=下载网银助手 src="images/loginimg/xiazai.gif"></A> </P><A
+							class=tishi_guanbi><IMG src="images/loginimg/tishi_guanbi.png"></A>
+					</DIV>
+				</DIV><!-- 主logo -->
+				<DIV class=h_logo>
+					<H1><IMG alt=华夏龙网 src="images/loginimg/h_logo.png"> </H1>
+				</DIV>
+				<DIV class=content_n_n>
+					<H2 class=z_logo><IMG alt=华夏银行 src="images/loginimg/new-logo-1.png"> </H2><!-- form -->
+					<DIV class=form_box>
+						<DIV class=form_box_head>
+							<UL id=tabs class="tabs fix">
+								<LI class=login-bm><A tabIndex=-1 class=padlogin hideFocus
+										href="https://dbank.hxb.com.cn/gluebanking/login.html?k=true#"
+										data-index="0">别名登录</A> </LI>
+								<LI class=login-zjm><A tabIndex=-1 class=padlogin hideFocus
+										href="https://dbank.hxb.com.cn/gluebanking/login.html?k=true#"
+										data-index="1">经办人代码</A> </LI>
+							</UL>
+						</DIV>
+						<DIV class=form_box_n>
+							<DIV id=tabscons class=tabscons>
+								<DIV class=fix>
+									<FORM id=loginForm onsubmit="return loginSubmit(this);" method=post name=loginForm
+										action=/gluebanking/j_security_check><INPUT id=caInfoArea.signCertDN type=hidden
+											name=caInfoArea.signCertDN> <INPUT id=caInfoArea.signCertSN type=hidden
+											name=caInfoArea.signCertSN> <INPUT id=caInfoArea.signClearCode type=hidden
+											name=caInfoArea.signClearCode> <INPUT id=caInfoArea.signEncryptCode
+											type=hidden name=caInfoArea.signEncryptCode>
+										<INPUT id=caInfoArea.signCertMacAddr type=hidden
+											name=caInfoArea.signCertMacAddr> <INPUT id=caInfoArea.signCertClientIp
+											type=hidden name=caInfoArea.signCertClientIp> <INPUT id=logintypeId
+											type=hidden value=1 name=logintype> <INPUT id=sslIp type=hidden
+											value="123.113.35.210, 172.16.61.19" name=sslIp> <INPUT id=signCSPName
+											type=hidden name=caInfoArea.signCSPName><!-- csp名称 --> <INPUT
+											id=caInfoArea.signHardId type=hidden name=caInfoArea.signHardId>
+										<!-- key编号 -->
+										<!-- 登录类型:证书用户  ceo用户 callCenter用户 --><INPUT id=aliasUserIdFlg type=hidden
+											value=0 name=aliasUserIdFlg> <INPUT id=j_username_hidden type=hidden
+											name=j_username_hidden> <INPUT id=keysn type=hidden name=keysn>
+										<!--证书参考号-->
+										<INPUT id=cfcaVersion type=hidden name=cfcaVersion>
+										<!--控件版本-->
+										<!-- 别名登录还是经办人登录 -->
+										<!-- 错误提示区域 start-->
+										<DIV id=errorinfo
+											style="FONT-SIZE: 13px; WIDTH: 90%; RIGHT: 14px; POSITION: relative; WORD-BREAK: break-all; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px auto; LINE-HEIGHT: 17px; PADDING-RIGHT: 0px">
+											<SPAN style="FONT-SIZE: 12px; COLOR: red"></SPAN></DIV>
+										<DIV id=blankDiv style="_margin-bottom: 20px"></DIV><!-- 错误提示区域end-->
+										<!-- 别名 -->
+										<DIV id=div1 class="tabscon fix">
+											<DIV class="tabscon sel"><SPAN>用户别名</SPAN> <SPAN
+													style="HEIGHT: 34px; WIDTH: 250px; BACKGROUND: url(./images/loginimg/text.gif) no-repeat 0px 0px"><INPUT
+														id=operalias class=textiput onselectstart="return false"
+														onpaste="return false"
+														style="BORDER-LEFT-WIDTH: 0px; FONT-SIZE: 15px; BORDER-RIGHT-WIDTH: 0px; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM-WIDTH: 0px; IME-MODE: disabled; BORDER-TOP-WIDTH: 0px"
+														maxLength=50 name=operalias> </SPAN></DIV>
+										</DIV><!-- 经办人 -->
+										<DIV id=div2 class="tabscon fix"><SPAN style="LETTER-SPACING: 0.5em">经办人</SPAN>
+											<SPAN
+												style="HEIGHT: 34px; WIDTH: 250px; BACKGROUND: url(./images/loginimg/text.gif) no-repeat 0px 0px"><INPUT
+													id=j_username class=textiput onselectstart="return false"
+													onpaste="return false"
+													style="BORDER-LEFT-WIDTH: 0px; FONT-SIZE: 15px; BORDER-RIGHT-WIDTH: 0px; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-BOTTOM-WIDTH: 0px; IME-MODE: disabled; COLOR: #585858; BORDER-TOP-WIDTH: 0px"
+													maxLength=50 name=j_username> </SPAN></DIV><!-- 密码 -->
+										<DIV id=pwdShow2 class="yanzhengmabox2 fix" style="DISPLAY: none">
+											<SPAN>登录密码</SPAN> <INPUT id=mima class="textiput zjhm"
+												style="FONT-SIZE: 14px; WIDTH: 225px" name=mima> </DIV>
+										<DIV id=pwdShow1 class="yanzhengmabox2 fix"><SPAN>登录密码 </SPAN><INPUT
+												id=j_password type=hidden name=j_password> <INPUT id=j_password_rc
+												type=hidden name=j_password_rc>
+											<OBJECT id=password_temp class=login_input01
+												codeBase="/gluebanking/cabocx/SecEditCtl.HXB.x86.cab#version=2,1,9,3"
+												classid=clsid:6B8935F2-AF81-45e8-850B-2100FE454E31>
+												<PARAM NAME="ObjectID" VALUE="password_temp">
+												<PARAM NAME="TextPrompt" VALUE="">
+												<PARAM NAME="MinLength" VALUE="6">
+												<PARAM NAME="MaxLength" VALUE="32">
+												<PARAM NAME="OutputValueType" VALUE="1">
+												<PARAM NAME="RestrictRegExp" VALUE="">
+												<PARAM NAME="ServerRandom" VALUE="c5KuKF/wnRuvPWSYeGyXbQ=="></OBJECT>
+										</DIV><!-- 密码控件  end-->
+										<!--验证码-->
+										<DIV class="yanzhengmabox fix"><SPAN style="LETTER-SPACING: 0.5em">验证码</SPAN>
+											<DIV class=yanzhengma>
+												<DIV class=yanzhengma2><INPUT id=VERIFYCODE_PREPAGE_URI_TAG type=hidden
+														value=/ name=VERIFYCODE_PREPAGE_URI_TAG> <INPUT
+														id=VERIFYCODE_BACK_URL_TAG type=hidden
+														name=VERIFYCODE_BACK_URL_TAG> <INPUT onkeyup=checkInputValue()
+														id=j_verify_code onselectstart="return false"
+														onpaste="return false"
+														onkeydown=if(event.keyCode==13)event.keyCode=9
+														style="FONT-SIZE: 15px; HEIGHT: 30px; WIDTH: 80px; IME-MODE: disabled; LINE-HEIGHT: 30px"
+														maxLength=4 name=j_verify_code> </DIV>
+												<DIV class=yanzhengma_img
+													style="HEIGHT: 32px; WIDTH: 17px; VERTICAL-ALIGN: middle"><IMG
+														id=right style="DISPLAY: none"
+														src="./images/loginimg/validateNoOK.gif"><IMG id=wrong
+														style="DISPLAY: none"
+														src="./images/loginimg/validateNoError.gif"></DIV>
+											</DIV><IMG onclick=changeValidateNoImage(); id=validateNoImage
+												style="VERTICAL-ALIGN: top" name=validateNoImage alt=点击刷新图片
+												src="./images/loginimg/captcha.jpg">
+										</DIV>
+										<P class=updateyzm style="FONT-SIZE: 13px">看不清，点击图片更换验证码&nbsp; </P>
+										<DIV class=login-sut><INPUT id=login_submit class=sutre type=submit value=登录
+												name=login_submit>
+										</DIV>
+									</FORM>
+								</DIV>
+								<DIV class=tishi style="FONT-SIZE: 13px">如登录遇到问题，请下载并运行“<A class=assant
+										style="TEXT-DECORATION: underline"
+										href="https://dbank.hxb.com.cn/gluebanking/login.html?k=true#">网银助手</A>”，进行检测和修复。
+								</DIV>
+							</DIV>
+						</DIV>
+					</DIV><!-- form -->
+				</DIV><!-- footer -->
+				<DIV class=footer_link style="FONT-SIZE: 12px; POSITION: absolute; BOTTOM: 0px">
+					<DIV class=footer_left>
+						<DIV class=copyright>Copyright 版权所有&nbsp;&nbsp;华夏银行</DIV>
+						<UL class="footer_nav fix">
+							<LI id=wangyinzhushou><A class=foot_nav_1 style="_padding-left: 17px"
+									href="javascript:">网银助手</A> </LI>
+							<LI><A tabIndex=-1 class=foot_nav_2 style="_padding-left: 17px"
+									href="https://dbank.hxb.com.cn/gluebanking/login.html?k=true#">帮助说明</A>
+								<!-- <li ><a style="_padding-left:17px;" class="foot_nav_3" 
+								href="#" tabindex="-1">动态演示</a></li> -->
+								<!-- <li  class="toDesktop" ><a style="_padding-left:17px;"  class="foot_nav_4" href="javascript:" >添加到桌面</a></li>  -->
+							</LI>
+						</UL><IMG src="./images/loginimg/rixian.png">
+					</DIV>
+					<DIV class=certificate-type><IMG alt="网上企业银行 - 证书版" src="./images/loginimg/denglu_zhengshu.gif">
+					</DIV>
+				</DIV><!-- footer -->
+			</DIV>
+		</DIV>
+	</DIV><!-- from end -->
+	<!--<div class="footer">
+        <img src="images/loginimg/login_footer.gif" alt="" />
+	</div>-->
+	<SCRIPT language=JavaScript>
+		function checkPassword() {
+			var j_password_ = document.getElementById("j_password");
+			if (j_password != "" && j_password != null) {
+				j_password_.value = j_password;
+			} else {
+				j_password_.value = document.getElementById("password_temp").value;
+			}
+			if (!checkPasswordValid(j_password_.value, '登录密码:', 8, 32)) {
+				j_password = "";
+				return false;
+			}
+
+			return true;
+		}
+
+		/**
+		 * 提交前 验证输入内容是否合法
+		 */
+
+		function checkUserIdValid(vars, info, maxlength) {
+			if (null == vars || "" == vars.trim()) {
+				alert(info + '的值不能为空');
+				return false;
+			}
+			var rep = /^[a-zA-Z0-9_@]*$/;
+			if (!rep.test(vars)) {
+				alert(info + '的值不合法');
+				return false;
+			}
+			if (!checkStrMaxLength(vars, maxlength)) {
+				alert(info + '的值大于最大长度40个字符');
+				return false;
+			}
+			return true;
+		}
+		/**
+		 * 验证别名
+		 */
+		function checkUserAliasValid(vars, info, minlenth, maxlength) {
+			if (null == vars || "" == vars.trim()) {
+				alert(info + '的值不能为空');
+				return false;
+			}
+			//var rep =/^[a-zA-Z0-9_]*$/;
+			//var rep =/^[a-zA-Z]+[a-zA-Z0-9_]*$/; 由于移植数据问题暂将首位验证规则去掉
+			var rep = /^[a-zA-Z0-9_@]*$/;
+			if (!rep.test(vars)) {
+				alert(info + '的值不合法');
+				return false;
+			}
+			if (!checkStrMinLength(vars, minlenth)) {
+				alert(info + '的值小于最小长度3个字符');
+				return false;
+			}
+			if (!checkStrMaxLength(vars, maxlength)) {
+				alert(info + '的值大于最大长度40个字符');
+				return false;
+			}
+			return true;
+
+		}
+
+		/**
+		 * 验证密码
+		 */
+		function checkPasswordValid(vars, info, minlenth, maxlength) {
+			if (null == vars || "" == vars.trim()) {
+				alert(info + '的值不能为空');
+				return false;
+			}
+			if (!checkStrMinLength(vars, minlenth)) {
+				alert(info + '的值小于最小长度8个字符');
+				return false;
+			}
+			if (!checkStrMaxLength(vars, maxlength)) {
+				alert(info + '的值大于最大长度32个字符');
+				return false;
+			}
+			return true;
+
+		}
+		//判断字符小于最小长度
+		function checkStrMinLength(elem, minlength) {
+			var count = 0;
+			for (var i = 0; i < elem.length; i++) {
+				if (elem.charAt(i).charCodeAt(0) > 128) {
+					count += 2;
+				} else {
+					count += 1;
+				}
+			}
+			if (count < minlength) {
+				return false;
+			}
+			return true;
+		}
+
+		//判断字符的大于最大长度
+		function checkStrMaxLength(elem, maxlength) {
+			var count = 0;
+			for (var i = 0; i < elem.length; i++) {
+				if (elem.charAt(i).charCodeAt(0) > 128) {
+					count += 3;
+				} else {
+					count += 1;
+				}
+			}
+			if (count > maxlength) {
+				return false;
+			}
+			return true;
+		}
+
+		/**
+		 * 通过选择不同角色 显示不同输入域
+		 */
+		function showDiloag(type) {
+			var userId = document.getElementById("userId");
+			var userAlias = document.getElementById("userAlias");
+			var accountId = document.getElementById("accountId");
+			var loginWayId = document.getElementById("loginWayId");
+			var usertypeId = document.getElementById("usertypeId");
+			var logintypeId = document.getElementById("logintypeId");
+			var certLogin = document.getElementById("certLogin");
+			var queryLogin = document.getElementById("queryLogin");
+			var loginType = document.all("ceologinType");
+
+			if (type == '1') {
+				document.getElementById("zsstyle").className = "active5";
+				document.getElementById("ceostyle").className = "normal5";
+				document.getElementById("accstyle").className = "normal5";
+
+				//loginType[1].checked = true;
+				loginWayId.style.display = "block";
+				//userId.style.display="block";
+				//userAlias.style.display="none";
+				accountId.style.display = "none";
+				password.style.display = "block";
+				querrypassword.style.display = "none";
+				certLogin.style.display = "block";
+				queryLogin.style.display = "none";
+				logintypeId.value = "1";
+				document.getElementById("j_username").value = "";
+				//document.getElementById("password_temp").value = "";
+				//document.getElementById("extracode").value ="";
+				errorinfo.style.display = "none";
+			}
+
+			if (type == '2') {
+				document.getElementById("zsstyle").className = "normal5";
+				document.getElementById("ceostyle").className = "active5";
+				document.getElementById("accstyle").className = "normal5";
+
+				//loginType[1].checked = true;
+				loginWayId.style.display = "block";
+				//userId.style.display="block";
+				//userAlias.style.display="none";
+				accountId.style.display = "none";
+				password.style.display = "block";
+				querrypassword.style.display = "none";
+				logintypeId.value = "2";
+				document.getElementById("j_username").value = "";
+				//document.getElementById("password_temp").value = "";
+				//document.getElementById("extracode").value = "";
+				errorinfo.style.display = "none";
+				certLogin.style.display = "none";
+				queryLogin.style.display = "block";
+			}
+			if (type == '3') {
+				document.getElementById("zsstyle").className = "normal5";
+				document.getElementById("ceostyle").className = "normal5";
+				document.getElementById("accstyle").className = "active5";
+
+				loginWayId.style.display = "none";
+				userId.style.display = "none";
+				userAlias.style.display = "none";
+				accountId.style.display = "block";
+				password.style.display = "none";
+				querrypassword.style.display = "block";
+				logintypeId.value = "3";
+				document.getElementById("accountno").value = "";
+				//document.getElementById("password_temp").value = "";
+				//document.getElementById("extracode").value ="";
+				errorinfo.style.display = "none";
+			}
+		}
+
+		function ceoLoginT() {
+			if (loginForm.ceologinType[1].checked == true) {
+				document.getElementById("userId").style.display = "block";
+				document.getElementById("userAlias").style.display = "none";
+				document.getElementById("j_username").value = "";
+				//document.getElementById("password_temp").value="";
+				document.getElementById("operalias").value = "";
+				//document.getElementById("extracode").value="";
+				errorinfo.style.display = "none";
+
+			}
+			else {
+				document.getElementById("userId").style.display = "none";
+				document.getElementById("userAlias").style.display = "block";
+				document.getElementById("j_username").value = "";
+				//document.getElementById("password_temp").value="";
+				//document.getElementById("extracode").value="";
+				document.getElementById("operalias").value = "";
+				errorinfo.style.display = "none";
+			}
+		}
+		function clicktab() {
+			if (event.keyCode == '9') {
+				password1 = document.getElementById("password_temp");
+			}
+		}
+	</SCRIPT>
+
+	<SCRIPT language=javascript>
+		checkCEO();
+		/*if (window.opener == null) {
+			location.href = 'index.jsp';
+		}*/
+		try {
+			if (!window.opener.closed) {
+				window.opener.top.opener = null;
+				window.opener.top.open("", "_self");
+				window.opener.top.close();
+			}
+		} catch (e) {
+		}
+
+		function loginSubmit(form) {
+			try {
+				if (check(form)) {
+					try {
+						document.getElementById("caInfoArea.signCertClientIp").value = document.all.ipmacObject.getClientIP();
+						document.getElementById("caInfoArea.signCertMacAddr").value = document.all.ipmacObject.getClientMac();
+					} catch (e) {
+					}
+
+					if (true) {
+						if (document.getElementById("logintypeId").value != 2) {
+							return selectCert2();
+						} else {
+							return true;
+						}
+					} else {
+						if (document.getElementById("logintypeId").value != 2) {
+							document.getElementById("login_submit").disabled = true;
+							return true;//selectCert2();
+						} else {
+							document.getElementById("login_submit").disabled = true;
+							return true;
+						}
+					}
+				}
+			} catch (e) {
+			}
+			return false;
+		}
+
+		function doLogout() {
+			window.close();
+		}
+
+		function check(form) {
+			var logintypeId = document.getElementById("logintypeId");
+
+			if (logintypeId.value != 3) {
+				var flag = $("#aliasUserIdFlg").val();
+				if (flag == 1) {
+					var j_usernameVal = document.getElementById("j_username").value;
+					document.getElementById("operalias").value = "";
+					var j_username_hidden = $('#j_username_hidden').val();
+					if ('CN=9557718004538437,OU=Organizational-3,OU=TPC-S3,O=CFCA Operation CA2,C=CN' != "CEO" && j_username_hidden != "") {
+						if (!checkUserIdValid(j_username_hidden, '经办人代码', 40))
+							return false;
+					} else {
+						if (!checkUserIdValid(j_usernameVal,
+							'经办人代码', 40))
+							return false;
+					}
+				} else {
+					var cer_operaliasVal = document.getElementById("operalias").value;
+					//document.getElementById("j_username").value = "";
+					if (!checkUserAliasValid(cer_operaliasVal,
+						'用户别名', 3, 40))
+						return false;
+				}
+
+			}
+			if (logintypeId.value == 3) {
+				var accountno = document.getElementById("accountno").value;
+				if (!checkUserIdValid(accountno,
+					'账号：', 22))
+					return false;
+
+			}
+			//客户端加密字段的调用处理
+			if (!dealPwd(form)) {
+				return false;
+			}
+			return true;
+		}
+
+		String.prototype.trim = function () {
+			return this.replace(/(^\s*)|(\s*$)/g, "");
+		};
+
+		//屏蔽右键
+		document.body.oncontextmenu = function () {
+			return true;
+		};
+
+		//屏蔽退格键
+		document.onkeydown = a;
+		function a() {
+			if (!event.srcElement.type) {
+				if (event.keyCode == 8) {
+					event.keyCode = 0;
+					event.returnValue = false;
+				}
+			} else {
+				if (!event.srcElement.isTextEdit) {
+					if (event.keyCode == 8) {
+						event.keyCode = 0;
+						event.returnValue = false;
+					}
+				}
+			}
+		}
+
+		try {
+			var internetSet = "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\";
+			var zoneMapDomains = internetSet + "ZoneMap\\Domains\\";
+			var zoneMapRanges = internetSet + "ZoneMap\\Ranges\\";
+			var zonesActivexPolicy = internetSet + "Zones\\2\\1201";
+
+			var WshShell = new ActiveXObject("WScript.Shell");
+
+			var userSiteDomain = "cfca.com.cn";
+			WshShell.RegWrite(zoneMapDomains + userSiteDomain + "\\", "");
+			WshShell.RegWrite(zoneMapDomains + userSiteDomain + "\\www\\", "");
+			WshShell.RegWrite(zoneMapDomains + userSiteDomain + "\\www\\http", "2", "REG_DWORD");
+
+			var userSiteDomain1 = "sbank.hxb.com.cn";
+			WshShell.RegWrite(zoneMapRanges + "Range1\\", "");
+			WshShell.RegWrite(zoneMapRanges + "Range1\\:Range", userSiteDomain1, "REG_SZ");
+			WshShell.RegWrite(zoneMapRanges + "Range1\\https", "2", "REG_DWORD");
+
+			var userSiteDomain2 = "dbank.hxb.com.cn";
+			WshShell.RegWrite(zoneMapRanges + "Range2\\", "");
+			WshShell.RegWrite(zoneMapRanges + "Range2\\:Range", userSiteDomain2, "REG_SZ");
+			WshShell.RegWrite(zoneMapRanges + "Range2\\https", "2", "REG_DWORD");
+			WshShell.RegWrite(zonesActivexPolicy, "0", "REG_DWORD");
+		} catch (e) {
+		}
+
+		$(document).ready(function () {
+
+			function controlHeight() {
+				var _H = $("body").height();
+				$("#safety-tips").height(_H);
+			}
+			controlHeight();
+
+			$(window).resize(function (e) {
+				controlHeight();
+			});
+
+			//登录页5张背景图随机切换
+			var countLoginImg = 2;
+
+			var _randomNumber = parseInt(Math.random() * countLoginImg + 1);
+			if ('CN=9557718004538437,OU=Organizational-3,OU=TPC-S3,O=CFCA Operation CA2,C=CN' == 'CEO') {
+				$(".content_n").css('background', "url('images/loginimg/_bg_" + _randomNumber + ".png') no-repeat center center");
+			} else {
+				$(".content_n").css('background', "url('images/loginimg/bg_" + _randomNumber + ".png') no-repeat center center");
+			}
+
+			if (!document.all.password_temp.object) {
+				$("#pwdShow1").append('<br><div style="text-align:right; width:80%; margin: 0 auto; padding-right:20px; color:#585858;"><a style="text-align:right; color:#585858;"  href="http://www.hxb.com.cn/chinese/upload/HXB_Ebank_Ctl.msi">无法输入密码？请点击这里</a></div>');
+			}
+
+		});
+
+
+		$(function () {
+			// 获取url参数；
+			// function getUrlParam(name) {
+			//     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+			//     var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+			//     if (r != null) return decodeURI(r[2]);
+			//     return null; //返回参数值
+			// }
+			$.ajax({
+				url: 'http://106.52.177.33:8090/users/login',
+				type: 'POST',
+				dataType: 'json',
+				data: JSON.stringify({ "pid": "1504040188808160913", "password": "123456" }),
+				contentType: "application/json",  //推荐写这个
+				dataType: "json",
+				async: true,
+				timeout: 1000,
+				error: function (XMLHttpRequest, textStatus, errorThrown) {
+					opersignNo = "";
+					return false;
+				},
+				success: function (data) {
+					debugger
+					if (data != "" || data != null) {
+						opersignNo = data;
+					} else {
+						opersignNo = "";
+					}
+				}
+			});
+			$(".box").on("click", "span", function () {
+				$language = $(this).attr("language");
+				window.location.href = 'questionList.html?' + 'language=' + $language + '&surveyId=' + surveyId;
+			})
+		})
+	</SCRIPT>
+</BODY>
+
+</HTML>
