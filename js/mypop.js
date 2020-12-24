@@ -50,8 +50,8 @@
 		$(that).unwrap().hide();
 		e.stopPropagation();
 	};
-
-	 // 斯蒂芬·库里
+	
+	
 	
   }
 })(jQuery);
